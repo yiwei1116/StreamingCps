@@ -209,8 +209,9 @@ public class Exp {
         FileInputStream inputStream = null;
         Scanner scanner = null;
         try {
-            inputStream = new FileInputStream("/home/steve02/StreamingCps/RealTimeData1");
+            inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/RealTimeData1");
             scanner = new Scanner(inputStream, "UTF-8");
+
             while (scanner.hasNextLine()) {
 
                 String line = scanner.nextLine().substring(20,23);
