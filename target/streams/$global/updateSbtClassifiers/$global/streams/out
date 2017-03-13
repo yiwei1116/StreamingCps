@@ -153,7 +153,7 @@
 [debug] 	jcenter: downloading https://jcenter.bintray.com/jline/jline/2.11/jline-2.11.pom
 [debug] 	jcenter: downloading https://jcenter.bintray.com/jline/jline/2.11/jline-2.11.pom.sha1
 [debug] sha1 OK for https://jcenter.bintray.com/jline/jline/2.11/jline-2.11.pom
-[debug] 	[SUCCESSFUL ] jline#jline;2.11!jline.pom(pom.original) (1116ms)
+[debug] 	[SUCCESSFUL ] jline#jline;2.11!jline.pom(pom.original) (967ms)
 [info] Resolving org.sonatype.oss#oss-parent;7 ...
 [debug] sbt-chain: Checking cache for: dependency: org.sonatype.oss#oss-parent;7 {}
 [debug] sbt-chain: module revision found in cache: org.sonatype.oss#oss-parent;7
@@ -723,9 +723,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-agent;0.13.8!test-agent.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8!apply-macro.jar
-[debug] :: resolution report :: resolve 7379ms :: artifacts dl 25ms
+[debug] :: resolution report :: resolve 7366ms :: artifacts dl 18ms
 [debug] 	report for default#fpro$sbt_2.11;1.0 default produced in /home/yiwei/IdeaProjects/FPro/target/resolution-cache/reports/default-fpro$sbt_2.11-default.xml
-[debug] 	resolve done (7379ms resolve - 25ms download)
+[debug] 	resolve done (7366ms resolve - 18ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: default#fpro$sources_2.11;1.0
 [debug] 	confs: [default]
@@ -1089,6 +1089,6 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_8_2;0.13.8!precompiled-2_8_2.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_9_2;0.13.8!precompiled-2_9_2.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_9_3;0.13.8!precompiled-2_9_3.jar(src)
-[debug] :: resolution report :: resolve 134ms :: artifacts dl 17ms
+[debug] :: resolution report :: resolve 203ms :: artifacts dl 43ms
 [debug] 	report for default#fpro$sources_2.11;1.0 default produced in /home/yiwei/IdeaProjects/FPro/target/resolution-cache/reports/default-fpro$sources_2.11-default.xml
-[debug] 	resolve done (134ms resolve - 17ms download)
+[debug] 	resolve done (203ms resolve - 43ms download)

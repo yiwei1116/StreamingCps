@@ -1,3 +1,6 @@
+
+
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -181,15 +184,28 @@ public class Test {
 
 
     public static void main(String[] args) throws IOException{
+       /* JSONParser parser = new JSONParser();
 
 
+        Object object = parser
+                .parse(new FileReader("/home/yiwei/Documents/RealTimeData"));*/
+       /* FileReader in = new FileReader("/home/yiwei/Documents/RealTimeData");
+        BufferedReader br = new BufferedReader(in);
+        int i = 0;
+        while (br.readLine() != null) {
 
+            i++;
+            System.out.println(i);
+            System.out.println(br.readLine());
 
-        List<Integer> compressed = compress("av");
+        }
+
+        in.close();*/
+        /*List<Integer> compressed = compress("av");
         System.out.println(compressed);
         System.out.println(getString(compressed).length());
         String decompressed = decompress(compressed);
         System.out.println(decompressed.length());
-        System.out.println(decompressed);
+        System.out.println(decompressed);*/
     }
 }
