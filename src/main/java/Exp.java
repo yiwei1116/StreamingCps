@@ -1,13 +1,15 @@
 
 
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
-public class Test {
+import java.io.*;
+import java.util.*;
+
+public class Exp {
 
     public static String K="";
     /** Compress a string to a list of output symbols. */
@@ -76,7 +78,7 @@ public class Test {
         // Output the code for w.
         if (!w.equals(""))
             result.add(dictionary.get(w));
-        Test.writeto(dict);
+        Exp.writeto(dict);
         return result;
     }
 
@@ -185,11 +187,57 @@ public class Test {
 
     public static void main(String[] args) throws IOException{
        /* JSONParser parser = new JSONParser();
+        try {
+            JSONArray obj = (JSONArray) parser.parse(new FileReader("/home/steve02/StreamingCps/RealTimeData1"));
+            for(Object o : obj) {
+                JSONObject jsonObject = (JSONObject) o;
+
+                String radiationValue = (String) jsonObject.get("radiation_level");
+                System.out.println(radiationValue);
+            }
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
 
-        Object object = parser
-                .parse(new FileReader("/home/yiwei/Documents/RealTimeData"));*/
-       /* FileReader in = new FileReader("/home/yiwei/Documents/RealTimeData");
+        }*/
+        FileInputStream inputStream = null;
+        Scanner scanner = null;
+        try {
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/RealTimeData1");
+            scanner = new Scanner(inputStream, "UTF-8");
+            while (scanner.hasNextLine()) {
+
+                String line = scanner.nextLine().substring(20,23);
+                System.out.println(line);
+
+
+            }
+            if (scanner.ioException() != null) {
+
+                throw scanner.ioException();
+
+            }
+
+        }finally {
+            if (inputStream!=null){
+
+                inputStream.close();
+
+            }
+            if (scanner!=null){
+
+                scanner.close();
+
+            }
+        }
+
+        /*FileReader in = new FileReader("/home/steve02/StreamingCps/RealTimeData1");
         BufferedReader br = new BufferedReader(in);
         int i = 0;
         while (br.readLine() != null) {
@@ -207,5 +255,5 @@ public class Test {
         String decompressed = decompress(compressed);
         System.out.println(decompressed.length());
         System.out.println(decompressed);*/
-    }
-}
+    }}
+
