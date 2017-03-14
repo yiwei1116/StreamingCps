@@ -7998,5 +7998,8 @@
 {"radiation_level":"200","photosensor":"721.45","timestamp":1489199126,"ambient_temperature":"21.99","sensor_uuid":"probe-40869e7c","humidity":"82.3529"}
 {"radiation_level":"202","photosensor":"796.71","timestamp":1489199126,"ambient_temperature":"29.54","sensor_uuid":"probe-f6bbe541","humidity":"86.2359"}
 {"radiation_level":"198","photosensor":"867.57","timestamp":1489199126,"ambient_temperature":"27.41","sensor_uuid":"probe-ee4b9a5e","humidity":"78.4468"}
-
-
+{"radiation_level":"197","photosensor":"763.58","timestamp":1489199137,"ambient_temperature":"16.34","sensor_uuid":"probe-2f903675","humidity":"84.4394"}
+{"radiation_level":"202","photosensor":"873.64","timestamp":1489199137,"ambient_temperature":"12.66","sensor_uuid":"probe-c288edac","humidity":"74.8154"}
+{"radiation_level":"201","photosensor":"815.53","timestamp":1489199137,"ambient_temperature":"16.74","sensor_uuid":"probe-7b01c0f8","humidity":"82.1781"}
+{"radiation_level":"200","photosensor":"782.76","timestamp":1489199137,"ambient_temperature":"0.896","sensor_uuid":"probe-9bb4bf8d","humidity":"82.8029"}
+{"radiation_level":"201","photosensor":"734.35","timestamp":1489199137,"ambient_temperature":"21.42","sensor_uuid":"probe-a4821c43","humidity":"79.6732"}

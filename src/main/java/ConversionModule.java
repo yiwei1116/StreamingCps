@@ -8,7 +8,7 @@ public class ConversionModule {
 
     public  String conversionTable(ArrayList<Integer> diffList){
         String tfNum="";
-
+        Exp exp =new Exp();
         HashMap coverseT = new HashMap<Integer,String>();
         coverseT.put(1,"A");
         coverseT.put(2,"B");
@@ -70,7 +70,7 @@ public class ConversionModule {
 
 
         }
-        System.out.println(tfNum);
+        exp.writeTransfer(tfNum);
 
 
 

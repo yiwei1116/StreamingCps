@@ -152,6 +152,29 @@ public class Exp {
 
 
     }
+    public static void writeTransfer(String s)
+    {
+
+
+
+        try {
+            BufferedWriter out = new BufferedWriter(new FileWriter("Transfer.txt"));
+            out.write(s);
+            out.close();
+            System.out.println("Generated Compressed File::Transfer.txt");
+        }
+        catch (IOException e)
+        {
+            System.out.println("Exception ");
+        }
+
+
+
+
+
+
+
+    }
     public static void writeto(String s)
     {
 

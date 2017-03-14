@@ -12,9 +12,10 @@ public class CompressModule {
 
     public static List<Integer> compress(String uncompressed) {
         // Build the dictionary.
-        LRUCache lruCache = new LRUCache(4097);
+        LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(2048);
         Exp exp = new Exp();
         int dictSize = 256;
+        int j = 0;
         Map<String,Integer> dictionary = new HashMap<String,Integer>();
         for (int i = 0; i < 256; i++) {
             dictionary.put("" + (char) i, i);
@@ -35,13 +36,17 @@ public class CompressModule {
         List<Integer> result = new ArrayList<Integer>();
         for (char c : uncompressed.toCharArray()) {
             String wc = w + c;
-            if (dictionary.containsKey(wc))
+            if (dictionary.containsKey(wc)) {
                 w = wc;
+
+                lruCache.put(dictionary.get(wc)+1,wc);
+
+            }
             else {
                 result.add(dictionary.get(w));
                 // Add wc to the dictionary.
                 dictionary.put(wc, dictSize++);
-                lruCache.set(dictSize,wc);
+
 
                 dict=dict+"["+"Key:"+dictSize+" , "+"Code:"+wc+"]"+"\n";
                 w = "" + c;
@@ -51,7 +56,12 @@ public class CompressModule {
         // Output the code for w.
         if (!w.equals(""))
             result.add(dictionary.get(w));
-        Log.error("LRU",lruCache.get(257));
+
+
+
+        for (Map.Entry<Integer, String> e : lruCache.getAll())
+            System.out.println(e.getKey() + " : " + e.getValue());
+
         exp.writeto(dict);
         return result;
     }
