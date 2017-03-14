@@ -44,7 +44,8 @@ public class Exp {
             }
         }return returnValue;
     }
-    /*public static List<Integer> compress(String uncompressed) {
+    /*
+    public static List<Integer> compress(String uncompressed) {
         // Build the dictionary.
         int dictSize = 256;
         Map<String,Integer> dictionary = new HashMap<String,Integer>();
@@ -54,10 +55,10 @@ public class Exp {
         }
         String dict="";
 
- *//*      for(int u=32;u<=32;u++)
+       for(int u=32;u<=32;u++)
             dict=dict+"["+"Key:"+Character.toString((char)u)+" , "+"Code:"+u+"]"+"\n";
         for(int o=46;o<=46;o++)
-            dict=dict+"["+"Key:"+Character.toString((char)o)+" , "+"Code:"+o+"]"+"\n";*//*
+            dict=dict+"["+"Key:"+Character.toString((char)o)+" , "+"Code:"+o+"]"+"\n";
        for(int h=97;h<=122;h++)
             dict=dict+"["+"Key:"+Character.toString((char)h)+" , "+"Code:"+h+"]"+"\n";
         for(int s=65;s<=90;s++)
@@ -83,10 +84,11 @@ public class Exp {
             result.add(dictionary.get(w));
         Exp.writeto(dict);
         return result;
-    }
+    }*/
 
-    *//** Decompress a list of output ks to a string. *//*
-    public static String decompress(List<Integer> compressed) {
+    /** Decompress a list of output ks to a string. */
+
+    /*public static String decompress(List<Integer> compressed) {
         // Build the dictionary.
         int dictSize = 256;
         Map<Integer,String> dictionary = new HashMap<Integer,String>();
@@ -156,6 +158,7 @@ public class Exp {
 
 
         try {
+
             BufferedWriter out = new BufferedWriter(new FileWriter("Dictionary.txt"));
             out.write(s);
             out.close();
@@ -163,7 +166,8 @@ public class Exp {
         }
         catch (IOException e)
         {
-            System.out.println("Exception ");
+
+            System.out.println("Exception : "  + e.getMessage());
         }
 
     }
@@ -212,7 +216,8 @@ public class Exp {
         ArrayList<Integer> DiffList = new ArrayList<Integer>();
         ArrayList<Integer> radiationList = new ArrayList<Integer>();
         try {
-            inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/RealTimeData1");
+            //inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/RealTimeData1");
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/RealTimeData");
             scanner = new Scanner(inputStream, "UTF-8");
             int i = 0;
 
@@ -245,7 +250,7 @@ public class Exp {
             }
         }
         DiffList = subValue(radiationList);
-        System.out.println(CompressModule.compress(conversionModule.conversionTable(DiffList)));
+        System.out.println(compressModule.compress(conversionModule.conversionTable(DiffList)));
 
 
         /*FileReader in = new FileReader("/home/steve02/StreamingCps/RealTimeData1");

@@ -1,3 +1,5 @@
+import com.esotericsoftware.minlog.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,6 +12,8 @@ public class CompressModule {
 
     public static List<Integer> compress(String uncompressed) {
         // Build the dictionary.
+        LRUCache lruCache = new LRUCache(4097);
+        Exp exp = new Exp();
         int dictSize = 256;
         Map<String,Integer> dictionary = new HashMap<String,Integer>();
         for (int i = 0; i < 256; i++) {
@@ -23,9 +27,9 @@ public class CompressModule {
         for(int o=46;o<=46;o++)
             dict=dict+"["+"Key:"+Character.toString((char)o)+" , "+"Code:"+o+"]"+"\n";*/
         for(int h=97;h<=122;h++)
-            dict=dict+"["+"Key:"+Character.toString((char)h)+" , "+"Code:"+h+"]"+"\n";
+            dict=dict+"["+"Key:"+h+" , "+"Code:"+Character.toString((char)h)+"]"+"\n";
         for(int s=65;s<=90;s++)
-            dict=dict+"["+"Key:"+Character.toString((char)s)+" , "+"Code:"+s+"]"+"\n";
+            dict=dict+"["+"Key:"+s+" , "+"Code:"+Character.toString((char)s)+"]"+"\n";
 
         String w = "";
         List<Integer> result = new ArrayList<Integer>();
@@ -37,7 +41,9 @@ public class CompressModule {
                 result.add(dictionary.get(w));
                 // Add wc to the dictionary.
                 dictionary.put(wc, dictSize++);
-                dict=dict+"["+"Key:"+wc+" , "+"Code:"+dictSize+"]"+"\n";
+                lruCache.set(dictSize,wc);
+
+                dict=dict+"["+"Key:"+dictSize+" , "+"Code:"+wc+"]"+"\n";
                 w = "" + c;
             }
         }
@@ -45,7 +51,8 @@ public class CompressModule {
         // Output the code for w.
         if (!w.equals(""))
             result.add(dictionary.get(w));
-        Exp.writeto(dict);
+        Log.error("LRU",lruCache.get(257));
+        exp.writeto(dict);
         return result;
     }
 
