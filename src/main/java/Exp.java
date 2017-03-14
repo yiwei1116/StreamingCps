@@ -1,6 +1,7 @@
 
 
 
+import com.esotericsoftware.minlog.Log;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -12,6 +13,8 @@ import java.util.*;
 public class Exp {
 
     public static String K="";
+    public static ConversionModule conversionModule = new ConversionModule();
+    public static CompressModule compressModule = new CompressModule();
     /** Compress a string to a list of output symbols. */
     public String readTextFile(String filename)
     {String returnValue="";
@@ -41,7 +44,7 @@ public class Exp {
             }
         }return returnValue;
     }
-    public static List<Integer> compress(String uncompressed) {
+    /*public static List<Integer> compress(String uncompressed) {
         // Build the dictionary.
         int dictSize = 256;
         Map<String,Integer> dictionary = new HashMap<String,Integer>();
@@ -51,10 +54,10 @@ public class Exp {
         }
         String dict="";
 
- /*      for(int u=32;u<=32;u++)
+ *//*      for(int u=32;u<=32;u++)
             dict=dict+"["+"Key:"+Character.toString((char)u)+" , "+"Code:"+u+"]"+"\n";
         for(int o=46;o<=46;o++)
-            dict=dict+"["+"Key:"+Character.toString((char)o)+" , "+"Code:"+o+"]"+"\n";*/
+            dict=dict+"["+"Key:"+Character.toString((char)o)+" , "+"Code:"+o+"]"+"\n";*//*
        for(int h=97;h<=122;h++)
             dict=dict+"["+"Key:"+Character.toString((char)h)+" , "+"Code:"+h+"]"+"\n";
         for(int s=65;s<=90;s++)
@@ -82,7 +85,7 @@ public class Exp {
         return result;
     }
 
-    /** Decompress a list of output ks to a string. */
+    *//** Decompress a list of output ks to a string. *//*
     public static String decompress(List<Integer> compressed) {
         // Build the dictionary.
         int dictSize = 256;
@@ -110,7 +113,7 @@ public class Exp {
         }
 
         return result.toString();
-    }
+    }*/
     public  static  String getString(List<Integer>Compress){
 
 
@@ -183,42 +186,46 @@ public class Exp {
 
 
     }
+    public static ArrayList subValue(ArrayList<Integer> data){
+        int p,q,k ;
+        int base = 200;
+        ArrayList<Integer> preprocessList = new ArrayList<Integer>();
+        preprocessList.add(base - data.get(0));
+          for (int i =0 ; i< data.size()-1 ;i++) {
+              p = data.get(i);
+              q = data.get(i+1);
+              k = q - p;
+
+              preprocessList.add(k);
+              Log.error("k",String.valueOf(preprocessList.get(i)));
+          }
+          return preprocessList;
+
+
+    }
 
 
     public static void main(String[] args) throws IOException{
-       /* JSONParser parser = new JSONParser();
-        try {
-            JSONArray obj = (JSONArray) parser.parse(new FileReader("/home/steve02/StreamingCps/RealTimeData1"));
-            for(Object o : obj) {
-                JSONObject jsonObject = (JSONObject) o;
 
-                String radiationValue = (String) jsonObject.get("radiation_level");
-                System.out.println(radiationValue);
-            }
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-
-        }*/
         FileInputStream inputStream = null;
         Scanner scanner = null;
+        ArrayList<Integer> DiffList = new ArrayList<Integer>();
+        ArrayList<Integer> radiationList = new ArrayList<Integer>();
         try {
             inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/RealTimeData1");
             scanner = new Scanner(inputStream, "UTF-8");
+            int i = 0;
 
             while (scanner.hasNextLine()) {
 
                 String line = scanner.nextLine().substring(20,23);
-                System.out.println(line);
+                int k = Integer.valueOf(line);
+                radiationList.add(k);
+                System.out.println(k);
 
 
             }
+
             if (scanner.ioException() != null) {
 
                 throw scanner.ioException();
@@ -237,6 +244,9 @@ public class Exp {
 
             }
         }
+        DiffList = subValue(radiationList);
+        System.out.println(CompressModule.compress(conversionModule.conversionTable(DiffList)));
+
 
         /*FileReader in = new FileReader("/home/steve02/StreamingCps/RealTimeData1");
         BufferedReader br = new BufferedReader(in);
