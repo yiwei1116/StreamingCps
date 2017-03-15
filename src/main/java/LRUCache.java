@@ -78,7 +78,9 @@ public class LRUCache<K, V> {
 
         return map.entrySet().iterator().next();
     }
-
+    public synchronized void remove(K key, V value) {
+        map.remove(key, value);
+    }
     /**
      * Clears the cache.
      */

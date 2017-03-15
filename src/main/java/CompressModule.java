@@ -13,7 +13,7 @@ public class CompressModule {
 
     public static List<Integer> compress(String uncompressed) {
         // Build the dictionary.
-        LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(3);
+        LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(4096);
         Exp exp = new Exp();
         int dictSize = 256;
         int j = 0;
@@ -23,6 +23,7 @@ public class CompressModule {
 
         }
         String dict="";
+        String lruTable="";
 
  /*      for(int u=32;u<=32;u++)
             dict=dict+"["+"Key:"+Character.toString((char)u)+" , "+"Code:"+u+"]"+"\n";
@@ -39,42 +40,66 @@ public class CompressModule {
             String wc = w + c;
             if (dictionary.containsKey(wc)) {
                 w = wc;
-                if( dictionary.get(wc)>256)
-                lruCache.put(dictionary.get(wc)+1,wc);
-
-            }
-           /* else if (dictionary.size() > 280 ){
-
-                lruCache.
-
-
+            if(dictionary.get(wc)>255)
+                lruCache.put(dictionary.get(wc)  , wc);
 
 
             }
-            */
+            /**
+             * remove dictionary least frequency used word from LRU
+             *
+             */
+            /*else if (dictionary.size() > 280 ){
 
+                Integer leastFrequenceIndex = lruCache.getHead().getKey();
+                String leastFrequenceCode = lruCache.getHead().getValue();
+                dictionary.remove(leastFrequenceCode,leastFrequenceIndex);
+                dictionary.put(wc,leastFrequenceIndex);
+                lruCache.remove(leastFrequenceIndex,leastFrequenceCode);
+
+
+            }*/
 
 
             else {
+
                 result.add(dictionary.get(w));
                 // Add wc to the dictionary.
-                dictionary.put(wc, dictSize++);
-
+                dictionary.put(wc, dictSize);
+                if( dictionary.get(wc)>=256) {
+                    lruCache.put(dictionary.get(wc)  , wc);
+                }
 
                 dict=dict+"["+"Key:"+dictSize+" , "+"Code:"+wc+"]"+"\n";
+                dictSize++;
                 w = "" + c;
+
             }
+        }
+
+        for (Map.Entry<String,Integer>entry : dictionary.entrySet()){
+            String key =entry.getKey();
+            Integer value = entry.getValue();
+
+            if(value > 255)
+            System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");
+
         }
 
         // Output the code for w.
         if (!w.equals(""))
             result.add(dictionary.get(w));
 
-
+/**
+ * LRU key 同 value 不同 取代value且移至尾
+ *         同        同
+ */
 
         for (Map.Entry<Integer, String> e : lruCache.getAll())
-            System.out.println(e.getKey() + " : " + e.getValue());
-        //    Log.error("r",String.valueOf(lruCache.getHead().getKey()));
+            lruTable=lruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";
+            Log.error("r",String.valueOf(lruCache.getHead().getValue()));
+       // lruTable=lruTable+"["+"Key:"++" , "+"Code:"+e.getValue()+"]"+"\n";
+        exp.writetoCache(lruTable);
         exp.writeto(dict);
         return result;
     }
@@ -172,7 +197,7 @@ public class CompressModule {
             diff =  (Integer)(reConverse.get(String.valueOf(decode.charAt(i))));
             base += diff;
             reNum.add(base);
-            Log.error("renum",String.valueOf(reNum.get(i)));
+          //  Log.error("renum",String.valueOf(reNum.get(i)));
         }
 
         return reNum;
