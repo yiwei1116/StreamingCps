@@ -217,7 +217,7 @@ public class Exp {
         int p,q,k ;
         int base = 200;
         ArrayList<Integer> preprocessList = new ArrayList<Integer>();
-        preprocessList.add(base - data.get(0));
+        preprocessList.add(data.get(0)-base);
           for (int i =0 ; i< data.size()-1 ;i++) {
               p = data.get(i);
               q = data.get(i+1);
@@ -239,8 +239,8 @@ public class Exp {
         ArrayList<Integer> DiffList = new ArrayList<Integer>();
         ArrayList<Integer> radiationList = new ArrayList<Integer>();
         try {
-            //inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/RealTimeData1");
-            inputStream = new FileInputStream("/home/steve02/StreamingCps/RealTimeData");
+            inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/RealTimeData1");
+           // inputStream = new FileInputStream("/home/steve02/StreamingCps/RealTimeData");
             scanner = new Scanner(inputStream, "UTF-8");
             int i = 0;
 
@@ -273,21 +273,14 @@ public class Exp {
             }
         }
         DiffList = subValue(radiationList);
-        System.out.println(compressModule.compress(conversionModule.conversionTable(DiffList)));
+        List<Integer>compressList = new ArrayList<>();
+        compressList = compressModule.compress(conversionModule.conversionTable(DiffList));
+        String encodingText = getString(compressList);
+        System.out.println(encodingText);
+        String decodingText = compressModule.decompress(compressList);
+        compressModule.reConstruct(decodingText);
+        //System.out.println(decodingText);
 
-
-        /*FileReader in = new FileReader("/home/steve02/StreamingCps/RealTimeData1");
-        BufferedReader br = new BufferedReader(in);
-        int i = 0;
-        while (br.readLine() != null) {
-
-            i++;
-            System.out.println(i);
-            System.out.println(br.readLine());
-
-        }
-
-        in.close();*/
         /*List<Integer> compressed = compress("av");
         System.out.println(compressed);
         System.out.println(getString(compressed).length());

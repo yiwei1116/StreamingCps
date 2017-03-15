@@ -14,9 +14,7 @@ import java.util.ArrayList;
  * <p>
  * This class is thread-safe. All methods of this class are synchronized.
  *
- * <p>
- * Author: Christian d'Heureuse, Inventec Informatik AG, Zurich, Switzerland<br>
- * Multi-licensed: EPL / LGPL / GPL / AL / BSD.
+
  */
 public class LRUCache<K, V> {
     private static final float hashTableLoadFactor = 0.75f;
@@ -72,6 +70,13 @@ public class LRUCache<K, V> {
      */
     public synchronized void put(K key, V value) {
         map.put(key, value);
+    }
+
+    public synchronized Map.Entry<K,V> getHead(){
+
+
+
+        return map.entrySet().iterator().next();
     }
 
     /**
