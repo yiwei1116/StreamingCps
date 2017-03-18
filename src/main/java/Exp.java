@@ -188,8 +188,8 @@ public class Exp {
         ArrayList<Integer> DiffList = new ArrayList<Integer>();
         ArrayList<Integer> radiationList = new ArrayList<Integer>();
         try {
-          //  inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/RealTimeData1");
-            inputStream = new FileInputStream("/home/steve02/StreamingCps/RealTimeData1");
+            inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/RealTimeData1");
+          //  inputStream = new FileInputStream("/home/steve02/StreamingCps/RealTimeData1");
             scanner = new Scanner(inputStream, "UTF-8");
             int i = 0;
 
@@ -221,20 +221,18 @@ public class Exp {
 
             }
         }
-        DiffList = subValue(radiationList);
+/*        DiffList = subValue(radiationList);
         List<Integer>compressList = new ArrayList<>();
         compressList = compressModule.compress(conversionModule.conversionTable(DiffList));
         String encodingText = getString(compressList);
         System.out.println(encodingText);
         String decodingText = compressModule.decompress(compressList);
-        compressModule.reConstruct(decodingText);
+        compressModule.reConstruct(decodingText);*/
         //System.out.println(decodingText);
 
-        /*List<Integer> compressed = compress("av");
+        List<Integer> compressed = compressModule.compress("asdsasdasdefefdscdscsasdadadsaffczxsdsawasoaso");
         System.out.println(compressed);
-        System.out.println(getString(compressed).length());
-        String decompressed = decompress(compressed);
-        System.out.println(decompressed.length());
-        System.out.println(decompressed);*/
+        String decompressed = compressModule.decompress(compressed);
+        System.out.println(decompressed);
     }}
 

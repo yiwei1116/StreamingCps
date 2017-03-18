@@ -49,18 +49,20 @@ public class CompressModule {
              * remove dictionary least frequency used word from LRU
              *
              */
-            /*else if (dictionary.size() > 280 ){
-
+            else if (dictionary.size() > 280 ){
+                result.add(dictionary.get(w));
                 Integer leastFrequenceIndex = lruCache.getHead().getKey();
                 String leastFrequenceCode = lruCache.getHead().getValue();
+                Log.error("index",String.valueOf(leastFrequenceIndex));
+                Log.error("code",leastFrequenceCode);
                 dictionary.remove(leastFrequenceCode,leastFrequenceIndex);
+                Log.error("wc",wc);
                 dictionary.put(wc,leastFrequenceIndex);
-                lruCache.remove(leastFrequenceIndex,leastFrequenceCode);
+                //lruCache.remove(leastFrequenceIndex,leastFrequenceCode);
+                lruCache.put(dictionary.get(wc)  , wc);
+                w = "" + c;
 
-
-            }*/
-
-
+            }
             else {
 
                 result.add(dictionary.get(w));
