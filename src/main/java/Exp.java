@@ -229,10 +229,12 @@ public class Exp {
         String decodingText = compressModule.decompress(compressList);
         compressModule.reConstruct(decodingText);*/
         //System.out.println(decodingText);
-
-        List<Integer> compressed = compressModule.compress("asdsasdasdefefdscdscsasdadadsaffczxsdsawasoaso");
+        String testText = "aiaiaaijvkdsaksdsdafhuhfuwehfdnjckajfksadadacsicdsiagsdgsadygyhusahcuahsuhuhdushahsauhududhwqgyegffecusdsckmxamoasoahdashdashdjsasosdeefjdjcjdaodaoskdsoqpoipoipoipoipopo";
+        List<Integer> compressed = compressModule.compress(testText);
         System.out.println(compressed);
         String decompressed = compressModule.decompress(compressed);
         System.out.println(decompressed);
+        Log.error("is before compress the same as after compress ?",String.valueOf(testText.equals(decompressed)));
+
     }}
 

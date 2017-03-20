@@ -9,17 +9,20 @@ import java.util.Map;
 /**
  * Created by yiwei on 2017/3/14.
  */
-public class CompressModule {
 
+public class CompressModule {
+    static Map<String,Integer> encodeDictionary = new HashMap<String,Integer>();
+    static Map<Integer,String> decodeDictionary = new HashMap<Integer,String>();
+    static int dictionaryMaxSize = 300;
     public static List<Integer> compress(String uncompressed) {
-        // Build the dictionary.
+        // Build the decodeDictionary.
         LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(4096);
         Exp exp = new Exp();
         int dictSize = 256;
         int j = 0;
-        Map<String,Integer> dictionary = new HashMap<String,Integer>();
+
         for (int i = 0; i < 256; i++) {
-            dictionary.put("" + (char) i, i);
+            encodeDictionary.put("" + (char) i, i);
 
         }
         String dict="";
@@ -38,38 +41,38 @@ public class CompressModule {
         List<Integer> result = new ArrayList<Integer>();
         for (char c : uncompressed.toCharArray()) {
             String wc = w + c;
-            if (dictionary.containsKey(wc)) {
+            if (encodeDictionary.containsKey(wc)) {
                 w = wc;
-            if(dictionary.get(wc)>255)
-                lruCache.put(dictionary.get(wc)  , wc);
+            if(encodeDictionary.get(wc)>255)
+                lruCache.put(encodeDictionary.get(wc)  , wc);
 
 
             }
             /**
-             * remove dictionary least frequency used word from LRU
+             * remove decodeDictionary least frequency used word from LRU
              *
              */
-            else if (dictionary.size() > 280 ){
-                result.add(dictionary.get(w));
-                Integer leastFrequenceIndex = lruCache.getHead().getKey();
-                String leastFrequenceCode = lruCache.getHead().getValue();
-                Log.error("index",String.valueOf(leastFrequenceIndex));
-                Log.error("code",leastFrequenceCode);
-                dictionary.remove(leastFrequenceCode,leastFrequenceIndex);
-                Log.error("wc",wc);
-                dictionary.put(wc,leastFrequenceIndex);
-                //lruCache.remove(leastFrequenceIndex,leastFrequenceCode);
-                lruCache.put(dictionary.get(wc)  , wc);
-                w = "" + c;
+                else if (encodeDictionary.size() > dictionaryMaxSize ){
+                    result.add(encodeDictionary.get(w));
+                    Integer leastFrequenceIndex = lruCache.getHead().getKey();
+                    String leastFrequenceCode = lruCache.getHead().getValue();
+                    Log.error("index",String.valueOf(leastFrequenceIndex));
+                    Log.error("code",leastFrequenceCode);
+                encodeDictionary.remove(leastFrequenceCode,leastFrequenceIndex);
+                    Log.error("wc",wc);
+                encodeDictionary.put(wc,leastFrequenceIndex);
+                    //lruCache.remove(leastFrequenceIndex,leastFrequenceCode);
+                    lruCache.put(encodeDictionary.get(wc)  , wc);
+                    w = "" + c;
 
-            }
+                }
             else {
 
-                result.add(dictionary.get(w));
-                // Add wc to the dictionary.
-                dictionary.put(wc, dictSize);
-                if( dictionary.get(wc)>=256) {
-                    lruCache.put(dictionary.get(wc)  , wc);
+                result.add(encodeDictionary.get(w));
+                // Add wc to the decodeDictionary.
+                encodeDictionary.put(wc, dictSize);
+                if( encodeDictionary.get(wc)>=256) {
+                    lruCache.put(encodeDictionary.get(wc)  , wc);
                 }
 
                 dict=dict+"["+"Key:"+dictSize+" , "+"Code:"+wc+"]"+"\n";
@@ -78,8 +81,8 @@ public class CompressModule {
 
             }
         }
-
-        for (Map.Entry<String,Integer>entry : dictionary.entrySet()){
+        System.out.println("Dictionay Table:");
+        for (Map.Entry<String,Integer>entry : encodeDictionary.entrySet()){
             String key =entry.getKey();
             Integer value = entry.getValue();
 
@@ -90,12 +93,13 @@ public class CompressModule {
 
         // Output the code for w.
         if (!w.equals(""))
-            result.add(dictionary.get(w));
+            result.add(encodeDictionary.get(w));
 
 /**
  * LRU key 同 value 不同 取代value且移至尾
  *         同        同
  */
+
 
         for (Map.Entry<Integer, String> e : lruCache.getAll())
             lruTable=lruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";
@@ -108,29 +112,78 @@ public class CompressModule {
 
     /** Decompress a list of output ks to a string. */
     public static String decompress(List<Integer> compressed) {
-        // Build the dictionary.
+        // Build the decodeDictionary.
+
+        LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(4096);
+        String lruTable="";
         int dictSize = 256;
-        Map<Integer,String> dictionary = new HashMap<Integer,String>();
+
         for (int i = 0; i < 256; i++)
-            dictionary.put(i, "" + (char)i);
+            decodeDictionary.put(i, "" + (char)i);
 
         String w = "" + (char)(int)compressed.remove(0);
         StringBuffer result = new StringBuffer(w);
         for (int k : compressed) {
+
             String entry;
-            if (dictionary.containsKey(k))
-                entry = dictionary.get(k);
-            else if (k == dictSize)
+
+            if (decodeDictionary.containsKey(k)) {
+                /**
+                 * entry = output
+                 */
+                entry = decodeDictionary.get(k);
+                Log.error("k",String.valueOf(k));
+                Log.error("entry",entry);
+
+
+            }
+            else if (k == dictSize) {
                 entry = w + w.charAt(0);
+
+            }
             else
                 throw new IllegalArgumentException("Bad compressed k: " + k);
 
             result.append(entry);
+            if(decodeDictionary.size()>dictionaryMaxSize){
+                Integer leastFrequenceIndex = lruCache.getHead().getKey();
+                String leastFrequenceCode = lruCache.getHead().getValue();
+                Log.error("leastFrequenceIndex",String.valueOf(leastFrequenceIndex));
+                Log.error("leastFrequenceCode",leastFrequenceCode);
+                Log.error("replaceCode",w+entry.charAt(0));
+                lruCache.put(leastFrequenceIndex,w+entry.charAt(0));
+                decodeDictionary.remove(leastFrequenceIndex,leastFrequenceCode);
+                decodeDictionary.put(leastFrequenceIndex,w+entry.charAt(0));
 
-            // Add w+entry[0] to the dictionary.
-            dictionary.put(dictSize++, w + entry.charAt(0));
+
+
+            }
+
+              else{
+
+                lruCache.put(dictSize,w +entry.charAt(0));
+                decodeDictionary.put(dictSize, w + entry.charAt(0));
+              }
+            if( k > 255 )
+                lruCache.put(k, decodeDictionary.get(k));
+            dictSize++;
 
             w = entry;
+        }
+            for (Map.Entry<Integer, String> e : lruCache.getAll())
+                lruTable=lruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";
+
+            System.out.println("Decode Cache Table:");
+            System.out.print(lruTable);
+        System.out.println("********************************************************");
+        System.out.println("Decode decodeDictionary Table:");
+        for (Map.Entry<Integer,String>dic : decodeDictionary.entrySet()){
+            Integer key =dic.getKey();
+            String value = dic.getValue();
+
+            if(key > 255)
+                System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");
+
         }
 
         return result.toString();
@@ -203,5 +256,12 @@ public class CompressModule {
         }
 
         return reNum;
+    }
+    public static boolean isDictionarySame(Map<String,Integer>en,Map<Integer, String> de){
+
+        return en.equals(de);
+
+
+
     }
 }
