@@ -229,7 +229,7 @@ public class Exp {
         String decodingText = compressModule.decompress(compressList);
         compressModule.reConstruct(decodingText);*/
         //System.out.println(decodingText);
-        String testText = "fifisdjfisdjsss";
+        String testText = "sdasfjifjijiidsjdiasjdpopopopopo";//fifisdjfisdjsss
         List<Integer> compressed = compressModule.compress(testText);
         System.out.println(compressed);
         String decompressed = compressModule.decompress(compressed);
