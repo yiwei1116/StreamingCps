@@ -188,8 +188,8 @@ public class Exp {
         ArrayList<Integer> DiffList = new ArrayList<Integer>();
         ArrayList<Integer> radiationList = new ArrayList<Integer>();
         try {
-            inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/RealTimeData1");
-          //  inputStream = new FileInputStream("/home/steve02/StreamingCps/RealTimeData1");
+          //  inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/RealTimeData1");
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/RealTimeData1");
             scanner = new Scanner(inputStream, "UTF-8");
             int i = 0;
 
@@ -229,7 +229,7 @@ public class Exp {
         String decodingText = compressModule.decompress(compressList);
         compressModule.reConstruct(decodingText);*/
         //System.out.println(decodingText);
-        String testText = "aiaiaaijvkdsaksdsdafhuhfuwehfdnjckajfksadadacsicdsiagsdgsadygyhusahcuahsuhuhdushahsauhududhwqgyegffecusdsckmxamoasoahdashdashdjsasosdeefjdjcjdaodaoskdsoqpoipoipoipoipopo";
+        String testText = "fifisdjfisdjsss";
         List<Integer> compressed = compressModule.compress(testText);
         System.out.println(compressed);
         String decompressed = compressModule.decompress(compressed);
