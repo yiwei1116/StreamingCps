@@ -22,8 +22,7 @@ public class LRUCache<K, V> {
     private int cacheSize;
 
     /**
-     * Creates a new LRU cache. 在该方法中，new LinkedHashMap<K,V>(hashTableCapacity,
-     * hashTableLoadFactor, true)中，true代表使用访问顺序
+     * Creates a new LRU cache.
      *
      * @param cacheSize
      *            the maximum number of entries that will be kept in this cache.
