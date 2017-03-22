@@ -13,7 +13,7 @@ import java.util.Map;
 public class CompressModule {
     static Map<String,Integer> encodeDictionary = new HashMap<String,Integer>();
     static Map<Integer,String> decodeDictionary = new HashMap<Integer,String>();
-    static int dictionaryMaxSize = 270;
+    static int dictionaryMaxSize = 265;
     static String lruTable="";
     public static List<Integer> compress(String uncompressed) {
         // Build the decodeDictionary.
@@ -166,6 +166,7 @@ public class CompressModule {
                         if(decodeDictionary.get(k).contains(e.getValue()))
                             lruCache.put(e.getKey(),e.getValue());
 
+
                     }
                    /* if( k > 255 )
                         lruCache.put(k, decodeDictionary.get(k));*/
@@ -182,7 +183,8 @@ public class CompressModule {
                     for (Map.Entry<Integer, String> e : lruCache.getAll()){
                         if(decodeDictionary.get(k).contains(e.getValue()))
                             lruCache.put(e.getKey(),e.getValue());
-
+                        Log.error("key",String.valueOf(e.getKey()));
+                        Log.error("value",String.valueOf(e.getValue()));
                     }
                     /*if( k > 255 )
                         lruCache.put(k, decodeDictionary.get(k));*/
@@ -197,8 +199,14 @@ public class CompressModule {
 
                 lruCache.put(dictSize,w +entry.charAt(0));
                 decodeDictionary.put(dictSize, w + entry.charAt(0));
-          if( k > 255 )
-                lruCache.put(k, decodeDictionary.get(k));
+                for (Map.Entry<Integer, String> e : lruCache.getAll()){
+                    if(decodeDictionary.get(k).contains(e.getValue()))
+                        lruCache.put(e.getKey(),e.getValue());
+                    Log.error("key",String.valueOf(e.getKey()));
+                    Log.error("value",String.valueOf(e.getValue()));
+                }
+         /* if( k > 255 )
+                lruCache.put(k, decodeDictionary.get(k));*/
 
               }
             result.append(entry);
