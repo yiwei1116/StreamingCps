@@ -221,20 +221,21 @@ public class Exp {
 
             }
         }
-/*        DiffList = subValue(radiationList);
+        DiffList = subValue(radiationList);
         List<Integer>compressList = new ArrayList<>();
         compressList = compressModule.compress(conversionModule.conversionTable(DiffList));
         String encodingText = getString(compressList);
         System.out.println(encodingText);
         String decodingText = compressModule.decompress(compressList);
-        compressModule.reConstruct(decodingText);*/
+        compressModule.reConstruct(decodingText);
         //System.out.println(decodingText);
-        String testText = "fifisdjfisdjsss";//fifisdjfisdjsss
+   /*     String testText = "fifisdjfisdjsss";//fifisdjfisdjsss
         List<Integer> compressed = compressModule.compress(testText);
         System.out.println(compressed);
         String decompressed = compressModule.decompress(compressed);
         System.out.println(decompressed);
         Log.error("is before compress the same as after compress ?",String.valueOf(testText.equals(decompressed)));
-
+        */
+        Log.error("is before compress the same as after compress ?", String.valueOf(compressModule.reConstruct(decodingText).equals(radiationList)));
     }}
 
