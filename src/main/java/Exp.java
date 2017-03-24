@@ -2,10 +2,17 @@
 
 
 import com.esotericsoftware.minlog.Log;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+
+import org.apache.spark.*;
+import org.apache.spark.api.java.function.*;
+import org.apache.spark.streaming.*;
+import org.apache.spark.streaming.api.java.*;
 
 import java.io.*;
 import java.util.*;
@@ -181,15 +188,19 @@ public class Exp {
     }
 
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException,InterruptedException{
+
+        SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("StreamCompress");
+        JavaStreamingContext javaStreamingContext = new JavaStreamingContext(sparkConf,Durations.seconds(1));
+
 
         FileInputStream inputStream = null;
         Scanner scanner = null;
         ArrayList<Integer> DiffList = new ArrayList<Integer>();
         ArrayList<Integer> radiationList = new ArrayList<Integer>();
         try {
-            inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/RealTimeData1");
-         //   inputStream = new FileInputStream("/home/steve02/StreamingCps/RealTimeData1");
+         //   inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/RealTimeData1");
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/RealTimeData1");
             scanner = new Scanner(inputStream, "UTF-8");
             int i = 0;
 
@@ -237,5 +248,10 @@ public class Exp {
         Log.error("is before compress the same as after compress ?",String.valueOf(testText.equals(decompressed)));
         */
         Log.error("is before compress the same as after compress ?", String.valueOf(compressModule.reConstruct(decodingText).equals(radiationList)));
+
+
+        javaStreamingContext.start();
+        javaStreamingContext.awaitTermination();
+
     }}
 
