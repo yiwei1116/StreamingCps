@@ -163,5 +163,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="org.apache.spark:spark-streaming_2.11:2.0.0" level="project" />
+    <orderEntry type="library" name="com.pubnub:pubnub:4.2.0" level="project" />
   </component>
 </module>

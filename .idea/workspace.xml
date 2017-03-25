@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a26122c-9dd8-4fde-bf75-ba41a07cb79b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/fpro.iml" afterPath="$PROJECT_DIR$/.idea/modules/fpro.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Exp.java" afterPath="$PROJECT_DIR$/src/main/java/Exp.java" />
     </list>
     <ignored path="FPro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,7 +49,6 @@
             <state relative-caret-position="1944">
               <caret line="108" column="10" selection-start-line="108" selection-start-column="10" selection-end-line="108" selection-end-column="10" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#isDictionarySame#0;class#CompressModule#0" expanded="false" />
               </folding>
             </state>
@@ -59,11 +60,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="810">
               <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#664#665#0" expanded="true" />
-                <element signature="e#705#706#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -73,7 +70,14 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="738">
               <caret line="69" column="13" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="e#0#19900#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#3011#3012#0" expanded="false" />
+                <element signature="e#3058#3059#0" expanded="false" />
+                <element signature="e#15257#15258#0" expanded="false" />
+                <element signature="e#15284#15285#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,7 +98,20 @@
             <state relative-caret-position="468">
               <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1244#1245#0" expanded="false" />
+                <element signature="e#1315#1316#0" expanded="false" />
+                <element signature="e#1717#1718#0" expanded="false" />
+                <element signature="e#1752#1753#0" expanded="false" />
+                <element signature="e#2307#2308#0" expanded="false" />
+                <element signature="e#2342#2343#0" expanded="false" />
+                <element signature="e#2505#2506#0" expanded="false" />
+                <element signature="e#2543#2544#0" expanded="false" />
+                <element signature="e#2623#2624#0" expanded="false" />
+                <element signature="e#2650#2651#0" expanded="false" />
+                <element signature="e#2835#2836#0" expanded="false" />
+                <element signature="e#2868#2869#0" expanded="false" />
+                <element signature="e#3121#3122#0" expanded="false" />
+                <element signature="e#3190#3191#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -113,8 +130,8 @@
       <file leaf-file-name="Exp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Exp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="253" column="48" selection-start-line="252" selection-start-column="6" selection-end-line="253" selection-end-column="48" />
+            <state relative-caret-position="126">
+              <caret line="269" column="93" selection-start-line="269" selection-start-column="93" selection-end-line="269" selection-end-column="93" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#readTextFile#0;class#Exp#0" expanded="false" />
@@ -125,7 +142,19 @@
                 <element signature="method#writetoCache#0;class#Exp#0" expanded="false" />
                 <element signature="method#writein#0;class#Exp#0" expanded="false" />
                 <element signature="method#subValue#0;class#Exp#0" expanded="false" />
+                <marker date="1490414842785" expanded="false" signature="8840:8849" ph="&lt;~&gt;" />
+                <marker date="1490414842785" expanded="false" signature="8909:8918" ph="&lt;~&gt;" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TreeNode.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/srcs/jackson-core-2.6.5-sources.jar!/com/fasterxml/jackson/core/TreeNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="254">
+              <caret line="229" column="13" selection-start-line="229" selection-start-column="13" selection-end-line="229" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -135,7 +164,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
               <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -232,20 +263,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="External Libraries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FPro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; 1.8 &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -714,7 +731,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.5136116" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35756677" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29970327" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3249258" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22317597" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -783,23 +800,25 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/CompressModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="70" column="9" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#isDictionarySame#0;class#CompressModule#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/LRUCache.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1620">
           <caret line="105" column="1" selection-start-line="105" selection-start-column="1" selection-end-line="105" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1244#1245#0" expanded="false" />
+            <element signature="e#1315#1316#0" expanded="false" />
+            <element signature="e#1717#1718#0" expanded="false" />
+            <element signature="e#1752#1753#0" expanded="false" />
+            <element signature="e#2307#2308#0" expanded="false" />
+            <element signature="e#2342#2343#0" expanded="false" />
+            <element signature="e#2505#2506#0" expanded="false" />
+            <element signature="e#2543#2544#0" expanded="false" />
+            <element signature="e#2623#2624#0" expanded="false" />
+            <element signature="e#2650#2651#0" expanded="false" />
+            <element signature="e#2835#2836#0" expanded="false" />
+            <element signature="e#2868#2869#0" expanded="false" />
+            <element signature="e#3121#3122#0" expanded="false" />
+            <element signature="e#3190#3191#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -808,7 +827,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1368">
           <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -855,6 +876,8 @@
             <element signature="method#writetoCache#0;class#Exp#0" expanded="false" />
             <element signature="method#writein#0;class#Exp#0" expanded="false" />
             <element signature="method#subValue#0;class#Exp#0" expanded="false" />
+            <marker date="1490414842785" expanded="false" signature="8840:8849" ph="&lt;~&gt;" />
+            <marker date="1490414842785" expanded="false" signature="8909:8918" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -864,7 +887,6 @@
         <state relative-caret-position="360">
           <caret line="23" column="88" selection-start-line="23" selection-start-column="88" selection-end-line="23" selection-end-column="88" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#isDictionarySame#0;class#CompressModule#0" expanded="false" />
           </folding>
         </state>
@@ -874,7 +896,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
           <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -914,6 +938,8 @@
             <element signature="method#writetoCache#0;class#Exp#0" expanded="false" />
             <element signature="method#writein#0;class#Exp#0" expanded="false" />
             <element signature="method#subValue#0;class#Exp#0" expanded="false" />
+            <marker date="1490414842785" expanded="false" signature="8840:8849" ph="&lt;~&gt;" />
+            <marker date="1490414842785" expanded="false" signature="8909:8918" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -954,6 +980,8 @@
             <element signature="method#writetoCache#0;class#Exp#0" expanded="false" />
             <element signature="method#writein#0;class#Exp#0" expanded="false" />
             <element signature="method#subValue#0;class#Exp#0" expanded="false" />
+            <marker date="1490414842785" expanded="false" signature="8840:8849" ph="&lt;~&gt;" />
+            <marker date="1490414842785" expanded="false" signature="8909:8918" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -994,6 +1022,8 @@
             <element signature="method#writetoCache#0;class#Exp#0" expanded="false" />
             <element signature="method#writein#0;class#Exp#0" expanded="false" />
             <element signature="method#subValue#0;class#Exp#0" expanded="false" />
+            <marker date="1490414842785" expanded="false" signature="8840:8849" ph="&lt;~&gt;" />
+            <marker date="1490414842785" expanded="false" signature="8909:8918" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1071,7 +1101,20 @@
         <state relative-caret-position="468">
           <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1244#1245#0" expanded="false" />
+            <element signature="e#1315#1316#0" expanded="false" />
+            <element signature="e#1717#1718#0" expanded="false" />
+            <element signature="e#1752#1753#0" expanded="false" />
+            <element signature="e#2307#2308#0" expanded="false" />
+            <element signature="e#2342#2343#0" expanded="false" />
+            <element signature="e#2505#2506#0" expanded="false" />
+            <element signature="e#2543#2544#0" expanded="false" />
+            <element signature="e#2623#2624#0" expanded="false" />
+            <element signature="e#2650#2651#0" expanded="false" />
+            <element signature="e#2835#2836#0" expanded="false" />
+            <element signature="e#2868#2869#0" expanded="false" />
+            <element signature="e#3121#3122#0" expanded="false" />
+            <element signature="e#3190#3191#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1081,7 +1124,6 @@
         <state relative-caret-position="1944">
           <caret line="108" column="10" selection-start-line="108" selection-start-column="10" selection-end-line="108" selection-end-column="10" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#isDictionarySame#0;class#CompressModule#0" expanded="false" />
           </folding>
         </state>
@@ -1091,7 +1133,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1099,7 +1143,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="738">
           <caret line="69" column="13" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#0#19900#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#3011#3012#0" expanded="false" />
+            <element signature="e#3058#3059#0" expanded="false" />
+            <element signature="e#15257#15258#0" expanded="false" />
+            <element signature="e#15284#15285#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1107,18 +1158,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
           <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#705#706#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/srcs/jackson-core-2.6.5-sources.jar!/com/fasterxml/jackson/core/TreeNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="229" column="13" selection-start-line="229" selection-start-column="13" selection-end-line="229" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Exp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="253" column="48" selection-start-line="252" selection-start-column="6" selection-end-line="253" selection-end-column="48" />
+        <state relative-caret-position="126">
+          <caret line="269" column="93" selection-start-line="269" selection-start-column="93" selection-end-line="269" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#readTextFile#0;class#Exp#0" expanded="false" />
@@ -1129,6 +1184,8 @@
             <element signature="method#writetoCache#0;class#Exp#0" expanded="false" />
             <element signature="method#writein#0;class#Exp#0" expanded="false" />
             <element signature="method#subValue#0;class#Exp#0" expanded="false" />
+            <marker date="1490414842785" expanded="false" signature="8840:8849" ph="&lt;~&gt;" />
+            <marker date="1490414842785" expanded="false" signature="8909:8918" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
