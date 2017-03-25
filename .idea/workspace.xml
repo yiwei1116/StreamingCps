@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a26122c-9dd8-4fde-bf75-ba41a07cb79b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/fpro.iml" afterPath="$PROJECT_DIR$/.idea/modules/fpro.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/RealTimeData" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/RealTimeData1" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/CompressModule.java" afterPath="$PROJECT_DIR$/src/main/java/CompressModule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ConversionModule.java" afterPath="$PROJECT_DIR$/src/main/java/ConversionModule.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Exp.java" afterPath="$PROJECT_DIR$/src/main/java/Exp.java" />
     </list>
     <ignored path="FPro.iws" />
@@ -46,9 +48,10 @@
       <file leaf-file-name="CompressModule.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/CompressModule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1944">
-              <caret line="108" column="10" selection-start-line="108" selection-start-column="10" selection-end-line="108" selection-end-column="10" />
+            <state relative-caret-position="128">
+              <caret line="109" column="38" selection-start-line="109" selection-start-column="38" selection-end-line="109" selection-end-column="38" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#isDictionarySame#0;class#CompressModule#0" expanded="false" />
               </folding>
             </state>
@@ -58,9 +61,11 @@
       <file leaf-file-name="MyReceiver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MyReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
+            <state relative-caret-position="774">
               <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -95,23 +100,10 @@
       <file leaf-file-name="LRUCache.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/LRUCache.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
+            <state relative-caret-position="404">
               <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
               <folding>
-                <element signature="e#1244#1245#0" expanded="false" />
-                <element signature="e#1315#1316#0" expanded="false" />
-                <element signature="e#1717#1718#0" expanded="false" />
-                <element signature="e#1752#1753#0" expanded="false" />
-                <element signature="e#2307#2308#0" expanded="false" />
-                <element signature="e#2342#2343#0" expanded="false" />
-                <element signature="e#2505#2506#0" expanded="false" />
-                <element signature="e#2543#2544#0" expanded="false" />
-                <element signature="e#2623#2624#0" expanded="false" />
-                <element signature="e#2650#2651#0" expanded="false" />
-                <element signature="e#2835#2836#0" expanded="false" />
-                <element signature="e#2868#2869#0" expanded="false" />
-                <element signature="e#3121#3122#0" expanded="false" />
-                <element signature="e#3190#3191#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -130,30 +122,34 @@
       <file leaf-file-name="Exp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Exp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="269" column="93" selection-start-line="269" selection-start-column="93" selection-end-line="269" selection-end-column="93" />
+            <state relative-caret-position="-370">
+              <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#readTextFile#0;class#Exp#0" expanded="false" />
-                <element signature="method#getString#0;class#Exp#0" expanded="false" />
-                <element signature="method#write#0;class#Exp#0" expanded="false" />
-                <element signature="method#writeTransfer#0;class#Exp#0" expanded="false" />
-                <element signature="method#writeto#0;class#Exp#0" expanded="false" />
-                <element signature="method#writetoCache#0;class#Exp#0" expanded="false" />
-                <element signature="method#writein#0;class#Exp#0" expanded="false" />
                 <element signature="method#subValue#0;class#Exp#0" expanded="false" />
-                <marker date="1490414842785" expanded="false" signature="8840:8849" ph="&lt;~&gt;" />
-                <marker date="1490414842785" expanded="false" signature="8909:8918" ph="&lt;~&gt;" />
+                <marker date="1490425425018" expanded="false" signature="7946:7955" ph="&lt;~&gt;" />
+                <marker date="1490425425018" expanded="false" signature="8015:8024" ph="&lt;~&gt;" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TreeNode.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/srcs/jackson-core-2.6.5-sources.jar!/com/fasterxml/jackson/core/TreeNode.java">
+      <file leaf-file-name="BufferedWriter.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/jdk1.8.0_121/src.zip!/java/io/BufferedWriter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="254">
-              <caret line="229" column="13" selection-start-line="229" selection-start-column="13" selection-end-line="229" selection-end-column="13" />
+              <caret line="241" column="16" selection-start-line="241" selection-start-column="16" selection-end-line="241" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PubNub.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PubNub.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="67860">
+              <caret line="7809" column="0" selection-start-line="7809" selection-start-column="0" selection-end-line="7809" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -162,11 +158,9 @@
       <file leaf-file-name="ConversionModule.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ConversionModule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state relative-caret-position="80">
+              <caret line="72" column="33" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -202,12 +196,13 @@
         <option value="$PROJECT_DIR$/src/main/scala-2.11/NCKU/Collector.scala" />
         <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/src/main/java/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ConversionModule.java" />
         <option value="$PROJECT_DIR$/Dictionary.txt" />
         <option value="$PROJECT_DIR$/src/main/java/LRUCache.java" />
         <option value="$PROJECT_DIR$/cacheTable.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/CompressModule.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyReceiver.java" />
+        <option value="$PROJECT_DIR$/PubNub.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/CompressModule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ConversionModule.java" />
         <option value="$PROJECT_DIR$/src/main/java/Exp.java" />
       </list>
     </option>
@@ -722,7 +717,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1215" height="804" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3231579" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -731,7 +726,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.5136116" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29970327" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2240356" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3249258" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22317597" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -791,7 +786,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -800,39 +795,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/LRUCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="105" column="1" selection-start-line="105" selection-start-column="1" selection-end-line="105" selection-end-column="1" />
-          <folding>
-            <element signature="e#1244#1245#0" expanded="false" />
-            <element signature="e#1315#1316#0" expanded="false" />
-            <element signature="e#1717#1718#0" expanded="false" />
-            <element signature="e#1752#1753#0" expanded="false" />
-            <element signature="e#2307#2308#0" expanded="false" />
-            <element signature="e#2342#2343#0" expanded="false" />
-            <element signature="e#2505#2506#0" expanded="false" />
-            <element signature="e#2543#2544#0" expanded="false" />
-            <element signature="e#2623#2624#0" expanded="false" />
-            <element signature="e#2650#2651#0" expanded="false" />
-            <element signature="e#2835#2836#0" expanded="false" />
-            <element signature="e#2868#2869#0" expanded="false" />
-            <element signature="e#3121#3122#0" expanded="false" />
-            <element signature="e#3190#3191#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ConversionModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1368">
-          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Transfer.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -859,6 +821,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -869,15 +832,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#readTextFile#0;class#Exp#0" expanded="false" />
-            <element signature="method#getString#0;class#Exp#0" expanded="false" />
-            <element signature="method#write#0;class#Exp#0" expanded="false" />
-            <element signature="method#writeTransfer#0;class#Exp#0" expanded="false" />
-            <element signature="method#writeto#0;class#Exp#0" expanded="false" />
-            <element signature="method#writetoCache#0;class#Exp#0" expanded="false" />
-            <element signature="method#writein#0;class#Exp#0" expanded="false" />
             <element signature="method#subValue#0;class#Exp#0" expanded="false" />
-            <marker date="1490414842785" expanded="false" signature="8840:8849" ph="&lt;~&gt;" />
-            <marker date="1490414842785" expanded="false" signature="8909:8918" ph="&lt;~&gt;" />
+            <marker date="1490425425018" expanded="false" signature="7946:7955" ph="&lt;~&gt;" />
+            <marker date="1490425425018" expanded="false" signature="8015:8024" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -887,6 +844,7 @@
         <state relative-caret-position="360">
           <caret line="23" column="88" selection-start-line="23" selection-start-column="88" selection-end-line="23" selection-end-column="88" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#isDictionarySame#0;class#CompressModule#0" expanded="false" />
           </folding>
         </state>
@@ -896,9 +854,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
           <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -921,6 +877,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" column="70" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -931,15 +888,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#readTextFile#0;class#Exp#0" expanded="false" />
-            <element signature="method#getString#0;class#Exp#0" expanded="false" />
-            <element signature="method#write#0;class#Exp#0" expanded="false" />
-            <element signature="method#writeTransfer#0;class#Exp#0" expanded="false" />
-            <element signature="method#writeto#0;class#Exp#0" expanded="false" />
-            <element signature="method#writetoCache#0;class#Exp#0" expanded="false" />
-            <element signature="method#writein#0;class#Exp#0" expanded="false" />
             <element signature="method#subValue#0;class#Exp#0" expanded="false" />
-            <marker date="1490414842785" expanded="false" signature="8840:8849" ph="&lt;~&gt;" />
-            <marker date="1490414842785" expanded="false" signature="8909:8918" ph="&lt;~&gt;" />
+            <marker date="1490425425018" expanded="false" signature="7946:7955" ph="&lt;~&gt;" />
+            <marker date="1490425425018" expanded="false" signature="8015:8024" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -963,6 +914,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" column="70" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -973,15 +925,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#readTextFile#0;class#Exp#0" expanded="false" />
-            <element signature="method#getString#0;class#Exp#0" expanded="false" />
-            <element signature="method#write#0;class#Exp#0" expanded="false" />
-            <element signature="method#writeTransfer#0;class#Exp#0" expanded="false" />
-            <element signature="method#writeto#0;class#Exp#0" expanded="false" />
-            <element signature="method#writetoCache#0;class#Exp#0" expanded="false" />
-            <element signature="method#writein#0;class#Exp#0" expanded="false" />
             <element signature="method#subValue#0;class#Exp#0" expanded="false" />
-            <marker date="1490414842785" expanded="false" signature="8840:8849" ph="&lt;~&gt;" />
-            <marker date="1490414842785" expanded="false" signature="8909:8918" ph="&lt;~&gt;" />
+            <marker date="1490425425018" expanded="false" signature="7946:7955" ph="&lt;~&gt;" />
+            <marker date="1490425425018" expanded="false" signature="8015:8024" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1005,6 +951,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" column="70" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1015,15 +962,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#readTextFile#0;class#Exp#0" expanded="false" />
-            <element signature="method#getString#0;class#Exp#0" expanded="false" />
-            <element signature="method#write#0;class#Exp#0" expanded="false" />
-            <element signature="method#writeTransfer#0;class#Exp#0" expanded="false" />
-            <element signature="method#writeto#0;class#Exp#0" expanded="false" />
-            <element signature="method#writetoCache#0;class#Exp#0" expanded="false" />
-            <element signature="method#writein#0;class#Exp#0" expanded="false" />
             <element signature="method#subValue#0;class#Exp#0" expanded="false" />
-            <marker date="1490414842785" expanded="false" signature="8840:8849" ph="&lt;~&gt;" />
-            <marker date="1490414842785" expanded="false" signature="8909:8918" ph="&lt;~&gt;" />
+            <marker date="1490425425018" expanded="false" signature="7946:7955" ph="&lt;~&gt;" />
+            <marker date="1490425425018" expanded="false" signature="8015:8024" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1073,6 +1014,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="29" column="72" selection-start-line="29" selection-start-column="72" selection-end-line="29" selection-end-column="72" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1080,62 +1022,11 @@
     <entry file="jar://$USER_HOME$/jdk1.8.0_121/src.zip!/java/util/List.java" />
     <entry file="jar://$USER_HOME$/jdk1.8.0_121/src.zip!/java/lang/StringBuffer.java" />
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/List.java" />
-    <entry file="file://$PROJECT_DIR$/Dictionary.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cacheTable.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/LRUCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-          <folding>
-            <element signature="e#1244#1245#0" expanded="false" />
-            <element signature="e#1315#1316#0" expanded="false" />
-            <element signature="e#1717#1718#0" expanded="false" />
-            <element signature="e#1752#1753#0" expanded="false" />
-            <element signature="e#2307#2308#0" expanded="false" />
-            <element signature="e#2342#2343#0" expanded="false" />
-            <element signature="e#2505#2506#0" expanded="false" />
-            <element signature="e#2543#2544#0" expanded="false" />
-            <element signature="e#2623#2624#0" expanded="false" />
-            <element signature="e#2650#2651#0" expanded="false" />
-            <element signature="e#2835#2836#0" expanded="false" />
-            <element signature="e#2868#2869#0" expanded="false" />
-            <element signature="e#3121#3122#0" expanded="false" />
-            <element signature="e#3190#3191#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CompressModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1944">
-          <caret line="108" column="10" selection-start-line="108" selection-start-column="10" selection-end-line="108" selection-end-column="10" />
-          <folding>
-            <element signature="method#isDictionarySame#0;class#CompressModule#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ConversionModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1154,14 +1045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/srcs/jackson-core-2.6.5-sources.jar!/com/fasterxml/jackson/core/TreeNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -1170,22 +1053,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PubNub.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67860">
+          <caret line="7809" column="0" selection-start-line="7809" selection-start-column="0" selection-end-line="7809" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/jdk1.8.0_121/src.zip!/java/io/BufferedWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="241" column="16" selection-start-line="241" selection-start-column="16" selection-end-line="241" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dictionary.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CompressModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="109" column="38" selection-start-line="109" selection-start-column="38" selection-end-line="109" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#isDictionarySame#0;class#CompressModule#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ConversionModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="72" column="33" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/LRUCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Exp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="269" column="93" selection-start-line="269" selection-start-column="93" selection-end-line="269" selection-end-column="93" />
+        <state relative-caret-position="-370">
+          <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#readTextFile#0;class#Exp#0" expanded="false" />
-            <element signature="method#getString#0;class#Exp#0" expanded="false" />
-            <element signature="method#write#0;class#Exp#0" expanded="false" />
-            <element signature="method#writeTransfer#0;class#Exp#0" expanded="false" />
-            <element signature="method#writeto#0;class#Exp#0" expanded="false" />
-            <element signature="method#writetoCache#0;class#Exp#0" expanded="false" />
-            <element signature="method#writein#0;class#Exp#0" expanded="false" />
             <element signature="method#subValue#0;class#Exp#0" expanded="false" />
-            <marker date="1490414842785" expanded="false" signature="8840:8849" ph="&lt;~&gt;" />
-            <marker date="1490414842785" expanded="false" signature="8909:8918" ph="&lt;~&gt;" />
+            <marker date="1490425425018" expanded="false" signature="7946:7955" ph="&lt;~&gt;" />
+            <marker date="1490425425018" expanded="false" signature="8015:8024" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>

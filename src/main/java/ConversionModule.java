@@ -70,7 +70,7 @@ public class ConversionModule {
 
 
         }
-        exp.writeTransfer(tfNum);
+        exp.writeTo(tfNum,"Transfer.txt");
 
 
 

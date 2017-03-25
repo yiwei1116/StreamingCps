@@ -78,16 +78,16 @@ public class Exp {
         return K ;
 
     }
-    public static void write(String s)
+    public static void writeTo(String s,String fileName)
     {
 
 
 
         try {
-            BufferedWriter out = new BufferedWriter(new FileWriter("Compressed.txt"));
+            BufferedWriter out = new BufferedWriter(new FileWriter(fileName));
             out.write(s);
             out.close();
-            System.out.println("Generated Compressed File::Compressed.txt");
+
         }
         catch (IOException e)
         {
@@ -101,21 +101,6 @@ public class Exp {
 
 
     }
-    public static void writeTransfer(String s)
-    {
-
-
-
-        try {
-            BufferedWriter out = new BufferedWriter(new FileWriter("Transfer.txt"));
-            out.write(s);
-            out.close();
-            System.out.println("Generated Compressed File::Transfer.txt");
-        }
-        catch (IOException e)
-        {
-            System.out.println("Exception ");
-        }
 
 
 
@@ -123,64 +108,6 @@ public class Exp {
 
 
 
-    }
-    public static void writeto(String s)
-    {
-
-
-
-        try {
-
-            BufferedWriter out = new BufferedWriter(new FileWriter("Dictionary.txt"));
-            out.write(s);
-            out.close();
-            System.out.println("Generated Dictionary File::Dictionary.txt");
-        }
-        catch (IOException e)
-        {
-
-            System.out.println("Exception : "  + e.getMessage());
-        }
-
-    }
-    public static void writetoCache(String s)
-    {
-
-
-
-        try {
-
-            BufferedWriter out = new BufferedWriter(new FileWriter("cacheTable.txt"));
-            out.write(s);
-            out.close();
-            System.out.println("Generated cacheTable File::cacheTable.txt");
-        }
-        catch (IOException e)
-        {
-
-            System.out.println("Exception : "  + e.getMessage());
-        }
-
-    }
-    public static void writein(String s)
-    {
-
-
-
-        try {
-            BufferedWriter out = new BufferedWriter(new FileWriter("Decompressed.txt"));
-            out.write(s);
-            out.close();
-            System.out.println("Generated Decompressed File::Decompressed.txt");
-        }
-        catch (IOException e)
-        {
-
-            System.out.println("Exception ");
-        }
-
-
-    }
     public static ArrayList subValue(ArrayList<Integer> data){
         int p,q,k ;
         int base = 200;
@@ -200,14 +127,48 @@ public class Exp {
     }
 
 
+
     public static void main(String[] args) throws IOException,InterruptedException{
+
+
+
+
         PNConfiguration pnConfiguration = new PNConfiguration();
         pnConfiguration.setSubscribeKey("sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe");
         pnConfiguration.setPublishKey("demo");
         pnConfiguration.setSecure(false);
 
         PubNub pubnub = new PubNub(pnConfiguration);
+        StringBuffer sensorData = new StringBuffer();
+        Scanner scanner = null;
+        FileInputStream inputStream = null;
+        try{
 
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/PubNub.txt");
+            scanner = new Scanner(inputStream, "UTF-8");
+
+
+            while (scanner.hasNextLine()) {
+
+                String line = scanner.nextLine();
+                sensorData.append(line);
+
+
+            }
+
+        }
+            finally {
+        if (inputStream!=null){
+
+            inputStream.close();
+
+        }
+        if (scanner!=null){
+
+            scanner.close();
+
+        }
+    }
         pubnub.addListener(new SubscribeCallback() {
             @Override
             public void status(PubNub pubnub, PNStatus status) {
@@ -267,7 +228,11 @@ public class Exp {
                     // Message has been received on channel stored in
                     // message.getSubscription()
                 }
+
                 Log.error("pubnub", String.valueOf(message.getMessage().get("radiation_level")));
+
+                sensorData.append(String.valueOf(message.getMessage().get("radiation_level"))+"\r\n");
+                writeTo(String.valueOf(sensorData),"PubNub.txt");
 
             }
 

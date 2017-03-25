@@ -107,8 +107,8 @@ public class CompressModule {
         for (Map.Entry<Integer, String> e : lruCache.getAll())
             lruTable=lruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";
         //    Log.error("r",String.valueOf(lruCache.getHead().getValue()));
-        exp.writetoCache(lruTable);
-        exp.writeto(dict);
+        exp.writeTo(lruTable,"cacheTable.txt");
+        exp.writeTo(dict,"Dictionary.txt");
         return result;
     }
 
