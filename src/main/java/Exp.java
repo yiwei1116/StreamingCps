@@ -190,9 +190,9 @@ public class Exp {
 
     public static void main(String[] args) throws IOException,InterruptedException{
 
-        SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("StreamCompress");
+        /*SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("StreamCompress");
         JavaStreamingContext javaStreamingContext = new JavaStreamingContext(sparkConf,Durations.seconds(1));
-
+*/
 
         FileInputStream inputStream = null;
         Scanner scanner = null;
@@ -250,8 +250,8 @@ public class Exp {
         Log.error("is before compress the same as after compress ?", String.valueOf(compressModule.reConstruct(decodingText).equals(radiationList)));
 
 
-        javaStreamingContext.start();
-        javaStreamingContext.awaitTermination();
+   /*     javaStreamingContext.start();
+        javaStreamingContext.awaitTermination();*/
 
     }}
 
