@@ -13,14 +13,14 @@ import java.util.Map;
 public class CompressModule {
     static Map<String,Integer> encodeDictionary = new HashMap<String,Integer>();
     static Map<Integer,String> decodeDictionary = new HashMap<Integer,String>();
-    static int dictionaryMaxSize = 265;
+    static int dictionaryMaxSize = 260;
     static String lruTable="";
     public static List<Integer> compress(String uncompressed) {
         // Build the decodeDictionary.
         LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(4096);
         Exp exp = new Exp();
         int dictSize = 256;
-        int j = 0;
+
 
         for (int i = 0; i < 256; i++) {
             encodeDictionary.put("" + (char) i, i);
@@ -57,10 +57,10 @@ public class CompressModule {
                     result.add(encodeDictionary.get(w));
                     Integer leastFrequenceIndex = lruCache.getHead().getKey();
                     String leastFrequenceCode = lruCache.getHead().getValue();
-                    Log.error("index",String.valueOf(leastFrequenceIndex));
-                    Log.error("code",leastFrequenceCode);
+               //     Log.error("index",String.valueOf(leastFrequenceIndex));
+               //     Log.error("code",leastFrequenceCode);
                 encodeDictionary.remove(leastFrequenceCode,leastFrequenceIndex);
-                    Log.error("wc",wc);
+              //      Log.error("wc",wc);
                 encodeDictionary.put(wc,leastFrequenceIndex);
                     //lruCache.remove(leastFrequenceIndex,leastFrequenceCode);
                     lruCache.put(encodeDictionary.get(wc)  , wc);

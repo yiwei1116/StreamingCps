@@ -131,45 +131,47 @@ public class Exp {
     public static void main(String[] args) throws IOException,InterruptedException{
 
 
-
+/*
 
         PNConfiguration pnConfiguration = new PNConfiguration();
         pnConfiguration.setSubscribeKey("sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe");
         pnConfiguration.setPublishKey("demo");
         pnConfiguration.setSecure(false);
 
-        PubNub pubnub = new PubNub(pnConfiguration);
+        PubNub pubnub = new PubNub(pnConfiguration);*/
         StringBuffer sensorData = new StringBuffer();
-        Scanner scanner = null;
-        FileInputStream inputStream = null;
+        Scanner scannerF = null;
+        FileInputStream inputStreamF = null;
         try{
 
-            inputStream = new FileInputStream("/home/steve02/StreamingCps/PubNub.txt");
-            scanner = new Scanner(inputStream, "UTF-8");
+     //       inputStream = new FileInputStream("/home/steve02/StreamingCps/PubNub.txt");
+            inputStreamF = new FileInputStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt");
+
+            scannerF = new Scanner(inputStreamF, "UTF-8");
 
 
-            while (scanner.hasNextLine()) {
+            while (scannerF.hasNextLine()) {
 
-                String line = scanner.nextLine();
-                sensorData.append(line);
+                String line = scannerF.nextLine();
+                sensorData.append(line+"\r\n");
 
 
             }
 
         }
             finally {
-        if (inputStream!=null){
+        if (inputStreamF!=null){
 
-            inputStream.close();
+            inputStreamF.close();
 
         }
-        if (scanner!=null){
+        if (scannerF!=null){
 
-            scanner.close();
+            scannerF.close();
 
         }
     }
-        pubnub.addListener(new SubscribeCallback() {
+  /*      pubnub.addListener(new SubscribeCallback() {
             @Override
             public void status(PubNub pubnub, PNStatus status) {
 
@@ -243,25 +245,24 @@ public class Exp {
         });
 
 
-        pubnub.subscribe().channels(Arrays.asList("pubnub-sensor-network")).execute();
+        pubnub.subscribe().channels(Arrays.asList("pubnub-sensor-network")).execute();*/
 
         /*SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("StreamCompress");
         JavaStreamingContext javaStreamingContext = new JavaStreamingContext(sparkConf,Durations.seconds(1));
 */
 
-      /*  FileInputStream inputStream = null;
+        FileInputStream inputStream = null;
         Scanner scanner = null;
         ArrayList<Integer> DiffList = new ArrayList<Integer>();
         ArrayList<Integer> radiationList = new ArrayList<Integer>();
         try {
-         //   inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/RealTimeData1");
-            inputStream = new FileInputStream("/home/steve02/StreamingCps/RealTimeData1");
+            inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt");
+         //   inputStream = new FileInputStream("/home/steve02/StreamingCps/RealTimeData1");
             scanner = new Scanner(inputStream, "UTF-8");
-            int i = 0;
 
             while (scanner.hasNextLine()) {
 
-                String line = scanner.nextLine().substring(20,23);
+                String line = scanner.nextLine().substring(1,4);
                 int k = Integer.valueOf(line);
                 radiationList.add(k);
                 System.out.println(k);
@@ -295,15 +296,14 @@ public class Exp {
         String decodingText = compressModule.decompress(compressList);
         compressModule.reConstruct(decodingText);
         //System.out.println(decodingText);
-   *//*     String testText = "fifisdjfisdjsss";//fifisdjfisdjsss
+   /*     String testText = "fifisdjfisdjsss";//fifisdjfisdjsss
         List<Integer> compressed = compressModule.compress(testText);
         System.out.println(compressed);
         String decompressed = compressModule.decompress(compressed);
         System.out.println(decompressed);
         Log.error("is before compress the same as after compress ?",String.valueOf(testText.equals(decompressed)));
-        *//*
+        */
         Log.error("is before compress the same as after compress ?", String.valueOf(compressModule.reConstruct(decodingText).equals(radiationList)));
-*/
 
    /*     javaStreamingContext.start();
         javaStreamingContext.awaitTermination();*/
