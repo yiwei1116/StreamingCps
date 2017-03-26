@@ -87,8 +87,8 @@ public class CompressModule {
             String key =entry.getKey();
             Integer value = entry.getValue();
             encodeDictionaryRe.put(value,key);
-            if(value > 255)
-            System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");
+          /*  if(value > 255)
+            System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");*/
 
         }
 
@@ -151,7 +151,7 @@ public class CompressModule {
                // Log.error("w",w);
 
                 if(k==leastFrequenceIndex){
-                    Log.error("replace",w+w.charAt(0));
+                  //  Log.error("replace",w+w.charAt(0));
                     lruCache.put(leastFrequenceIndex,w+w.charAt(0));
                     decodeDictionary.remove(leastFrequenceIndex,leastFrequenceCode);
                     decodeDictionary.put(leastFrequenceIndex,w+w.charAt(0));
@@ -169,7 +169,7 @@ public class CompressModule {
                     entry = decodeDictionary.get(k);
                 }
                 else {
-                    Log.error("replace",w+entry.charAt(0));
+                 //   Log.error("replace",w+entry.charAt(0));
                     lruCache.put(leastFrequenceIndex, w + entry.charAt(0));
                     decodeDictionary.remove(leastFrequenceIndex, leastFrequenceCode);
                     decodeDictionary.put(leastFrequenceIndex, w + entry.charAt(0));
@@ -182,9 +182,9 @@ public class CompressModule {
                         if(decodeDictionary.get(k).startsWith(e.getValue())) {
                             hashMap.put(e.getKey(),e.getValue());
 
-                            Log.error("kk", String.valueOf(e.getKey()));
+                        /*    Log.error("kk", String.valueOf(e.getKey()));
                             Log.error("dd", String.valueOf(decodeDictionary.get(k)));
-                            Log.error("ee", String.valueOf(e.getValue()));
+                            Log.error("ee", String.valueOf(e.getValue()));*/
                             //            Log.error("value",String.valueOf(e.getValue()));
                         }
                     }
@@ -249,7 +249,7 @@ public class CompressModule {
                 delruTable=delruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";
 
             System.out.println("Decode Cache Table:");
-            System.out.print(delruTable);
+      //      System.out.print(delruTable);
 
 
         System.out.println("********************************************************");
@@ -258,8 +258,8 @@ public class CompressModule {
             Integer key =dic.getKey();
             String value = dic.getValue();
 
-            if(key > 255)
-                System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");
+           /* if(key > 255)
+                System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");*/
 
         }
         Log.error("if encode cache equal to decode cache ?",String.valueOf(delruTable.equals(lruTable)));
@@ -342,16 +342,5 @@ public class CompressModule {
 
 
     }
-    static class StrLenComparator1 implements Comparator<String>{
 
-        @Override
-        public int compare(String o1, String o2) {
-            if(o1.length()>o2.length())
-                return 1;
-            if(o1.length()<o2.length())
-                return -1;
-            return o1.compareTo(o2);
-        }
-
-    }
 }
