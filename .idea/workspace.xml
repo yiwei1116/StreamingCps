@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a26122c-9dd8-4fde-bf75-ba41a07cb79b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/CompressModule$StrLenComparator1.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/CompressModule.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/CompressModule.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/CompressModule.java" afterPath="$PROJECT_DIR$/src/main/java/CompressModule.java" />
     </list>
     <ignored path="FPro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,7 +40,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CompressModule.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CompressModule.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/CompressModule.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -119,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Exp.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Exp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Exp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="280" column="43" selection-start-line="280" selection-start-column="43" selection-end-line="280" selection-end-column="43" />
+            <state relative-caret-position="306">
+              <caret line="284" column="49" selection-start-line="284" selection-start-column="8" selection-end-line="284" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#readTextFile#0;class#Exp#0" expanded="false" />
@@ -132,6 +129,19 @@
                 <element signature="e#2791#2800#0" expanded="true" />
                 <element signature="e#8056#8065#0" expanded="true" />
                 <element signature="e#8125#8134#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArrayList.java" pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/ArrayList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="276" column="15" selection-start-line="276" selection-start-column="15" selection-end-line="276" selection-end-column="15" />
+              <folding>
+                <element signature="e#10189#10190#0" expanded="true" />
+                <element signature="e#10216#10217#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -152,16 +162,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1131">
               <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Transfer.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Transfer.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -204,8 +204,8 @@
         <option value="$PROJECT_DIR$/src/main/java/ConversionModule.java" />
         <option value="$PROJECT_DIR$/Dictionary.txt" />
         <option value="$PROJECT_DIR$/cacheTable.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/Exp.java" />
         <option value="$PROJECT_DIR$/src/main/java/CompressModule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Exp.java" />
       </list>
     </option>
   </component>
@@ -882,13 +882,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Transfer.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="119" selection-start-line="0" selection-start-column="117" selection-end-line="0" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dictionary.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1404">
@@ -1177,22 +1170,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Exp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="280" column="43" selection-start-line="280" selection-start-column="43" selection-end-line="280" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#readTextFile#0;class#Exp#0" expanded="false" />
-            <element signature="method#getString#0;class#Exp#0" expanded="false" />
-            <element signature="method#writeTo#0;class#Exp#0" expanded="false" />
-            <element signature="e#2791#2800#0" expanded="true" />
-            <element signature="e#8056#8065#0" expanded="true" />
-            <element signature="e#8125#8134#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/LRUCache.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
@@ -1216,6 +1193,33 @@
             <element signature="e#398#414#0" expanded="true" />
             <element signature="e#1411#1420#0" expanded="true" />
             <element signature="e#4379#4396#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="276" column="15" selection-start-line="276" selection-start-column="15" selection-end-line="276" selection-end-column="15" />
+          <folding>
+            <element signature="e#10189#10190#0" expanded="true" />
+            <element signature="e#10216#10217#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Exp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="284" column="49" selection-start-line="284" selection-start-column="8" selection-end-line="284" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#readTextFile#0;class#Exp#0" expanded="false" />
+            <element signature="method#getString#0;class#Exp#0" expanded="false" />
+            <element signature="method#writeTo#0;class#Exp#0" expanded="false" />
+            <element signature="e#2791#2800#0" expanded="true" />
+            <element signature="e#8056#8065#0" expanded="true" />
+            <element signature="e#8125#8134#0" expanded="true" />
           </folding>
         </state>
       </provider>
