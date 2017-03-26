@@ -64,7 +64,6 @@ public class Exp {
         }return returnValue;
     }
 
-
     public  static  String getString(List<Integer>Compress){
 
 
@@ -102,12 +101,6 @@ public class Exp {
 
     }
 
-
-
-
-
-
-
     public static ArrayList subValue(ArrayList<Integer> data){
         int p,q,k ;
         int base = 200;
@@ -119,7 +112,7 @@ public class Exp {
               k = q - p;
 
               preprocessList.add(k);
-              Log.error("k",String.valueOf(preprocessList.get(i)));
+              //Log.error("k",String.valueOf(preprocessList.get(i)));
           }
           return preprocessList;
 
@@ -129,10 +122,7 @@ public class Exp {
 
 
     public static void main(String[] args) throws IOException,InterruptedException{
-
-
 /*
-
         PNConfiguration pnConfiguration = new PNConfiguration();
         pnConfiguration.setSubscribeKey("sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe");
         pnConfiguration.setPublishKey("demo");
@@ -265,7 +255,7 @@ public class Exp {
                 String line = scanner.nextLine().substring(1,4);
                 int k = Integer.valueOf(line);
                 radiationList.add(k);
-                System.out.println(k);
+
 
 
             }
@@ -292,19 +282,20 @@ public class Exp {
         List<Integer>compressList = new ArrayList<>();
         compressList = compressModule.compress(conversionModule.conversionTable(DiffList));
         String encodingText = getString(compressList);
-        System.out.println(encodingText.);
+        System.out.println(radiationList.size());
+        System.out.println(encodingText.length());
         String decodingText = compressModule.decompress(compressList);
         compressModule.reConstruct(decodingText);
         System.out.println(conversionModule.conversionTable(DiffList));
         System.out.println(decodingText);
-     /*   String testText = "BAbABbAbAbAB";//BAbABbAbAbABacCZA
+       /* String testText = "ZcaEdDeBCcZaCBeAZZZZAZcFcaAcAZBdDcDZBAcaZCcaAAZcFccFdcDAaabBcaCbBAcBAZa";//BAbABbAbAbABacCZA
         List<Integer> compressed = compressModule.compress(testText);
         System.out.println(compressed);
         String decompressed = compressModule.decompress(compressed);
+        System.out.println(testText);
         System.out.println(decompressed);
         Log.error("is before compress the same as after compress ?",String.valueOf(testText.equals(decompressed)));*/
-
-       Log.error("is before compress the same as after compress ?", String.valueOf(compressModule.reConstruct(decodingText).equals(radiationList)));
+      Log.error("is before compress the same as after compress ?", String.valueOf(compressModule.reConstruct(decodingText).equals(radiationList)));
 
    /*     javaStreamingContext.start();
         javaStreamingContext.awaitTermination();*/
