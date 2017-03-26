@@ -292,18 +292,19 @@ public class Exp {
         List<Integer>compressList = new ArrayList<>();
         compressList = compressModule.compress(conversionModule.conversionTable(DiffList));
         String encodingText = getString(compressList);
-        System.out.println(encodingText);
+        System.out.println(encodingText.);
         String decodingText = compressModule.decompress(compressList);
         compressModule.reConstruct(decodingText);
-        //System.out.println(decodingText);
-   /*     String testText = "fifisdjfisdjsss";//fifisdjfisdjsss
+        System.out.println(conversionModule.conversionTable(DiffList));
+        System.out.println(decodingText);
+     /*   String testText = "BAbABbAbAbAB";//BAbABbAbAbABacCZA
         List<Integer> compressed = compressModule.compress(testText);
         System.out.println(compressed);
         String decompressed = compressModule.decompress(compressed);
         System.out.println(decompressed);
-        Log.error("is before compress the same as after compress ?",String.valueOf(testText.equals(decompressed)));
-        */
-        Log.error("is before compress the same as after compress ?", String.valueOf(compressModule.reConstruct(decodingText).equals(radiationList)));
+        Log.error("is before compress the same as after compress ?",String.valueOf(testText.equals(decompressed)));*/
+
+       Log.error("is before compress the same as after compress ?", String.valueOf(compressModule.reConstruct(decodingText).equals(radiationList)));
 
    /*     javaStreamingContext.start();
         javaStreamingContext.awaitTermination();*/

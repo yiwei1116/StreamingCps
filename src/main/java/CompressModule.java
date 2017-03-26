@@ -161,12 +161,12 @@ public class CompressModule {
                     lruCache.put(leastFrequenceIndex,w+w.charAt(0));
                     decodeDictionary.remove(leastFrequenceIndex,leastFrequenceCode);
                     decodeDictionary.put(leastFrequenceIndex,w+w.charAt(0));
-                    for (Map.Entry<Integer, String> e : lruCache.getAll()){
+                   /* for (Map.Entry<Integer, String> e : lruCache.getAll()){
                         if(decodeDictionary.get(k).contains(e.getValue()))
                             lruCache.put(e.getKey(),e.getValue());
 
 
-                    }
+                    }*/
                    /* if( k > 255 )
                         lruCache.put(k, decodeDictionary.get(k));*/
 
