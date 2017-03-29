@@ -77,6 +77,25 @@ public class Exp {
         return K ;
 
     }
+
+    /**
+     *
+     * @param Compress
+     * @return    encode number bits
+     */
+    public  static  int getEncodeLength(List<Integer>Compress){
+
+        int  encodeLength=0;
+        for (int i = 0 ; i < Compress.size() ; i++){
+
+           encodeLength +=intToString(Compress.get(i),12).length();
+
+
+        }
+
+        return encodeLength ;
+
+    }
     public static void writeTo(String s,String fileName)
     {
 
@@ -119,7 +138,26 @@ public class Exp {
 
     }
 
+    /**
+     *
+     * @param number
+     * @param groupSize  number lengrh
+     * @return 12bit
+     */
+    public static String intToString(int number, int groupSize) {
+        StringBuilder result = new StringBuilder();
 
+        for(int i = 11; i >= 0 ; i--) {
+            int mask = 1 << i;
+            result.append((number & mask) != 0 ? "1" : "0");
+
+            if (i % groupSize == 0)
+                result.append(" ");
+        }
+        result.replace(result.length() - 1, result.length(), "");
+
+        return result.toString();
+    }
 
     public static void main(String[] args) throws IOException,InterruptedException{
 /*
@@ -129,13 +167,15 @@ public class Exp {
         pnConfiguration.setSecure(false);
 
         PubNub pubnub = new PubNub(pnConfiguration);*/
+        double compressRatio ;
+        double spaceSaving;
         StringBuffer sensorData = new StringBuffer();
         Scanner scannerF = null;
         FileInputStream inputStreamF = null;
         try{
 
-     //       inputStream = new FileInputStream("/home/steve02/StreamingCps/PubNub.txt");
-            inputStreamF = new FileInputStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt");
+            inputStreamF = new FileInputStream("/home/steve02/StreamingCps/PubNub.txt");
+      //      inputStreamF = new FileInputStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt");
 
             scannerF = new Scanner(inputStreamF, "UTF-8");
 
@@ -245,15 +285,20 @@ public class Exp {
         Scanner scanner = null;
         ArrayList<Integer> DiffList = new ArrayList<Integer>();
         ArrayList<Integer> radiationList = new ArrayList<Integer>();
+        double originSensorSize = 0 ;
+        String lineAdd="";
+
         try {
-            inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt");
-         //   inputStream = new FileInputStream("/home/steve02/StreamingCps/RealTimeData1");
+         //   inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt");
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/PubNub.txt");
             scanner = new Scanner(inputStream, "UTF-8");
 
             while (scanner.hasNextLine()) {
 
                 String line = scanner.nextLine().substring(1,4);
+                lineAdd += line;
                 int k = Integer.valueOf(line);
+                originSensorSize += line.length();
                 radiationList.add(k);
 
 
@@ -278,12 +323,17 @@ public class Exp {
 
             }
         }
+        writeTo(lineAdd,"eliminateData.txt");// 去除""
         DiffList = subValue(radiationList);
         List<Integer>compressList = new ArrayList<>();
         compressList = compressModule.compress(conversionModule.conversionTable(DiffList));
-        String encodingText = getString(compressList);
-        System.out.println(radiationList.size());
-        System.out.println(encodingText.length());
+        double  encodingTextLength = getEncodeLength(compressList);
+        System.out.println(originSensorSize *8);// byte to bit
+        System.out.println(encodingTextLength);
+        compressRatio = (originSensorSize *8 / encodingTextLength);
+        System.out.println("Compress Ratio: "+Math.round(compressRatio*100.0)/100.0);//只取小數點後兩位
+        spaceSaving = (1 - (1/compressRatio));
+        System.out.println("Space Saving: "+Math.round(spaceSaving*100.0)/100.0);
         String decodingText = compressModule.decompress(compressList);
         compressModule.reConstruct(decodingText);
         System.out.println(conversionModule.conversionTable(DiffList));
