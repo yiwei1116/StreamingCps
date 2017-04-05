@@ -1,5 +1,6 @@
 package NCKU
 
+import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.spark.{SparkConf, SparkContext}
 /**
   * Created by yiwei on 2017/2/21.
@@ -9,13 +10,14 @@ object Collector {
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf()
       .setMaster("local[*]")
-      .set("spark.ui.port", "4040")
       .setAppName("Receiver")
-    val sc = new SparkContext(conf)
-    val realTimeData = sc.textFile("/home/yiwei/Documents/RealTimeData")
-    val filterData = realTimeData.filter(_.contains("radiation_level"))
+    val sc = new StreamingContext(conf,Seconds(3))
+    val realTimeData = sc.textFileStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt")
+
+    println(realTimeData)
+
     //val Date = filterData.subtract()
-    def compress(tc:String) = {
+    /*def compress(tc:String) = {
       //initial dictionary
       val startDict = (1 to 255).map(a=>(""+a.toChar,a)).toMap
       val (fullDict, result, remain) = tc.foldLeft ((startDict, List[Int](), "")) {
@@ -60,8 +62,8 @@ object Collector {
     println(compressed)
     val result = decompress(compressed)
     println(result)
+*/
 
-    //  filterData.foreach(println)
   }
 
 

@@ -1,3 +1,5 @@
+package ncku.streamCp;
+
 import org.apache.spark.storage.StorageLevel;
 import org.apache.spark.streaming.receiver.Receiver;
 
