@@ -205,9 +205,10 @@ public class Exp {
         FileInputStream inputStreamF = null;
         try{
 
-            //     inputStreamF = new FileInputStream("/home/steve02/StreamingCps/PubNub.txt");
+
             try {
-                inputStreamF = new FileInputStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt");
+                inputStreamF = new FileInputStream("/home/steve02/StreamingCps/PubNub.txt");
+              //  inputStreamF = new FileInputStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -345,8 +346,8 @@ public class Exp {
         String lineAdd="";
 
         try {
-            inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt");
-         //   inputStream = new FileInputStream("/home/steve02/StreamingCps/PubNub.txt");
+         //   inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt");
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/PubNub.txt");
             scanner = new Scanner(inputStream, "UTF-8");
 
             while (scanner.hasNextLine()) {

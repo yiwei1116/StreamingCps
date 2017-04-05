@@ -167,7 +167,8 @@ public class EventServer {
 
             //     inputStreamF = new FileInputStream("/home/steve02/StreamingCps/PubNub.txt");
             try {
-                inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/Binary12");
+                inputStream = new FileInputStream("/home/steve02/StreamingCps/Binary12");
+                //inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/Binary12");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
