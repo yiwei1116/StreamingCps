@@ -21,11 +21,26 @@ public class CompressModule {
         // Build the decodeDictionary.
         LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(4096);
         Exp exp = new Exp();
-        int dictSize = 256;
+        int dictSize = 52;
 
 
-        for (int i = 0; i < 256; i++) {
+       /* for (int i = 0; i < 256; i++) {
             encodeDictionary.put("" + (char) i, i);
+
+        }*/
+        /**
+         *  A~Z 0~25
+         */
+        for (int i = 65; i < 91; i++) {
+            encodeDictionary.put("" + (char) i, (i-65));
+
+        }
+
+/**
+ *  a~z 26~51
+ */
+        for (int i = 97; i < 123; i++) {
+            encodeDictionary.put( "" + (char) i,  (i-71));
 
         }
         String dict="";
@@ -34,11 +49,11 @@ public class CompressModule {
  /*      for(int u=32;u<=32;u++)
             dict=dict+"["+"Key:"+Character.toString((char)u)+" , "+"Code:"+u+"]"+"\n";
         for(int o=46;o<=46;o++)
-            dict=dict+"["+"Key:"+Character.toString((char)o)+" , "+"Code:"+o+"]"+"\n";*/
+            dict=dict+"["+"Key:"+Character.toString((char)o)+" , "+"Code:"+o+"]"+"\n";
         for(int h=97;h<=122;h++)
             dict=dict+"["+"Key:"+h+" , "+"Code:"+Character.toString((char)h)+"]"+"\n";
         for(int s=65;s<=90;s++)
-            dict=dict+"["+"Key:"+s+" , "+"Code:"+Character.toString((char)s)+"]"+"\n";
+            dict=dict+"["+"Key:"+s+" , "+"Code:"+Character.toString((char)s)+"]"+"\n";*/
 
         String w = "";
         List<Integer> result = new ArrayList<Integer>();
@@ -46,8 +61,8 @@ public class CompressModule {
             String wc = w + c;
             if (encodeDictionary.containsKey(wc)) {
                 w = wc;
-                if(encodeDictionary.get(wc)>255)
-                 lruCache.put(encodeDictionary.get(wc)  , wc);
+                if(encodeDictionary.get(wc)>51)
+                    lruCache.put(encodeDictionary.get(wc)  , wc);
 
 
             }
@@ -56,28 +71,28 @@ public class CompressModule {
              *
              */
             else if (encodeDictionary.size() > dictionaryMaxSize ){
-                    result.add(encodeDictionary.get(w));
-                    Integer leastFrequenceIndex = lruCache.getHead().getKey();
-                    String leastFrequenceCode = lruCache.getHead().getValue();
-             //       Log.error("index",String.valueOf(leastFrequenceIndex));
-             //       Log.error("code",leastFrequenceCode);
+                result.add(encodeDictionary.get(w));
+                Integer leastFrequenceIndex = lruCache.getHead().getKey();
+                String leastFrequenceCode = lruCache.getHead().getValue();
+                //       Log.error("index",String.valueOf(leastFrequenceIndex));
+                //       Log.error("code",leastFrequenceCode);
                 encodeDictionary.remove(leastFrequenceCode,leastFrequenceIndex);
-              //      Log.error("wc",wc);
+                //      Log.error("wc",wc);
                 encodeDictionary.put(wc,leastFrequenceIndex);
-                    //lruCache.remove(leastFrequenceIndex,leastFrequenceCode);
-                    lruCache.put(encodeDictionary.get(wc)  , wc);
-                    w = "" + c;
+                //lruCache.remove(leastFrequenceIndex,leastFrequenceCode);
+                lruCache.put(encodeDictionary.get(wc)  , wc);
+                w = "" + c;
 
-                }
+            }
             else {
 
                 result.add(encodeDictionary.get(w));
                 // Add wc to the decodeDictionary.
                 encodeDictionary.put(wc, dictSize);
-                if( encodeDictionary.get(wc)>=256) {
+                if( encodeDictionary.get(wc)>51) {
                     lruCache.put(encodeDictionary.get(wc)  , wc);
-        //            Log.error("encodeDictionaryKey",String.valueOf(encodeDictionary.get(wc)));
-        //            Log.error("encodeDictionaryValue",wc);
+                    //            Log.error("encodeDictionaryKey",String.valueOf(encodeDictionary.get(wc)));
+                    //            Log.error("encodeDictionaryValue",wc);
                 }
 
                 dict=dict+"["+"Key:"+dictSize+" , "+"Code:"+wc+"]"+"\n";
@@ -120,12 +135,26 @@ public class CompressModule {
 
         LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(4096);
         String delruTable="";
-        int dictSize = 256;
+        int dictSize = 52;
 
-        for (int i = 0; i < 256; i++)
-            decodeDictionary.put(i, "" + (char)i);
+        /*for (int i = 0; i < 256; i++)
+            decodeDictionary.put(i, "" + (char)i);*/
+/**
+ *  A~Z 0~25
+ */
+        for (int i = 65; i < 91; i++) {
+            decodeDictionary.put((i-65), "" + (char) i);
 
-        String w = "" + (char)(int)compressed.remove(0);
+        }
+
+/**
+ *  a~z 26~51
+ */
+        for (int i = 97; i < 123; i++) {
+            decodeDictionary.put( (i-71), "" + (char) i);
+
+        }
+        String w = "" + decodeDictionary.get(compressed.remove(0));
         StringBuffer result = new StringBuffer(w);
         for (int k : compressed) {
 
@@ -150,12 +179,12 @@ public class CompressModule {
             if(decodeDictionary.size()>dictionaryMaxSize){
                 Integer leastFrequenceIndex = lruCache.getHead().getKey();
                 String leastFrequenceCode = lruCache.getHead().getValue();
-         //       Log.error("leastFrequenceIndex",String.valueOf(leastFrequenceIndex));
-          //      Log.error("leastFrequenceCode",leastFrequenceCode);
-               // Log.error("w",w);
+                //       Log.error("leastFrequenceIndex",String.valueOf(leastFrequenceIndex));
+                //      Log.error("leastFrequenceCode",leastFrequenceCode);
+                // Log.error("w",w);
 
                 if(k==leastFrequenceIndex){
-                  //  Log.error("replace",w+w.charAt(0));
+                    //  Log.error("replace",w+w.charAt(0));
                     lruCache.put(leastFrequenceIndex,w+w.charAt(0));
                     decodeDictionary.remove(leastFrequenceIndex,leastFrequenceCode);
                     decodeDictionary.put(leastFrequenceIndex,w+w.charAt(0));
@@ -169,11 +198,11 @@ public class CompressModule {
                         lruCache.put(k, decodeDictionary.get(k));
 */
 
-               //     Log.error("w+w.charAt",w+w.charAt(0));
+                    //     Log.error("w+w.charAt",w+w.charAt(0));
                     entry = decodeDictionary.get(k);
                 }
                 else {
-                 //   Log.error("replace",w+entry.charAt(0));
+                    //   Log.error("replace",w+entry.charAt(0));
                     lruCache.put(leastFrequenceIndex, w + entry.charAt(0));
                     decodeDictionary.remove(leastFrequenceIndex, leastFrequenceCode);
                     decodeDictionary.put(leastFrequenceIndex, w + entry.charAt(0));
@@ -207,17 +236,17 @@ public class CompressModule {
                     /*if( k > 255 )
                         lruCache.put(k, decodeDictionary.get(k));*/
 
-            //        Log.error("w+entry.charAt",w+entry.charAt(0));
+                    //        Log.error("w+entry.charAt",w+entry.charAt(0));
                     entry = decodeDictionary.get(k);
                 }
 
             }
 
-              else{
+            else{
 
                 lruCache.put(dictSize,w +entry.charAt(0));
-         //       Log.error("dictSize",String.valueOf(dictSize));
-         //       Log.error("w +entry.charAt(0)",String.valueOf(w +entry.charAt(0)));
+                //       Log.error("dictSize",String.valueOf(dictSize));
+                //       Log.error("w +entry.charAt(0)",String.valueOf(w +entry.charAt(0)));
                 decodeDictionary.put(dictSize, w + entry.charAt(0));
                 Map<Integer,String> hashMap = new HashMap<>();
                 for (Map.Entry<Integer, String> e : lruCache.getAll()){
@@ -242,18 +271,18 @@ public class CompressModule {
          /* if( k > 255 )
                 lruCache.put(k, decodeDictionary.get(k));*/
 
-              }
+            }
             result.append(entry);
 
             dictSize++;
 
             w = entry;
         }
-            for (Map.Entry<Integer, String> e : lruCache.getAll())
-                delruTable=delruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";
+        for (Map.Entry<Integer, String> e : lruCache.getAll())
+            delruTable=delruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";
 
-            System.out.println("Decode Cache Table:");
-      //      System.out.print(delruTable);
+        System.out.println("Decode Cache Table:");
+        //      System.out.print(delruTable);
 
 
         System.out.println("********************************************************");
@@ -266,6 +295,7 @@ public class CompressModule {
                 System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");*/
 
         }
+
         Log.error("if encode cache equal to decode cache ?",String.valueOf(delruTable.equals(lruTable)));
         Log.error("if encode dictionary equal to decode dictionary ?",String.valueOf(isDictionarySame(encodeDictionaryRe,decodeDictionary)));
         return result.toString();
@@ -334,7 +364,7 @@ public class CompressModule {
             diff =  (Integer)(reConverse.get(String.valueOf(decode.charAt(i))));
             base += diff;
             reNum.add(base);
-          //  Log.error("renum",String.valueOf(reNum.get(i)));
+            //  Log.error("renum",String.valueOf(reNum.get(i)));
         }
 
         return reNum;

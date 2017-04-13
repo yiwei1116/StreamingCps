@@ -28,7 +28,7 @@ public class Exp {
     public static String K="";
     public static ConversionModule conversionModule = new ConversionModule();
     public static CompressModule compressModule = new CompressModule();
-
+    private  static StringBuffer sensorData = new StringBuffer();
 
     public  static  String getString(List<Integer>Compress){
 
@@ -200,14 +200,14 @@ public class Exp {
 
 
 
-        StringBuffer sensorData = new StringBuffer();
+
         Scanner scannerF = null;
         FileInputStream inputStreamF = null;
         try{
 
 
             try {
-                inputStreamF = new FileInputStream("/home/steve02/StreamingCps/PubNub.txt");
+                inputStreamF = new FileInputStream("/home/steve02/StreamingCps/10M.txt");
               //  inputStreamF = new FileInputStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -246,21 +246,21 @@ public class Exp {
     }
 
     public static void main(String[] args) throws IOException,InterruptedException{
-     /*   PNConfiguration pnConfiguration = new PNConfiguration();
+       /* PNConfiguration pnConfiguration = new PNConfiguration();
         pnConfiguration.setSubscribeKey("sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe");
         pnConfiguration.setPublishKey("demo");
         pnConfiguration.setSecure(false);
 
         PubNub pubnub = new PubNub(pnConfiguration);*/
-        SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("StreamCompress");
+      /*  SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("StreamCompress");
         JavaStreamingContext javaStreamingContext = new JavaStreamingContext(sparkConf,Durations.seconds(5));
         //JavaDStream<String> stream = javaStreamingContext.textFileStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt").cache();
         JavaReceiverInputDStream<String> lines = javaStreamingContext.receiverStream(new MyReceiver("localhost", 9999));
-
+*/
         double compressRatio ;
         double spaceSaving;
-/*        oldDataSave();
-        pubnub.addListener(new SubscribeCallback() {
+        oldDataSave();
+       /* pubnub.addListener(new SubscribeCallback() {
             @Override
             public void status(PubNub pubnub, PNStatus status) {
 
@@ -322,8 +322,13 @@ public class Exp {
 
                 Log.error("pubnub", String.valueOf(message.getMessage().get("radiation_level")));
 
-                sensorData.append(String.valueOf(message.getMessage().get("radiation_level"))+"\r\n");
-                writeTo(String.valueOf(sensorData),"PubNub.txt");
+                sensorData.append(String.valueOf(message.getMessage().get("radiation_level")).substring(1,4)+"\r\n");
+                writeTo(String.valueOf(sensorData),"10M.txt");
+                if(sensorData.length()>5000000){
+
+
+                    pubnub.destroy();
+                }
 
             }
 
@@ -404,9 +409,9 @@ public class Exp {
         Log.error("is before compress the same as after compress ?",String.valueOf(testText.equals(decompressed)));*/
       Log.error("is before compress the same as after compress ?", String.valueOf(compressModule.reConstruct(decodingText).equals(radiationList)));
 
-        lines.print();
+        /*lines.print();
         javaStreamingContext.start();
-        javaStreamingContext.awaitTermination();
+        javaStreamingContext.awaitTermination();*/
 
     }}
 
