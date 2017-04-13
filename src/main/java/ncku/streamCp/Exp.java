@@ -246,12 +246,12 @@ public class Exp {
     }
 
     public static void main(String[] args) throws IOException,InterruptedException{
-       /* PNConfiguration pnConfiguration = new PNConfiguration();
+        PNConfiguration pnConfiguration = new PNConfiguration();
         pnConfiguration.setSubscribeKey("sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe");
         pnConfiguration.setPublishKey("demo");
         pnConfiguration.setSecure(false);
 
-        PubNub pubnub = new PubNub(pnConfiguration);*/
+        PubNub pubnub = new PubNub(pnConfiguration);
       /*  SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("StreamCompress");
         JavaStreamingContext javaStreamingContext = new JavaStreamingContext(sparkConf,Durations.seconds(5));
         //JavaDStream<String> stream = javaStreamingContext.textFileStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt").cache();
@@ -260,7 +260,7 @@ public class Exp {
         double compressRatio ;
         double spaceSaving;
         oldDataSave();
-       /* pubnub.addListener(new SubscribeCallback() {
+        pubnub.addListener(new SubscribeCallback() {
             @Override
             public void status(PubNub pubnub, PNStatus status) {
 
@@ -339,7 +339,7 @@ public class Exp {
         });
 
 
-        pubnub.subscribe().channels(Arrays.asList("pubnub-sensor-network")).execute();*/
+        pubnub.subscribe().channels(Arrays.asList("pubnub-sensor-network")).execute();
 
 
 
