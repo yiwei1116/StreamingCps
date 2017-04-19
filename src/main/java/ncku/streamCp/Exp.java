@@ -323,8 +323,8 @@ public class Exp {
                 Log.error("pubnub", String.valueOf(message.getMessage().get("radiation_level")));
 
                 sensorData.append(String.valueOf(message.getMessage().get("radiation_level")).substring(1,4)+"\r\n");
-                writeTo(String.valueOf(sensorData),"2M.txt");
-                if(sensorData.length()>2048000){
+                writeTo(String.valueOf(sensorData),"3M.txt");
+                if(sensorData.length()>3000000){
 
 
                     pubnub.destroy();

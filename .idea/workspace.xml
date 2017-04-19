@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a26122c-9dd8-4fde-bf75-ba41a07cb79b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/ncku/streamCp/Exp.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/ncku/streamCp/Exp.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/3M.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/10M.txt" afterPath="$PROJECT_DIR$/5M.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/module/CompressModule.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/module/CompressModule.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/ncku/streamCp/EventServer$1$1.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/ncku/streamCp/EventServer$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/ncku/streamCp/EventServer$1.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/ncku/streamCp/EventServer$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/ncku/streamCp/EventServer$SteamingServer.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/ncku/streamCp/EventServer$SteamingServer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/ncku/streamCp/EventServer.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/ncku/streamCp/EventServer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/ncku/streamCp/Exp$1.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/ncku/streamCp/Exp$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Binary12" afterPath="$PROJECT_DIR$/Binary12" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dictionary.txt" afterPath="$PROJECT_DIR$/Dictionary.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PubNub.txt" afterPath="$PROJECT_DIR$/PubNub.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Transfer.txt" afterPath="$PROJECT_DIR$/Transfer.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cacheTable.txt" afterPath="$PROJECT_DIR$/cacheTable.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eliminateData.txt" afterPath="$PROJECT_DIR$/eliminateData.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/module/CompressModule.java" afterPath="$PROJECT_DIR$/src/main/java/module/CompressModule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2M.txt" afterPath="$PROJECT_DIR$/2M.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ncku/streamCp/Exp.java" afterPath="$PROJECT_DIR$/src/main/java/ncku/streamCp/Exp.java" />
     </list>
     <ignored path="FPro.iws" />
@@ -26,7 +27,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -53,7 +53,7 @@
       <file leaf-file-name="cacheTable.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cacheTable.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69138">
+            <state relative-caret-position="93035">
               <caret line="4045" column="0" selection-start-line="4045" selection-start-column="0" selection-end-line="4045" selection-end-column="0" />
               <folding />
             </state>
@@ -63,7 +63,7 @@
       <file leaf-file-name="Dictionary.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dictionary.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70020">
+            <state relative-caret-position="89470">
               <caret line="3890" column="20" selection-start-line="3890" selection-start-column="20" selection-end-line="3890" selection-end-column="20" />
               <folding />
             </state>
@@ -73,13 +73,9 @@
       <file leaf-file-name="MyReceiver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ncku/streamCp/MyReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
+            <state relative-caret-position="92">
               <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#688#689#0" expanded="false" />
-                <element signature="e#729#730#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -87,25 +83,9 @@
       <file leaf-file-name="LRUCache.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ncku/streamCp/LRUCache.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="391">
               <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1268#1269#0" expanded="false" />
-                <element signature="e#1339#1340#0" expanded="false" />
-                <element signature="e#1741#1742#0" expanded="false" />
-                <element signature="e#1776#1777#0" expanded="false" />
-                <element signature="e#2331#2332#0" expanded="false" />
-                <element signature="e#2366#2367#0" expanded="false" />
-                <element signature="e#2529#2530#0" expanded="false" />
-                <element signature="e#2567#2568#0" expanded="false" />
-                <element signature="e#2647#2648#0" expanded="false" />
-                <element signature="e#2674#2675#0" expanded="false" />
-                <element signature="e#2859#2860#0" expanded="false" />
-                <element signature="e#2892#2893#0" expanded="false" />
-                <element signature="e#3145#3146#0" expanded="false" />
-                <element signature="e#3214#3215#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,13 +93,9 @@
       <file leaf-file-name="EventServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ncku/streamCp/EventServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3294">
+            <state relative-caret-position="4209">
               <caret line="205" column="5" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#5852#5853#0" expanded="false" />
-                <element signature="e#5904#5905#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,7 +103,7 @@
       <file leaf-file-name="ConversionModule.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/module/ConversionModule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
+            <state relative-caret-position="1679">
               <caret line="76" column="12" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
               <folding />
             </state>
@@ -137,12 +113,9 @@
       <file leaf-file-name="CompressModule.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/module/CompressModule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-138">
+            <state relative-caret-position="2806">
               <caret line="127" column="14" selection-start-line="127" selection-start-column="14" selection-end-line="127" selection-end-column="14" />
-              <folding>
-                <element signature="e#1775#1784#0" expanded="true" />
-                <element signature="e#4747#4764#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -150,130 +123,9 @@
       <file leaf-file-name="Exp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ncku/streamCp/Exp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="399" column="28" selection-start-line="399" selection-start-column="28" selection-end-line="399" selection-end-column="28" />
+            <state relative-caret-position="575">
+              <caret line="350" column="18" selection-start-line="350" selection-start-column="18" selection-end-line="350" selection-end-column="18" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StringBuffer.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/jdk1.8.0_121/src.zip!/java/lang/StringBuffer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2412">
-              <caret line="161" column="28" selection-start-line="161" selection-start-column="28" selection-end-line="161" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#20922#0" expanded="false" />
-                <element signature="e#4139#4140#0" expanded="false" />
-                <element signature="e#4164#4165#0" expanded="false" />
-                <element signature="e#4506#4507#0" expanded="false" />
-                <element signature="e#4537#4538#0" expanded="false" />
-                <element signature="e#5572#5573#0" expanded="false" />
-                <element signature="e#5600#5601#0" expanded="false" />
-                <element signature="e#5656#5657#0" expanded="false" />
-                <element signature="e#5691#5692#0" expanded="false" />
-                <element signature="e#5774#5775#0" expanded="false" />
-                <element signature="e#5827#5828#0" expanded="false" />
-                <element signature="e#5925#5926#0" expanded="false" />
-                <element signature="e#5959#5960#0" expanded="false" />
-                <element signature="e#6615#6616#0" expanded="false" />
-                <element signature="e#6662#6663#0" expanded="false" />
-                <element signature="e#6772#6773#0" expanded="false" />
-                <element signature="e#6823#6824#0" expanded="false" />
-                <element signature="e#13503#13504#0" expanded="false" />
-                <element signature="e#13549#13550#0" expanded="false" />
-                <element signature="e#13729#13730#0" expanded="false" />
-                <element signature="e#13779#13780#0" expanded="false" />
-                <element signature="e#13957#13958#0" expanded="false" />
-                <element signature="e#14007#14008#0" expanded="false" />
-                <element signature="e#18508#18509#0" expanded="false" />
-                <element signature="e#18560#18561#0" expanded="false" />
-                <element signature="e#18912#18913#0" expanded="false" />
-                <element signature="e#18968#18969#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="String.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/jdk1.8.0_121/src.zip!/java/lang/String.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50004">
-              <caret line="2861" column="6" selection-start-line="2861" selection-start-column="6" selection-end-line="2861" selection-end-column="6" />
-              <folding>
-                <element signature="e#0#124311#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#4677#4678#0" expanded="false" />
-                <element signature="e#4714#4715#0" expanded="false" />
-                <element signature="e#5687#5688#0" expanded="false" />
-                <element signature="e#5750#5751#0" expanded="false" />
-                <element signature="e#13098#13099#0" expanded="false" />
-                <element signature="e#13150#13151#0" expanded="false" />
-                <element signature="e#18781#18782#0" expanded="false" />
-                <element signature="e#18834#18835#0" expanded="false" />
-                <element signature="e#20727#20728#0" expanded="false" />
-                <element signature="e#20771#20772#0" expanded="false" />
-                <element signature="e#21961#21962#0" expanded="false" />
-                <element signature="e#22041#22042#0" expanded="false" />
-                <element signature="e#22786#22787#0" expanded="false" />
-                <element signature="e#22821#22822#0" expanded="false" />
-                <element signature="e#23072#23073#0" expanded="false" />
-                <element signature="e#23112#23113#0" expanded="false" />
-                <element signature="e#29462#29463#0" expanded="false" />
-                <element signature="e#29533#29534#0" expanded="false" />
-                <element signature="e#36393#36394#0" expanded="false" />
-                <element signature="e#36459#36460#0" expanded="false" />
-                <element signature="e#38369#38370#0" expanded="false" />
-                <element signature="e#38423#38424#0" expanded="false" />
-                <element signature="e#47538#47539#0" expanded="false" />
-                <element signature="e#47602#47603#0" expanded="false" />
-                <element signature="e#55800#55801#0" expanded="false" />
-                <element signature="e#55844#55845#0" expanded="false" />
-                <element signature="e#56437#56438#0" expanded="false" />
-                <element signature="e#56514#56515#0" expanded="false" />
-                <element signature="e#58481#58482#0" expanded="false" />
-                <element signature="e#58518#58519#0" expanded="false" />
-                <element signature="e#62860#62861#0" expanded="false" />
-                <element signature="e#62916#62917#0" expanded="false" />
-                <element signature="e#66457#66458#0" expanded="false" />
-                <element signature="e#66495#66496#0" expanded="false" />
-                <element signature="e#70749#70750#0" expanded="false" />
-                <element signature="e#70802#70803#0" expanded="false" />
-                <element signature="e#78240#78241#0" expanded="false" />
-                <element signature="e#78299#78300#0" expanded="false" />
-                <element signature="e#82616#82617#0" expanded="false" />
-                <element signature="e#82667#82668#0" expanded="false" />
-                <element signature="e#82971#82972#0" expanded="false" />
-                <element signature="e#83020#83021#0" expanded="false" />
-                <element signature="e#94598#94599#0" expanded="false" />
-                <element signature="e#94636#94637#0" expanded="false" />
-                <element signature="e#104675#104676#0" expanded="false" />
-                <element signature="e#104730#104731#0" expanded="false" />
-                <element signature="e#111196#111197#0" expanded="false" />
-                <element signature="e#111251#111252#0" expanded="false" />
-                <element signature="e#113343#113344#0" expanded="false" />
-                <element signature="e#113370#113371#0" expanded="false" />
-                <element signature="e#117893#117894#0" expanded="false" />
-                <element signature="e#117955#117956#0" expanded="false" />
-                <element signature="e#118405#118406#0" expanded="false" />
-                <element signature="e#118444#118445#0" expanded="false" />
-                <element signature="e#119456#119457#0" expanded="false" />
-                <element signature="e#119510#119511#0" expanded="false" />
-                <element signature="e#120159#120160#0" expanded="false" />
-                <element signature="e#120213#120214#0" expanded="false" />
-                <element signature="e#120482#120483#0" expanded="false" />
-                <element signature="e#120521#120522#0" expanded="false" />
-                <element signature="e#120889#120890#0" expanded="false" />
-                <element signature="e#120932#120933#0" expanded="false" />
-                <element signature="e#121727#121728#0" expanded="false" />
-                <element signature="e#121769#121770#0" expanded="false" />
-                <element signature="e#122184#122185#0" expanded="false" />
-                <element signature="e#122223#122224#0" expanded="false" />
-                <element signature="e#122645#122646#0" expanded="false" />
-                <element signature="e#122685#122686#0" expanded="false" />
-                <element signature="e#123115#123116#0" expanded="false" />
-                <element signature="e#123156#123157#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -337,8 +189,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
     <option name="y" value="24" />
-    <option name="width" value="1215" />
-    <option name="height" value="776" />
+    <option name="width" value="1855" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -365,9 +217,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -382,7 +234,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="StreamingCps" />
+              <option name="myItemId" value="FPro" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -392,67 +244,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="StreamingCps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="FPro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="StreamingCps" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="streamCp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FPro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="StreamingCps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -848,32 +644,32 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1215" height="776" extended-state="0" />
-    <editor active="true" />
+    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32043344" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.4863884" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3273684" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.5136116" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28315789" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28328174" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32198143" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32105264" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22231759" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22216067" sideWeight="0.4883721" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2498615" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.021606648" sideWeight="0.47912887" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38105264" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22216067" sideWeight="0.5116279" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32043344" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32662538" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1052,92 +848,12 @@
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/String.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/LRUCache.java" />
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/ArrayList.java" />
-    <entry file="jar://$USER_HOME$/jdk1.8.0_121/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50004">
-          <caret line="2861" column="6" selection-start-line="2861" selection-start-column="6" selection-end-line="2861" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#124311#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#4677#4678#0" expanded="false" />
-            <element signature="e#4714#4715#0" expanded="false" />
-            <element signature="e#5687#5688#0" expanded="false" />
-            <element signature="e#5750#5751#0" expanded="false" />
-            <element signature="e#13098#13099#0" expanded="false" />
-            <element signature="e#13150#13151#0" expanded="false" />
-            <element signature="e#18781#18782#0" expanded="false" />
-            <element signature="e#18834#18835#0" expanded="false" />
-            <element signature="e#20727#20728#0" expanded="false" />
-            <element signature="e#20771#20772#0" expanded="false" />
-            <element signature="e#21961#21962#0" expanded="false" />
-            <element signature="e#22041#22042#0" expanded="false" />
-            <element signature="e#22786#22787#0" expanded="false" />
-            <element signature="e#22821#22822#0" expanded="false" />
-            <element signature="e#23072#23073#0" expanded="false" />
-            <element signature="e#23112#23113#0" expanded="false" />
-            <element signature="e#29462#29463#0" expanded="false" />
-            <element signature="e#29533#29534#0" expanded="false" />
-            <element signature="e#36393#36394#0" expanded="false" />
-            <element signature="e#36459#36460#0" expanded="false" />
-            <element signature="e#38369#38370#0" expanded="false" />
-            <element signature="e#38423#38424#0" expanded="false" />
-            <element signature="e#47538#47539#0" expanded="false" />
-            <element signature="e#47602#47603#0" expanded="false" />
-            <element signature="e#55800#55801#0" expanded="false" />
-            <element signature="e#55844#55845#0" expanded="false" />
-            <element signature="e#56437#56438#0" expanded="false" />
-            <element signature="e#56514#56515#0" expanded="false" />
-            <element signature="e#58481#58482#0" expanded="false" />
-            <element signature="e#58518#58519#0" expanded="false" />
-            <element signature="e#62860#62861#0" expanded="false" />
-            <element signature="e#62916#62917#0" expanded="false" />
-            <element signature="e#66457#66458#0" expanded="false" />
-            <element signature="e#66495#66496#0" expanded="false" />
-            <element signature="e#70749#70750#0" expanded="false" />
-            <element signature="e#70802#70803#0" expanded="false" />
-            <element signature="e#78240#78241#0" expanded="false" />
-            <element signature="e#78299#78300#0" expanded="false" />
-            <element signature="e#82616#82617#0" expanded="false" />
-            <element signature="e#82667#82668#0" expanded="false" />
-            <element signature="e#82971#82972#0" expanded="false" />
-            <element signature="e#83020#83021#0" expanded="false" />
-            <element signature="e#94598#94599#0" expanded="false" />
-            <element signature="e#94636#94637#0" expanded="false" />
-            <element signature="e#104675#104676#0" expanded="false" />
-            <element signature="e#104730#104731#0" expanded="false" />
-            <element signature="e#111196#111197#0" expanded="false" />
-            <element signature="e#111251#111252#0" expanded="false" />
-            <element signature="e#113343#113344#0" expanded="false" />
-            <element signature="e#113370#113371#0" expanded="false" />
-            <element signature="e#117893#117894#0" expanded="false" />
-            <element signature="e#117955#117956#0" expanded="false" />
-            <element signature="e#118405#118406#0" expanded="false" />
-            <element signature="e#118444#118445#0" expanded="false" />
-            <element signature="e#119456#119457#0" expanded="false" />
-            <element signature="e#119510#119511#0" expanded="false" />
-            <element signature="e#120159#120160#0" expanded="false" />
-            <element signature="e#120213#120214#0" expanded="false" />
-            <element signature="e#120482#120483#0" expanded="false" />
-            <element signature="e#120521#120522#0" expanded="false" />
-            <element signature="e#120889#120890#0" expanded="false" />
-            <element signature="e#120932#120933#0" expanded="false" />
-            <element signature="e#121727#121728#0" expanded="false" />
-            <element signature="e#121769#121770#0" expanded="false" />
-            <element signature="e#122184#122185#0" expanded="false" />
-            <element signature="e#122223#122224#0" expanded="false" />
-            <element signature="e#122645#122646#0" expanded="false" />
-            <element signature="e#122685#122686#0" expanded="false" />
-            <element signature="e#123115#123116#0" expanded="false" />
-            <element signature="e#123156#123157#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/jdk1.8.0_121/src.zip!/java/lang/String.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/MyReceiver.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/CompressModule.java" />
     <entry file="file://$PROJECT_DIR$/cacheTable.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69138">
+        <state relative-caret-position="93035">
           <caret line="4045" column="0" selection-start-line="4045" selection-start-column="0" selection-end-line="4045" selection-end-column="0" />
           <folding />
         </state>
@@ -1146,7 +862,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Exp.java" />
     <entry file="file://$PROJECT_DIR$/Dictionary.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70020">
+        <state relative-caret-position="89470">
           <caret line="3890" column="20" selection-start-line="3890" selection-start-column="20" selection-end-line="3890" selection-end-column="20" />
           <folding />
         </state>
@@ -1154,91 +870,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ncku/streamCp/MyReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
+        <state relative-caret-position="92">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#688#689#0" expanded="false" />
-            <element signature="e#729#730#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/jdk1.8.0_121/src.zip!/java/lang/StringBuffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2412">
-          <caret line="161" column="28" selection-start-line="161" selection-start-column="28" selection-end-line="161" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#20922#0" expanded="false" />
-            <element signature="e#4139#4140#0" expanded="false" />
-            <element signature="e#4164#4165#0" expanded="false" />
-            <element signature="e#4506#4507#0" expanded="false" />
-            <element signature="e#4537#4538#0" expanded="false" />
-            <element signature="e#5572#5573#0" expanded="false" />
-            <element signature="e#5600#5601#0" expanded="false" />
-            <element signature="e#5656#5657#0" expanded="false" />
-            <element signature="e#5691#5692#0" expanded="false" />
-            <element signature="e#5774#5775#0" expanded="false" />
-            <element signature="e#5827#5828#0" expanded="false" />
-            <element signature="e#5925#5926#0" expanded="false" />
-            <element signature="e#5959#5960#0" expanded="false" />
-            <element signature="e#6615#6616#0" expanded="false" />
-            <element signature="e#6662#6663#0" expanded="false" />
-            <element signature="e#6772#6773#0" expanded="false" />
-            <element signature="e#6823#6824#0" expanded="false" />
-            <element signature="e#13503#13504#0" expanded="false" />
-            <element signature="e#13549#13550#0" expanded="false" />
-            <element signature="e#13729#13730#0" expanded="false" />
-            <element signature="e#13779#13780#0" expanded="false" />
-            <element signature="e#13957#13958#0" expanded="false" />
-            <element signature="e#14007#14008#0" expanded="false" />
-            <element signature="e#18508#18509#0" expanded="false" />
-            <element signature="e#18560#18561#0" expanded="false" />
-            <element signature="e#18912#18913#0" expanded="false" />
-            <element signature="e#18968#18969#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/jdk1.8.0_121/src.zip!/java/lang/StringBuffer.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ncku/streamCp/EventServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3294">
+        <state relative-caret-position="4209">
           <caret line="205" column="5" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#5852#5853#0" expanded="false" />
-            <element signature="e#5904#5905#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ncku/streamCp/LRUCache.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="391">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1268#1269#0" expanded="false" />
-            <element signature="e#1339#1340#0" expanded="false" />
-            <element signature="e#1741#1742#0" expanded="false" />
-            <element signature="e#1776#1777#0" expanded="false" />
-            <element signature="e#2331#2332#0" expanded="false" />
-            <element signature="e#2366#2367#0" expanded="false" />
-            <element signature="e#2529#2530#0" expanded="false" />
-            <element signature="e#2567#2568#0" expanded="false" />
-            <element signature="e#2647#2648#0" expanded="false" />
-            <element signature="e#2674#2675#0" expanded="false" />
-            <element signature="e#2859#2860#0" expanded="false" />
-            <element signature="e#2892#2893#0" expanded="false" />
-            <element signature="e#3145#3146#0" expanded="false" />
-            <element signature="e#3214#3215#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/module/ConversionModule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
+        <state relative-caret-position="1679">
           <caret line="76" column="12" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
           <folding />
         </state>
@@ -1246,19 +903,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/module/CompressModule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-138">
+        <state relative-caret-position="2806">
           <caret line="127" column="14" selection-start-line="127" selection-start-column="14" selection-end-line="127" selection-end-column="14" />
-          <folding>
-            <element signature="e#1775#1784#0" expanded="true" />
-            <element signature="e#4747#4764#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ncku/streamCp/Exp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="399" column="28" selection-start-line="399" selection-start-column="28" selection-end-line="399" selection-end-column="28" />
+        <state relative-caret-position="575">
+          <caret line="350" column="18" selection-start-line="350" selection-start-column="18" selection-end-line="350" selection-end-column="18" />
           <folding />
         </state>
       </provider>
