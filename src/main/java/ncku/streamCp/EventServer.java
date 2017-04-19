@@ -10,6 +10,14 @@ import com.pubnub.api.models.consumer.PNPublishResult;
 import com.pubnub.api.models.consumer.PNStatus;
 import com.pubnub.api.models.consumer.pubsub.PNMessageResult;
 import com.pubnub.api.models.consumer.pubsub.PNPresenceEventResult;
+import module.CompressModule;
+import module.ConversionModule;
+import module.PreprocessModule;
+import org.apache.commons.lang3.Conversion;
+import org.apache.spark.SparkConf;
+import org.apache.spark.streaming.Durations;
+import org.apache.spark.streaming.api.java.JavaReceiverInputDStream;
+import org.apache.spark.streaming.api.java.JavaStreamingContext;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,10 +25,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.*;
+import java.util.stream.Stream;
 
 public class EventServer {
     private static final Executor SERVER_EXECUTOR = Executors.newSingleThreadExecutor();
@@ -30,13 +37,17 @@ public class EventServer {
     private static final Random random = new Random();
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        BlockingQueue<String> eventQueue = new ArrayBlockingQueue<>(100);
+        PreprocessModule preprocessModule = new PreprocessModule();
+        CompressModule compressModule = new CompressModule();
+        ConversionModule conversionModule = new ConversionModule();
+        Exp exp = new Exp();
+        ArrayList<String> radiationList = new ArrayList<String>();
 
+        BlockingQueue<String> eventQueue = new ArrayBlockingQueue<>(100);
         PNConfiguration pnConfiguration = new PNConfiguration();
         pnConfiguration.setSubscribeKey("sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe");
         pnConfiguration.setPublishKey("demo");
         pnConfiguration.setSecure(false);
-
         PubNub pubnub = new PubNub(pnConfiguration);
         pubnub.addListener(new SubscribeCallback() {
             @Override
@@ -100,8 +111,15 @@ public class EventServer {
 
                 //Log.error("pubnub", String.valueOf(message.getMessage().get("radiation_level")));
 
-               /* try {
+              /*  try {
+
+                 *//*   radiationList.add((String.valueOf(message.getMessage().get("radiation_level"))).substring(1,4));
+                    ArrayList<Integer> radiationListInt = getIntegerArray(radiationList);
+                    ArrayList<Integer> DiffList = preprocessModule.subValue(radiationListInt);
+                    List<Integer> compressList = compressModule.compress(conversionModule.conversionTable(DiffList));
+                    String binary12 = exp.toBinary12(compressList);*//*
                     eventQueue.put((String.valueOf(message.getMessage().get("radiation_level"))).substring(1,4));
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }*/
@@ -122,16 +140,10 @@ public class EventServer {
             eventQueue.put(generateEvent());
             Thread.sleep(TimeUnit.SECONDS.toMillis(EVENT_PERIOD_SECONDS));
         }*/
-        eventQueue.put(readBinaryFile());
+        //eventQueue.put(readBinaryFile());
 
     }
 
-    private static String generateEvent() {
-        int userNumber = random.nextInt(10);
-        String event = random.nextBoolean() ? "login" : "purchase";
-        // In production use a real schema like JSON or protocol buffers
-        return String.format("user-%s", userNumber) + DELIMITER + event;
-    }
 
     private static class SteamingServer implements Runnable {
         private final BlockingQueue<String> eventQueue;
@@ -204,4 +216,18 @@ public class EventServer {
 
             return sensorData.toString();
     }
+    private static ArrayList<Integer> getIntegerArray(ArrayList<String> stringArray) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        for(String stringValue : stringArray) {
+            try {
+                //Convert String to Integer, and store it into integer array list.
+                result.add(Integer.parseInt(stringValue));
+            } catch(NumberFormatException nfe) {
+                //System.out.println("Could not parse " + nfe);
+
+            }
+        }
+        return result;
+    }
+
 }

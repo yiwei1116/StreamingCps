@@ -116,65 +116,7 @@ public class Exp {
 
 
     }
-    public static  ArrayList<String> splitData (String path){
 
-
-        FileInputStream inputStream = null;
-        Scanner scanner = null;
-
-        ArrayList<String> radiationList = new ArrayList<String>();
-
-
-
-        try {
-            inputStream = new FileInputStream(path);
-            //   inputStream = new FileInputStream(path);
-            scanner = new Scanner(inputStream, "UTF-8");
-
-            while (scanner.hasNextLine()) {
-
-                String line = scanner.nextLine().substring(1,4);
-
-                String k = line;
-
-                radiationList.add(k);
-
-
-
-            }
-
-            if (scanner.ioException() != null) {
-
-                throw scanner.ioException();
-
-            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (inputStream!=null){
-
-                try {
-                    inputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-            if (scanner!=null){
-
-                scanner.close();
-
-            }
-        }
-
-
-
-        return radiationList;
-
-    }
 
     /**
      *
