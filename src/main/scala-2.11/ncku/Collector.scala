@@ -1,4 +1,4 @@
-package NCKU
+package ncku
 
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.spark.{SparkConf, SparkContext}
@@ -11,13 +11,15 @@ object Collector {
     val conf = new SparkConf()
       .setMaster("local[*]")
       .setAppName("Receiver")
-    val sc = new StreamingContext(conf,Seconds(3))
-    val realTimeData = sc.textFileStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt")
-
-    println(realTimeData)
-
-    //val Date = filterData.subtract()
-    /*def compress(tc:String) = {
+  /*  val sc = new StreamingContext(conf,Seconds(3))
+    val realTimeData = sc.textFileStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt")*/
+    val sc = new SparkContext(conf)
+    val input =  sc.textFile("/home/yiwei/IdeaProjects/FPro/1K.txt").map(x=>x.toInt)
+    val recevData = input.map(Module.Preprocess.subValue(input.collect()))
+    //recevData.collect.foreach(println)
+    val transferToChar = recevData.map(Module.Conversion.convertToChar(recevData.collect()))
+    //   input.collect.foreach(println)
+    def compress(tc:String) = {
       //initial dictionary
       val startDict = (1 to 255).map(a=>(""+a.toChar,a)).toMap
       val (fullDict, result, remain) = tc.foldLeft ((startDict, List[Int](), "")) {
@@ -62,7 +64,6 @@ object Collector {
     println(compressed)
     val result = decompress(compressed)
     println(result)
-*/
 
   }
 

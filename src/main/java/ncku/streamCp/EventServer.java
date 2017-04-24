@@ -1,6 +1,5 @@
 package ncku.streamCp;
 
-import com.esotericsoftware.minlog.Log;
 import com.pubnub.api.PNConfiguration;
 import com.pubnub.api.PubNub;
 import com.pubnub.api.callbacks.PNCallback;
@@ -10,14 +9,9 @@ import com.pubnub.api.models.consumer.PNPublishResult;
 import com.pubnub.api.models.consumer.PNStatus;
 import com.pubnub.api.models.consumer.pubsub.PNMessageResult;
 import com.pubnub.api.models.consumer.pubsub.PNPresenceEventResult;
-import module.CompressModule;
-import module.ConversionModule;
-import module.PreprocessModule;
-import org.apache.commons.lang3.Conversion;
-import org.apache.spark.SparkConf;
-import org.apache.spark.streaming.Durations;
-import org.apache.spark.streaming.api.java.JavaReceiverInputDStream;
-import org.apache.spark.streaming.api.java.JavaStreamingContext;
+import Module.CompressModule;
+import Module.ConversionModule;
+import Module.PreprocessModule;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -27,7 +21,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.*;
 import java.util.concurrent.*;
-import java.util.stream.Stream;
 
 public class EventServer {
     private static final Executor SERVER_EXECUTOR = Executors.newSingleThreadExecutor();

@@ -3,22 +3,10 @@ package ncku.streamCp;
 
 import com.esotericsoftware.minlog.Log;
 
-import com.pubnub.api.PNConfiguration;
-import com.pubnub.api.PubNub;
-import com.pubnub.api.callbacks.PNCallback;
-import com.pubnub.api.callbacks.SubscribeCallback;
-import com.pubnub.api.enums.PNStatusCategory;
-import com.pubnub.api.models.consumer.PNPublishResult;
-import com.pubnub.api.models.consumer.PNStatus;
-import com.pubnub.api.models.consumer.pubsub.PNMessageResult;
-import com.pubnub.api.models.consumer.pubsub.PNPresenceEventResult;
-import module.CompressModule;
+import Module.CompressModule;
 
 
-import module.ConversionModule;
-import org.apache.spark.*;
-import org.apache.spark.streaming.*;
-import org.apache.spark.streaming.api.java.*;
+import Module.ConversionModule;
 
 import java.io.*;
 import java.util.*;
@@ -188,12 +176,12 @@ public class Exp {
     }
 
     public static void main(String[] args) throws IOException,InterruptedException{
-        PNConfiguration pnConfiguration = new PNConfiguration();
+   /*     PNConfiguration pnConfiguration = new PNConfiguration();
         pnConfiguration.setSubscribeKey("sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe");
         pnConfiguration.setPublishKey("demo");
         pnConfiguration.setSecure(false);
 
-        PubNub pubnub = new PubNub(pnConfiguration);
+        PubNub pubnub = new PubNub(pnConfiguration);*/
       /*  SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("StreamCompress");
         JavaStreamingContext javaStreamingContext = new JavaStreamingContext(sparkConf,Durations.seconds(5));
         //JavaDStream<String> stream = javaStreamingContext.textFileStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt").cache();
@@ -202,7 +190,7 @@ public class Exp {
         double compressRatio ;
         double spaceSaving;
         //oldDataSave();
-        pubnub.addListener(new SubscribeCallback() {
+   /*     pubnub.addListener(new SubscribeCallback() {
             @Override
             public void status(PubNub pubnub, PNStatus status) {
 
@@ -281,7 +269,7 @@ public class Exp {
         });
 
 
-        pubnub.subscribe().channels(Arrays.asList("pubnub-sensor-network")).execute();
+        pubnub.subscribe().channels(Arrays.asList("pubnub-sensor-network")).execute();*/
 
 
 
@@ -290,17 +278,17 @@ public class Exp {
         ArrayList<Integer> DiffList = new ArrayList<Integer>();
         ArrayList<Integer> radiationList = new ArrayList<Integer>();
         double originSensorSize = 0 ;
-        String lineAdd="";
+
 
         try {
-         //   inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt");
-            inputStream = new FileInputStream("/home/steve02/StreamingCps/PubNub.txt");
+            inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/100K.txt");
+          //  inputStream = new FileInputStream("/home/steve02/StreamingCps/5M.txt");
             scanner = new Scanner(inputStream, "UTF-8");
 
             while (scanner.hasNextLine()) {
 
-                String line = scanner.nextLine().substring(1,4);
-                lineAdd += line;
+                String line = scanner.nextLine();
+
                 int k = Integer.valueOf(line);
                 originSensorSize += line.length();
                 radiationList.add(k);
@@ -325,13 +313,12 @@ public class Exp {
 
             }
         }
-        writeTo(lineAdd,"eliminateData.txt");// 去除""
         DiffList = subValue(radiationList);
         List<Integer>compressList = new ArrayList<>();
         compressList = compressModule.compress(conversionModule.conversionTable(DiffList));
         double  encodingTextLength = getEncodeLength(compressList);
         String  encodeBinary = toBinary12(compressList);
-        writeTo(encodeBinary,"Binary12");
+        //writeTo(encodeBinary,"Binary12");
         System.out.println(originSensorSize *8);// byte to bit
         System.out.println(encodingTextLength);
         compressRatio = (originSensorSize *8 / encodingTextLength);
@@ -340,8 +327,8 @@ public class Exp {
         System.out.println("Space Saving: "+Math.round(spaceSaving*100.0)/100.0);
         String decodingText = compressModule.decompress(compressList);
         compressModule.reConstruct(decodingText);
-        System.out.println(conversionModule.conversionTable(DiffList));
-        System.out.println(decodingText);
+        /*System.out.println(conversionModule.conversionTable(DiffList));
+        System.out.println(decodingText);*/
        /* String testText = "ZcaEdDeBCcZaCBeAZZZZAZcFcaAcAZBdDcDZBAcaZCcaAAZcFccFdcDAaabBcaCbBAcBAZa";//BAbABbAbAbABacCZA
         List<Integer> compressed = compressModule.compress(testText);
         System.out.println(compressed);
