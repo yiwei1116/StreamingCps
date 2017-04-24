@@ -4,6 +4,10 @@ import collection.mutable.HashMap
   * Created by yiwei on 2017/4/23.
   */
 object Conversion {
+
+
+
+  class Test extends java.io.Serializable {
   def convertToChar(data : Array[Int]): String ={
     var tfToNum = ""
 
@@ -24,15 +28,14 @@ object Conversion {
 
 
 
-         tfToNum.concat(converseT.get(data.apply(i)).map(_.toString).getOrElse(""))// transfer option String to String
+         tfToNum  += converseT.get(data.apply(i)).map(_.toString).getOrElse("")// transfer option String to String
        // println(converseT.get(data.apply(i)).map(_.toString).getOrElse(""))
 
       }
-        println(tfToNum)
 
 
       return tfToNum
 
   }
 
-}
+}}
