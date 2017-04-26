@@ -7,9 +7,10 @@ object Conversion {
 
 
 
-  class Test extends java.io.Serializable {
-  def convertToChar(data : Array[Int]): String ={
-    var tfToNum = ""
+
+  def convertToChar(data : Array[Int]): Array[String] ={
+    var tfToNum = Array[String]()
+
 
 
     val converseT = new HashMap[Int,String]()  { override def default(key:Int) = "-" }
@@ -28,14 +29,13 @@ object Conversion {
 
 
 
-         tfToNum  += converseT.get(data.apply(i)).map(_.toString).getOrElse("")// transfer option String to String
-       // println(converseT.get(data.apply(i)).map(_.toString).getOrElse(""))
+         tfToNum  +:= converseT.get(data.apply(i)).map(_.toString).getOrElse("")// transfer option String to String
+
 
       }
-
-
+    //  println(tfToNum.mkString(""))
       return tfToNum
 
-  }
+
 
 }}

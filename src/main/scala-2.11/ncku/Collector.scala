@@ -8,22 +8,25 @@ import scala.collection.mutable.HashMap
   * Created by yiwei on 2017/2/21.
   */
 
-object Collector {
+object Collector extends Serializable{
 
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf()
       .setMaster("local[*]")
       .setAppName("Receiver")
-  /*  val sc = new StreamingContext(conf,Seconds(3))
-    val realTimeData = sc.textFileStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt")*/
+    /*  val sc = new StreamingContext(conf,Seconds(3))
+      val realTimeData = sc.textFileStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt")*/
+    @transient
     val sc = new SparkContext(conf)
-  //  val input =  sc.textFile("/home/yiwei/IdeaProjects/FPro/1K.txt").map(x=>x.toInt)
+    //  val input =  sc.textFile("/home/yiwei/IdeaProjects/FPro/1K.txt").map(x=>x.toInt)
     val input =  sc.textFile("/home/steve02/StreamingCps/1K.txt").map(x=>x.toInt)
 
-    val recevData = input.map(subValue(input.collect()))
-    //recevData.collect.foreach(println)
-    val transferToChar = recevData.map(convertToChar(recevData.collect()))
-    println(transferToChar.collect())
+    val recevData = input.map(Module.Preprocess.subValue(input.collect())).cache()
+    recevData.collect.foreach(println)
+    val transferToChar = recevData.map(Module.Conversion.convertToChar(recevData.collect())).cache()
+
+   // transferToChar.collect().foreach(println)
+
     def compress(tc:String) = {
       //initial dictionary
       val startDict = (1 to 255).map(a=>(""+a.toChar,a)).toMap
@@ -38,7 +41,8 @@ object Collector {
       }
       if (remain.isEmpty) result.reverse else (fullDict(remain) :: result).reverse
     }
-    def convertToChar(data : Array[Int]): String ={
+
+/*    def convertToChar(data : Array[Int]): String ={
       var tfToNum = ""
 
 
@@ -86,7 +90,7 @@ object Collector {
       return preprocessList
 
 
-    }
+    }*/
     def decompress(ns: List[Int]): String = {
       val startDict = (1 to 255).map(a=>(a,""+a.toChar)).toMap
       val (_, result, _) =
