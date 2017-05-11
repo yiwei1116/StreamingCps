@@ -9,7 +9,7 @@ object Conversion {
 
 
   def convertToChar(data : Array[Int]): Array[String] ={
-    var tfToNum = Array[String]()
+    var tfToNum =  Array[String]()
 
 
 
@@ -29,11 +29,13 @@ object Conversion {
 
 
 
-         tfToNum  +:= converseT.get(data.apply(i)).map(_.toString).getOrElse("")// transfer option String to String
+         tfToNum  :+= converseT.getOrElse(data.apply(i),"")// transfer option String to String
 
 
       }
-    //  println(tfToNum.mkString(""))
+      println(tfToNum.length)
+      println(tfToNum.mkString(""))
+
       return tfToNum
 
 
