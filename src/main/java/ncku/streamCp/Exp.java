@@ -7,6 +7,15 @@ import Module.CompressModule;
 
 
 import Module.ConversionModule;
+import com.pubnub.api.PNConfiguration;
+import com.pubnub.api.PubNub;
+import com.pubnub.api.callbacks.PNCallback;
+import com.pubnub.api.callbacks.SubscribeCallback;
+import com.pubnub.api.enums.PNStatusCategory;
+import com.pubnub.api.models.consumer.PNPublishResult;
+import com.pubnub.api.models.consumer.PNStatus;
+import com.pubnub.api.models.consumer.pubsub.PNMessageResult;
+import com.pubnub.api.models.consumer.pubsub.PNPresenceEventResult;
 
 import java.io.*;
 import java.util.*;
@@ -37,12 +46,12 @@ public class Exp {
      * @param Compress
      * @return    encode number bits
      */
-    public  static  int getEncodeLength(List<Integer>Compress){
+    public  static  int getEncodeLength(List<Integer>Compress,int indexNum){
 
         int  encodeLength=0;
         for (int i = 0 ; i < Compress.size() ; i++){
 
-           encodeLength +=intToString(Compress.get(i),12).length();
+           encodeLength +=intToString(Compress.get(i),indexNum).length();
 
 
         }
@@ -115,7 +124,7 @@ public class Exp {
     public static String intToString(int number, int groupSize) {
         StringBuilder result = new StringBuilder();
 
-        for(int i = 11; i >= 0 ; i--) {
+        for(int i = groupSize-1; i >= 0 ; i--) {
             int mask = 1 << i;
             result.append((number & mask) != 0 ? "1" : "0");
 
@@ -176,7 +185,7 @@ public class Exp {
     }
 
     public static void main(String[] args) throws IOException,InterruptedException{
-   /*     PNConfiguration pnConfiguration = new PNConfiguration();
+    /*    PNConfiguration pnConfiguration = new PNConfiguration();
         pnConfiguration.setSubscribeKey("sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe");
         pnConfiguration.setPublishKey("demo");
         pnConfiguration.setSecure(false);
@@ -190,7 +199,7 @@ public class Exp {
         double compressRatio ;
         double spaceSaving;
         //oldDataSave();
-   /*     pubnub.addListener(new SubscribeCallback() {
+       /* pubnub.addListener(new SubscribeCallback() {
             @Override
             public void status(PubNub pubnub, PNStatus status) {
 
@@ -253,8 +262,8 @@ public class Exp {
                 Log.error("pubnub", String.valueOf(message.getMessage().get("radiation_level")));
 
                 sensorData.append(String.valueOf(message.getMessage().get("radiation_level")).substring(1,4)+"\r\n");
-                writeTo(String.valueOf(sensorData),"3M.txt");
-                if(sensorData.length()>3000000){
+                writeTo(String.valueOf(sensorData),"32K.txt");
+                if(sensorData.length()>32000){
 
 
                     pubnub.destroy();
@@ -269,7 +278,7 @@ public class Exp {
         });
 
 
-        pubnub.subscribe().channels(Arrays.asList("pubnub-sensor-network")).execute();*/
+       pubnub.subscribe().channels(Arrays.asList("pubnub-sensor-network")).execute();*/
 
 
 
@@ -281,8 +290,8 @@ public class Exp {
 
 
         try {
-            inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/100K.txt");
-          //  inputStream = new FileInputStream("/home/steve02/StreamingCps/5M.txt");
+          //  inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/100K.txt");
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/100K.txt");
             scanner = new Scanner(inputStream, "UTF-8");
 
             while (scanner.hasNextLine()) {
@@ -291,6 +300,7 @@ public class Exp {
 
                 int k = Integer.valueOf(line);
                 originSensorSize += line.length();
+
                 radiationList.add(k);
 
             }
@@ -316,7 +326,8 @@ public class Exp {
         DiffList = subValue(radiationList);
         List<Integer>compressList = new ArrayList<>();
         compressList = compressModule.compress(conversionModule.conversionTable(DiffList));
-        double  encodingTextLength = getEncodeLength(compressList);
+        double  encodingTextLength = getEncodeLength(compressList,13);
+       // Log.error("num",intToString(2048,13));
         String  encodeBinary = toBinary12(compressList);
         //writeTo(encodeBinary,"Binary12");
         System.out.println(originSensorSize *8);// byte to bit

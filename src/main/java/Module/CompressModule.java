@@ -14,11 +14,13 @@ public class CompressModule {
     static Map<String,Integer> encodeDictionary = new HashMap<String,Integer>();
     static Map<Integer,String> encodeDictionaryRe = new HashMap<Integer,String  >();
     static Map<Integer,String> decodeDictionary = new HashMap<Integer,String>();
-    static int dictionaryMaxSize = 4096;
+    static int dictionaryMaxSize = 8192;
+    static int keySize = 0  ;
+    static int valueSize = 0  ;
     static String lruTable="";
     public static List<Integer> compress(String uncompressed) {
         // Build the decodeDictionary.
-        LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(4096);
+        LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(dictionaryMaxSize);
         Exp exp = new Exp();
         int dictSize = 52;
 
@@ -101,15 +103,21 @@ public class CompressModule {
             }
         }
         System.out.println("Dictionay Table:");
+
         for (Map.Entry<String,Integer>entry : encodeDictionary.entrySet()){
             String key =entry.getKey();
-            Integer value = entry.getValue();
+
+            keySize += key.length();
+
+            int value = entry.getValue();
+            valueSize += String.valueOf(value).length();
             encodeDictionaryRe.put(value,key);
+
           /*  if(value > 255)
             System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");*/
 
         }
-
+        Log.error("Size",String.valueOf(valueSize+keySize));
         // Output the code for w.
         if (!w.equals(""))
             result.add(encodeDictionary.get(w));
@@ -132,7 +140,7 @@ public class CompressModule {
     public static String decompress(List<Integer> compressed) {
         // Build the decodeDictionary.
 
-        LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(4096);
+        LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(dictionaryMaxSize);
         String delruTable="";
         int dictSize = 52;
 
