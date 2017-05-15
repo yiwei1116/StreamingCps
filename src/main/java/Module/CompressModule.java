@@ -102,7 +102,7 @@ public class CompressModule {
 
             }
         }
-        System.out.println("Dictionay Table:");
+        //System.out.println("Dictionay Table:");
 
         for (Map.Entry<String,Integer>entry : encodeDictionary.entrySet()){
             String key =entry.getKey();
@@ -117,7 +117,7 @@ public class CompressModule {
             System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");*/
 
         }
-        Log.error("Size",String.valueOf(valueSize+keySize));
+        //Log.error("Size",String.valueOf(valueSize+keySize));
         // Output the code for w.
         if (!w.equals(""))
             result.add(encodeDictionary.get(w));

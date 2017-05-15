@@ -13,14 +13,12 @@ import Module.CompressModule;
 import Module.ConversionModule;
 import Module.PreprocessModule;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.stream.IntStream;
 
 public class EventServer {
     private static final Executor SERVER_EXECUTOR = Executors.newSingleThreadExecutor();
@@ -29,7 +27,7 @@ public class EventServer {
     private static final long EVENT_PERIOD_SECONDS = 1;
     private static final Random random = new Random();
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException,FileNotFoundException {
         PreprocessModule preprocessModule = new PreprocessModule();
         CompressModule compressModule = new CompressModule();
         ConversionModule conversionModule = new ConversionModule();
@@ -104,18 +102,42 @@ public class EventServer {
 
                 //Log.error("pubnub", String.valueOf(message.getMessage().get("radiation_level")));
 
-              /*  try {
-
-                 *//*   radiationList.add((String.valueOf(message.getMessage().get("radiation_level"))).substring(1,4));
+                try {
+                    InputStream in = null;
+                    try {
+                        in = new FileInputStream(new File("/home/steve02/StreamingCps/100K.txt"));
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                   // StringBuilder out = new StringBuilder();
+                    String line;
+                    int pre = 200;
+                    int cur;
+                    int diff;
+                    try {
+                        while ((line = reader.readLine()) != null) {
+                            cur = Integer.valueOf(line);
+                            diff = cur - pre ;
+                            pre = cur ;
+                            eventQueue.put(conversionModule.conversionT(diff));
+                            Thread.sleep(TimeUnit.SECONDS.toMillis(EVENT_PERIOD_SECONDS));
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+/*
+                    radiationList.add((String.valueOf(message.getMessage().get("radiation_level"))).substring(1,4));
                     ArrayList<Integer> radiationListInt = getIntegerArray(radiationList);
                     ArrayList<Integer> DiffList = preprocessModule.subValue(radiationListInt);
                     List<Integer> compressList = compressModule.compress(conversionModule.conversionTable(DiffList));
-                    String binary12 = exp.toBinary12(compressList);*//*
-                    eventQueue.put((String.valueOf(message.getMessage().get("radiation_level"))).substring(1,4));
+                    String binary12 = exp.toBinary12(compressList);
+                    System.out.println();
+                    eventQueue.put(intStream(compressList).toString());*/
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }*/
+                }
 
 
             }
@@ -221,6 +243,14 @@ public class EventServer {
             }
         }
         return result;
+    }
+    public static IntStream intStream(List<Integer> list)
+    {
+        return list.stream().mapToInt(Integer::intValue);
+    }
+    static String convertStreamToString(java.io.InputStream is) {
+        java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+        return s.hasNext() ? s.next() : "";
     }
 
 }

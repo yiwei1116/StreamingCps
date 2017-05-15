@@ -16,6 +16,10 @@ import com.pubnub.api.models.consumer.PNPublishResult;
 import com.pubnub.api.models.consumer.PNStatus;
 import com.pubnub.api.models.consumer.pubsub.PNMessageResult;
 import com.pubnub.api.models.consumer.pubsub.PNPresenceEventResult;
+import org.apache.spark.SparkConf;
+import org.apache.spark.streaming.Durations;
+import org.apache.spark.streaming.api.java.JavaReceiverInputDStream;
+import org.apache.spark.streaming.api.java.JavaStreamingContext;
 
 import java.io.*;
 import java.util.*;
@@ -191,11 +195,10 @@ public class Exp {
         pnConfiguration.setSecure(false);
 
         PubNub pubnub = new PubNub(pnConfiguration);*/
-      /*  SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("StreamCompress");
-        JavaStreamingContext javaStreamingContext = new JavaStreamingContext(sparkConf,Durations.seconds(5));
+        /*SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("StreamCompress");
+        JavaStreamingContext javaStreamingContext = new JavaStreamingContext(sparkConf, Durations.seconds(5));
         //JavaDStream<String> stream = javaStreamingContext.textFileStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt").cache();
-        JavaReceiverInputDStream<String> lines = javaStreamingContext.receiverStream(new MyReceiver("localhost", 9999));
-*/
+        JavaReceiverInputDStream<String> lines = javaStreamingContext.receiverStream(new MyReceiver("localhost", 9999));*/
         double compressRatio ;
         double spaceSaving;
         //oldDataSave();
