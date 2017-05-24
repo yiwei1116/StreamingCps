@@ -18,6 +18,7 @@ public class CompressModule {
     static int keySize = 0  ;
     static int valueSize = 0  ;
     static String lruTable="";
+    static Boolean flag = false;
     public static List<Integer> compress(String uncompressed) {
         // Build the decodeDictionary.
         LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(dictionaryMaxSize);
@@ -99,7 +100,7 @@ public class CompressModule {
                 dict=dict+"["+"Key:"+dictSize+" , "+"Code:"+wc+"]"+"\n";
                 dictSize++;
                 w = "" + c;
-
+                flag = true;
             }
         }
         //System.out.println("Dictionay Table:");
@@ -382,6 +383,11 @@ public class CompressModule {
 
 
 
+    }
+    public static boolean getFlag(boolean flag){
+
+
+        return flag;
     }
 
 }

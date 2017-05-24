@@ -1,5 +1,6 @@
 package ncku.streamCp;
 
+import com.esotericsoftware.minlog.Log;
 import com.pubnub.api.PNConfiguration;
 import com.pubnub.api.PubNub;
 import com.pubnub.api.callbacks.PNCallback;
@@ -16,9 +17,12 @@ import Module.PreprocessModule;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.ByteBuffer;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.IntStream;
+
+import static Module.PreprocessModule.intToString;
 
 public class EventServer {
     private static final Executor SERVER_EXECUTOR = Executors.newSingleThreadExecutor();
@@ -110,18 +114,42 @@ public class EventServer {
                         e.printStackTrace();
                     }
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+
+
                    // StringBuilder out = new StringBuilder();
                     String line;
                     int pre = 200;
                     int cur;
                     int diff;
+                    int bfCount = 0;
+                    String unCompress="";
+                    String compress ="";
+                    List<Integer>compressList = new ArrayList<>();
                     try {
                         while ((line = reader.readLine()) != null) {
                             cur = Integer.valueOf(line);
                             diff = cur - pre ;
                             pre = cur ;
-                            eventQueue.put(conversionModule.conversionT(diff));
-                            Thread.sleep(TimeUnit.SECONDS.toMillis(EVENT_PERIOD_SECONDS));
+                            bfCount++;
+                            unCompress += conversionModule.conversionT(diff);
+                            Log.error(String.valueOf(unCompress.length()));
+                            if(unCompress.length()==100){
+                                compressList = CompressModule.compress(unCompress);
+
+                                for(int i =0 ; i < compressList.size();i++)
+                                {
+
+                                    compress += (String.valueOf(intToString(compressList.get(i),10)));
+
+                                }
+                                eventQueue.put(compress);
+                                unCompress = "";
+                                compress = "";
+                            }
+
+
+                            //eventQueue.put(conversionModule.conversionT(diff));
+                           Thread.sleep(50);
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
