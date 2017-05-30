@@ -109,7 +109,8 @@ public class EventServer {
                 try {
                     InputStream in = null;
                     try {
-                        in = new FileInputStream(new File("/home/steve02/StreamingCps/100K.txt"));
+                        //in = new FileInputStream(new File("/home/steve02/StreamingCps/100K.txt"));
+                        in = new FileInputStream(new File("/home/yiwei/IdeaProjects/FPro/100K.txt"));
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
@@ -135,11 +136,11 @@ public class EventServer {
                             Log.error(String.valueOf(unCompress.length()));
                             if(unCompress.length()==100){
                                 compressList = CompressModule.compress(unCompress);
-
+                                System.out.println("compressList"+ compressList);
                                 for(int i =0 ; i < compressList.size();i++)
                                 {
 
-                                    compress += (String.valueOf(intToString(compressList.get(i),10)));
+                                    compress += (String.valueOf(intToString(compressList.get(i),10)))+" ";
 
                                 }
                                 eventQueue.put(compress);

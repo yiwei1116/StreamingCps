@@ -14,7 +14,7 @@ public class CompressModule {
     static Map<String,Integer> encodeDictionary = new HashMap<String,Integer>();
     static Map<Integer,String> encodeDictionaryRe = new HashMap<Integer,String  >();
     static Map<Integer,String> decodeDictionary = new HashMap<Integer,String>();
-    static int dictionaryMaxSize = 8192;
+    static int dictionaryMaxSize = 1024;
     static int keySize = 0  ;
     static int valueSize = 0  ;
     static String lruTable="";
