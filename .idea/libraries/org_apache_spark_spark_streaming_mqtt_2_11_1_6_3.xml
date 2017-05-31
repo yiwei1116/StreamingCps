@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="org.apache.spark:spark-streaming-mqtt_2.11:1.6.3" type="repository">
+    <properties maven-id="org.apache.spark:spark-streaming-mqtt_2.11:1.6.3" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-streaming-mqtt_2.11/1.6.3/spark-streaming-mqtt_2.11-1.6.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-streaming_2.11/1.6.3/spark-streaming_2.11-1.6.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/spark-project/spark/unused/1.0.0/unused-1.0.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/paho/org.eclipse.paho.client.mqttv3/1.0.1/org.eclipse.paho.client.mqttv3-1.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

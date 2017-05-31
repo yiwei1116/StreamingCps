@@ -273,13 +273,6 @@ public class EventServer {
         }
         return result;
     }
-    public static IntStream intStream(List<Integer> list)
-    {
-        return list.stream().mapToInt(Integer::intValue);
-    }
-    static String convertStreamToString(java.io.InputStream is) {
-        java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
-        return s.hasNext() ? s.next() : "";
-    }
+
 
 }
