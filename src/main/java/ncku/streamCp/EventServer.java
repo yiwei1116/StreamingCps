@@ -122,7 +122,6 @@ public class EventServer {
                     int pre = 200;
                     int cur;
                     int diff;
-                    int bfCount = 0;
                     String unCompress="";
                     String compress ="";
                     List<Integer>compressList = new ArrayList<>();
@@ -131,7 +130,7 @@ public class EventServer {
                             cur = Integer.valueOf(line);
                             diff = cur - pre ;
                             pre = cur ;
-                            bfCount++;
+
                             unCompress += conversionModule.conversionT(diff);
                             Log.error(String.valueOf(unCompress.length()));
                             if(unCompress.length()==100){

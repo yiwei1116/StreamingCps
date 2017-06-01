@@ -8,12 +8,20 @@ import  java.io.BufferedReader;
 import  java.io.File;
 import  java.io.IOException;
 import  java.io.InputStreamReader;
+import java.util.ArrayList;
 import  java.util.Enumeration;
+import java.util.List;
 import  java.util.zip.ZipEntry;
 import  java.util.zip.ZipFile;
+
+import com.esotericsoftware.minlog.Log;
 import  org.apache.log4j.LogManager;
 import  org.apache.log4j.Logger;
-    public abstract class AbstractDriver {
+
+import static Module.PreprocessModule.intToString;
+import static ncku.streamCp.Exp.conversionModule;
+
+public abstract class AbstractDriver {
             private static final Logger LOG = LogManager.getLogger(AbstractDriver. class );
             private String path;
     public AbstractDriver(String path) {
@@ -43,8 +51,35 @@ import  org.apache.log4j.Logger;
                                             getInputStream(zEntry)))) {// skip header
                                 br.readLine();
                                 String line;
+                                int pre = 200;
+                                int cur;
+                                int diff;
+                                String unCompress="";
+                                String compress ="";
+                                List<Integer> compressList = new ArrayList<>();
                                 while ((line = br.readLine()) != null ) {
-                                    sendRecord(line);
+                                    cur = Integer.valueOf(line);
+                                    diff = cur - pre ;
+                                    pre = cur ;
+
+                                    unCompress += conversionModule.conversionT(diff);
+                                    Log.error(String.valueOf(unCompress.length()));
+                                    if(unCompress.length()==100){
+                                        compressList = CompressModule.compress(unCompress);
+                                        System.out.println("compressList"+ compressList);
+                                        for(int i =0 ; i < compressList.size();i++)
+                                        {
+
+                                            compress += (String.valueOf(intToString(compressList.get(i),10)))+" ";
+
+                                        }
+                                        sendRecord(compress);
+                                        unCompress = "";
+                                        compress = "";
+                                    }
+
+
+                                 //   sendRecord(line);
                                 }
                             }
                         }

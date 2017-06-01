@@ -20,8 +20,8 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
     public MqttDriver(String path, String brokerUrl, String topic) {
         super(path);
-        this .brokerUrl = brokerUrl;
-        this .topic = topic;
+        this.brokerUrl = brokerUrl;
+        this.topic = topic;
     }
     @Override
     public void init() throws Exception {
@@ -49,15 +49,15 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
         }
             }
 
-public static void main(String[] args) throws Exception {
-    if (args.length != 3) {
+    public static void main(String[] args) throws Exception {
+   /* if (args.length != 3) {
         System.err.println("Usage:MqttDriver <path_to_input_folder> <broker_url> <topic>");
                 System.exit(-1);
     }
         String path = args[0];
         String brokerUrl = args[1];
-        String topic = args[2];
-        MqttDriver driver = new MqttDriver(path, brokerUrl, topic);
+        String topic = args[2];*/
+        MqttDriver driver = new MqttDriver("/home/yiwei/IdeaProjects/FPro/100K.txt", "tcp://localhost:9999","sensor");
         try {
         driver.execute();
         } finally {
