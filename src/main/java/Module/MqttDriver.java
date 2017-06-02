@@ -4,12 +4,11 @@ package Module;
  * Created by yiwei on 2017/5/31.
  */
 import java.nio.charset.StandardCharsets;
+
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.eclipse.paho.client.mqttv3.MqttClient;
-import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.MqttTopic;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
     public class MqttDriver extends AbstractDriver {
     private static final Logger LOG = LogManager.getLogger(MqttDriver.class );
@@ -28,7 +27,10 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
         client = new MqttClient(brokerUrl, MqttClient.generateClientId(), new
                 MemoryPersistence());
         LOG.info(String.format("Attempting to connect to broker %s", brokerUrl));
+        MqttConnectOptions connOpt = new MqttConnectOptions();
+
         client.connect();
+
         mqttTopic = client.getTopic(topic);
         LOG.info(String.format("Connected to broker %s", brokerUrl));
     }
@@ -42,6 +44,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
     public void sendRecord(String record) throws Exception {
         try {
         mqttTopic.publish( new MqttMessage(record.getBytes(StandardCharsets.UTF_8)));
+            Thread.sleep(100);
     } catch (MqttException e){
             if (e.getReasonCode()== MqttException.REASON_CODE_MAX_INFLIGHT){
             Thread.sleep(10);
@@ -50,14 +53,15 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
             }
 
     public static void main(String[] args) throws Exception {
-   /* if (args.length != 3) {
+        BasicConfigurator.configure();
+    if (args.length != 3) {
         System.err.println("Usage:MqttDriver <path_to_input_folder> <broker_url> <topic>");
                 System.exit(-1);
     }
         String path = args[0];
         String brokerUrl = args[1];
-        String topic = args[2];*/
-        MqttDriver driver = new MqttDriver("/home/yiwei/IdeaProjects/FPro/100K.txt", "tcp://localhost:9999","sensor");
+        String topic = args[2];
+        MqttDriver driver = new MqttDriver(path, brokerUrl,topic);
         try {
         driver.execute();
         } finally {

@@ -4,10 +4,7 @@ package Module;
  * Created by yiwei on 2017/5/31.
  */
 
-import  java.io.BufferedReader;
-import  java.io.File;
-import  java.io.IOException;
-import  java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import  java.util.Enumeration;
 import java.util.List;
@@ -33,23 +30,16 @@ public abstract class AbstractDriver {
     public void execute() throws Exception {
         try {
             init();
-            File dirPath = new File(path);
-            if (dirPath.isDirectory()) {
-                File[] files = new File(path).listFiles();
-                for (File f : files) {
-                    LOG.info(String.format("Feeding zipped file %s", f.getName()));
-                    ZipFile zFile = null ;
-                    try {
-                        zFile = new ZipFile(f);
-                        Enumeration<? extends ZipEntry> zEntries = zFile.entries();
-                        while (zEntries.hasMoreElements()) {
-                            ZipEntry zEntry = zEntries.nextElement();
-                            LOG.info(String.format("Feeding file %s", zEntry.
-                                    getName()));
-                            try (BufferedReader br = new BufferedReader(
-                                    new InputStreamReader(zFile.
-                                            getInputStream(zEntry)))) {// skip header
-                                br.readLine();
+            try {
+                InputStream in = null;
+                try {
+                    in = new FileInputStream(new File("/home/steve02/StreamingCps/100K.txt"));
+                   // in = new FileInputStream(new File("/home/yiwei/IdeaProjects/FPro/100K.txt"));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+
                                 String line;
                                 int pre = 200;
                                 int cur;
@@ -78,28 +68,22 @@ public abstract class AbstractDriver {
                                         compress = "";
                                     }
 
+                                    Thread.sleep(50);
 
-                                 //   sendRecord(line);
                                 }
-                            }
-                        }
-                    } catch (IOException e) {
-                        LOG.error(e.getMessage());
-                    } finally {
-                        if (zFile != null ) {
-                            try {
-                                zFile.close();
-                            } catch (IOException e) {
-                                LOG.error(e.getMessage());
-                            }
-                        }
-                    }
-                }
-            } else {
-                LOG.error(String.format("Path %s is not a directory", path));
-            }
+
+
+
+
+
+
         } finally {
             close();
         }
-    }
-    }
+    }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }}
+/**
+ * https://github.com/apache/bahir/blob/master/streaming-mqtt/examples/src/main/scala/org/apache/spark/examples/streaming/mqtt/MQTTWordCount.scala
+ **/
