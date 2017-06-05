@@ -308,6 +308,7 @@ public class CompressModule {
         Log.error("if encode dictionary equal to decode dictionary ?",String.valueOf(isDictionarySame(encodeDictionaryRe,decodeDictionary)));
         return result.toString();
     }
+    /** reconstruct to origin. */
     public static List<Integer> reConstruct(String decode){
         int base = 200;
         int diff ;
