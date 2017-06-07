@@ -1,5 +1,6 @@
 package ncku.streamCp;
 
+import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Collection;
 import java.util.Map;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  *
 
  */
-public class LRUCache<K, V> {
+public class LRUCache<K, V> implements Serializable{
     private static final float hashTableLoadFactor = 0.75f;
     private LinkedHashMap<K, V> map;
     private int cacheSize;

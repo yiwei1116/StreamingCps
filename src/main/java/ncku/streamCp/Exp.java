@@ -1,6 +1,7 @@
 package ncku.streamCp;
 
 
+import Module.PreprocessModule;
 import com.esotericsoftware.minlog.Log;
 
 import Module.CompressModule;
@@ -141,7 +142,7 @@ public class Exp {
     }
 
     public static void main(String[] args) throws IOException,InterruptedException{
-    /*    PNConfiguration pnConfiguration = new PNConfiguration();
+        /*PNConfiguration pnConfiguration = new PNConfiguration();
         pnConfiguration.setSubscribeKey("sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe");
         pnConfiguration.setPublishKey("demo");
         pnConfiguration.setSecure(false);
@@ -154,7 +155,7 @@ public class Exp {
         double compressRatio ;
         double spaceSaving;
         //oldDataSave();
-       /* pubnub.addListener(new SubscribeCallback() {
+    /*    pubnub.addListener(new SubscribeCallback() {
             @Override
             public void status(PubNub pubnub, PNStatus status) {
 
@@ -217,8 +218,8 @@ public class Exp {
                 Log.error("pubnub", String.valueOf(message.getMessage().get("radiation_level")));
 
                 sensorData.append(String.valueOf(message.getMessage().get("radiation_level")).substring(1,4)+"\r\n");
-                writeTo(String.valueOf(sensorData),"32K.txt");
-                if(sensorData.length()>32000){
+                writeTo(String.valueOf(sensorData),"256K.txt");
+                if(sensorData.length()>256000){
 
 
                     pubnub.destroy();
@@ -246,7 +247,7 @@ public class Exp {
 
         try {
           //  inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/100K.txt");
-            inputStream = new FileInputStream("/home/steve02/StreamingCps/100K.txt");
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/256K.txt");
             scanner = new Scanner(inputStream, "UTF-8");
 
             while (scanner.hasNextLine()) {
@@ -304,9 +305,7 @@ public class Exp {
         Log.error("is before compress the same as after compress ?",String.valueOf(testText.equals(decompressed)));*/
       Log.error("is before compress the same as after compress ?", String.valueOf(compressModule.reConstruct(decodingText).equals(radiationList)));
 
-        /*lines.print();
-        javaStreamingContext.start();
-        javaStreamingContext.awaitTermination();*/
+
 
     }}
 

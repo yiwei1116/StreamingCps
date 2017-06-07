@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class PreprocessModule {
 
-    public static ArrayList subValue(ArrayList<Integer> data){
+    public  static ArrayList subValue(ArrayList<Integer> data){
         int p,q,k ;
         int base = 200;
         ArrayList<Integer> preprocessList = new ArrayList<Integer>();

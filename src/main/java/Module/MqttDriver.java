@@ -3,6 +3,7 @@ package Module;
 /**
  * Created by yiwei on 2017/5/31.
  */
+import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 
 import org.apache.log4j.BasicConfigurator;
@@ -10,7 +11,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
-    public class MqttDriver extends AbstractDriver {
+    public class MqttDriver extends AbstractDriver implements Serializable {
     private static final Logger LOG = LogManager.getLogger(MqttDriver.class );
     private final String brokerUrl;
     private  final String topic;

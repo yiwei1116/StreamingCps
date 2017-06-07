@@ -109,8 +109,8 @@ public class EventServer {
                 try {
                     InputStream in = null;
                     try {
-                        //in = new FileInputStream(new File("/home/steve02/StreamingCps/100K.txt"));
-                        in = new FileInputStream(new File("/home/yiwei/IdeaProjects/FPro/100K.txt"));
+                        in = new FileInputStream(new File("/home/steve02/StreamingCps/256K.txt"));
+                        //in = new FileInputStream(new File("/home/yiwei/IdeaProjects/FPro/100K.txt"));
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }

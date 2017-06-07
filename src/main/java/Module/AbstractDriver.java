@@ -18,7 +18,7 @@ import  org.apache.log4j.Logger;
 import static Module.PreprocessModule.intToString;
 import static ncku.streamCp.Exp.conversionModule;
 
-public abstract class AbstractDriver {
+public abstract class AbstractDriver implements Serializable{
             private static final Logger LOG = LogManager.getLogger(AbstractDriver. class );
             private String path;
     public AbstractDriver(String path) {
@@ -33,8 +33,8 @@ public abstract class AbstractDriver {
             try {
                 InputStream in = null;
                 try {
-                  //  in = new FileInputStream(new File("/home/steve02/StreamingCps/100K.txt"));
-                    in = new FileInputStream(new File("/home/yiwei/IdeaProjects/FPro/100K.txt"));
+                    in = new FileInputStream(new File("/home/steve02/StreamingCps/100K.txt"));
+                  //  in = new FileInputStream(new File("/home/yiwei/IdeaProjects/FPro/100K.txt"));
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
