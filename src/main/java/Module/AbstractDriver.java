@@ -68,7 +68,7 @@ public abstract class AbstractDriver implements Serializable{
                                         compress = "";
                                     }
 
-                                    Thread.sleep(50);
+                                    Thread.sleep(100);
 
                                 }
 
