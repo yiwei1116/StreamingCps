@@ -47,6 +47,7 @@ public class CompressModule implements Serializable{
         int dictSize = 52;
 
 
+
        /* for (int i = 0; i < 256; i++) {
             encodeDictionary.put("" + (char) i, i);
 
@@ -172,6 +173,9 @@ public class CompressModule implements Serializable{
         } catch (IOException e) {
             e.printStackTrace();
         }*/
+        System.out.println("DicIndex:"+encodeDictionary.size());
+        System.out.println("DicSize:"+(keySize+valueSize));
+
         return result;
     }
 

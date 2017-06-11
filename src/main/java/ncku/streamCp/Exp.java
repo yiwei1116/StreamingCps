@@ -247,7 +247,7 @@ public class Exp {
 
         try {
           //  inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/100K.txt");
-            inputStream = new FileInputStream("/home/steve02/StreamingCps/256K.txt");
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/radiation_level/100K.txt");
             scanner = new Scanner(inputStream, "UTF-8");
 
             while (scanner.hasNextLine()) {
@@ -279,31 +279,31 @@ public class Exp {
 
             }
         }
-        DiffList = subValue(radiationList);
+     /*   DiffList = subValue(radiationList);
         List<Integer>compressList = new ArrayList<>();
         compressList = compressModule.compress(conversionModule.conversionTable(DiffList));
         double  encodingTextLength = getEncodeLength(compressList,13);
        // Log.error("num",intToString(2048,13));
         String  encodeBinary = toBinary12(compressList);
         //writeTo(encodeBinary,"Binary12");
-        System.out.println(originSensorSize *8);// byte to bit
-        System.out.println(encodingTextLength);
+        System.out.println("Origin bit: "+originSensorSize *8);// byte to bit
+        System.out.println("Compress bit: "+encodingTextLength);
         compressRatio = (originSensorSize *8 / encodingTextLength);
         System.out.println("Compress Ratio: "+Math.round(compressRatio*100.0)/100.0);//只取小數點後兩位
         spaceSaving = (1 - (1/compressRatio));
         System.out.println("Space Saving: "+Math.round(spaceSaving*100.0)/100.0);
         String decodingText = compressModule.decompress(compressList);
-        compressModule.reConstruct(decodingText);
+        compressModule.reConstruct(decodingText);*/
         /*System.out.println(conversionModule.conversionTable(DiffList));
         System.out.println(decodingText);*/
-       /* String testText = "ZcaEdDeBCcZaCBeAZZZZAZcFcaAcAZBdDcDZBAcaZCcaAAZcFccFdcDAaabBcaCbBAcBAZa";//BAbABbAbAbABacCZA
+        String testText = "12321";//BAbABbAbAbABacCZA
         List<Integer> compressed = compressModule.compress(testText);
         System.out.println(compressed);
         String decompressed = compressModule.decompress(compressed);
         System.out.println(testText);
         System.out.println(decompressed);
-        Log.error("is before compress the same as after compress ?",String.valueOf(testText.equals(decompressed)));*/
-      Log.error("is before compress the same as after compress ?", String.valueOf(compressModule.reConstruct(decodingText).equals(radiationList)));
+     //   Log.error("is before compress the same as after compress ?",String.valueOf(testText.equals(decompressed)));
+      //Log.error("is before compress the same as after compress ?", String.valueOf(compressModule.reConstruct(decodingText).equals(radiationList)));
 
 
 
