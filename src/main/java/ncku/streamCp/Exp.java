@@ -1,6 +1,7 @@
 package ncku.streamCp;
 
 
+import Equipment.MLZW_NoLRU;
 import Module.PreprocessModule;
 import com.esotericsoftware.minlog.Log;
 
@@ -247,7 +248,7 @@ public class Exp {
 
         try {
           //  inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/100K.txt");
-            inputStream = new FileInputStream("/home/steve02/StreamingCps/radiation_level/100K.txt");
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/radiation_level/128K.txt");
             scanner = new Scanner(inputStream, "UTF-8");
 
             while (scanner.hasNextLine()) {
@@ -279,9 +280,9 @@ public class Exp {
 
             }
         }
-     /*   DiffList = subValue(radiationList);
+        DiffList = subValue(radiationList);
         List<Integer>compressList = new ArrayList<>();
-        compressList = compressModule.compress(conversionModule.conversionTable(DiffList));
+        compressList = MLZW_NoLRU.compress(conversionModule.conversionTable(DiffList));
         double  encodingTextLength = getEncodeLength(compressList,13);
        // Log.error("num",intToString(2048,13));
         String  encodeBinary = toBinary12(compressList);
@@ -292,16 +293,16 @@ public class Exp {
         System.out.println("Compress Ratio: "+Math.round(compressRatio*100.0)/100.0);//只取小數點後兩位
         spaceSaving = (1 - (1/compressRatio));
         System.out.println("Space Saving: "+Math.round(spaceSaving*100.0)/100.0);
-        String decodingText = compressModule.decompress(compressList);
-        compressModule.reConstruct(decodingText);*/
-        /*System.out.println(conversionModule.conversionTable(DiffList));
+     /*   String decodingText = compressModule.decompress(compressList);
+        compressModule.reConstruct(decodingText);
+        System.out.println(conversionModule.conversionTable(DiffList));
         System.out.println(decodingText);*/
-        String testText = "12321";//BAbABbAbAbABacCZA
+      /*  String testText = "12321";//BAbABbAbAbABacCZA
         List<Integer> compressed = compressModule.compress(testText);
         System.out.println(compressed);
         String decompressed = compressModule.decompress(compressed);
         System.out.println(testText);
-        System.out.println(decompressed);
+        System.out.println(decompressed);*/
      //   Log.error("is before compress the same as after compress ?",String.valueOf(testText.equals(decompressed)));
       //Log.error("is before compress the same as after compress ?", String.valueOf(compressModule.reConstruct(decodingText).equals(radiationList)));
 

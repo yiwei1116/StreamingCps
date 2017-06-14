@@ -1,17 +1,17 @@
-package Module;
+package Equipment;
 
 import com.esotericsoftware.minlog.Log;
 import ncku.streamCp.Exp;
 import ncku.streamCp.LRUCache;
 
-import java.io.*;
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * Created by yiwei on 2017/3/14.
  */
 
-public class CompressModule implements Serializable{
+public class MLZW_NoLRU implements Serializable{
     private static Map<String,Integer> encodeDictionary = new HashMap<String,Integer>();
     private static Map<Integer,String> encodeDictionaryRe = new HashMap<Integer,String  >();
     private static Map<Integer,String> decodeDictionary = new HashMap<Integer,String>();
@@ -19,6 +19,7 @@ public class CompressModule implements Serializable{
     private static int keySize = 0  ;
     private static int valueSize = 0  ;
     private  static String lruTable="";
+    private static int dicMax = 8192;
     private static LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(dictionaryMaxSize);
     public  static List<Integer> compress(String uncompressed) {
         // Build the decodeDictionary.
@@ -85,8 +86,8 @@ public class CompressModule implements Serializable{
             String wc = w + c;
             if (encodeDictionary.containsKey(wc)) {
                 w = wc;
-                if(encodeDictionary.get(wc)>51)
-                    lruCache.put(encodeDictionary.get(wc)  , wc);
+              /*  if(encodeDictionary.get(wc)>51)
+                    lruCache.put(encodeDictionary.get(wc)  , wc);*/
 
 
             }
@@ -94,7 +95,7 @@ public class CompressModule implements Serializable{
              * remove decodeDictionary least frequency used word from LRU
              *
              */
-            else if (encodeDictionary.size() > dictionaryMaxSize ){
+          /*  else if (encodeDictionary.size() > dictionaryMaxSize ){
                 result.add(encodeDictionary.get(w));
                 Integer leastFrequenceIndex = lruCache.getHead().getKey();
                 String leastFrequenceCode = lruCache.getHead().getValue();
@@ -107,26 +108,28 @@ public class CompressModule implements Serializable{
                 lruCache.put(encodeDictionary.get(wc)  , wc);
                 w = "" + c;
 
-            }
+            }*/
             else {
 
                 result.add(encodeDictionary.get(w));
                 // Add wc to the decodeDictionary.
-                encodeDictionary.put(wc, dictSize);
-                if( encodeDictionary.get(wc)>51) {
+                if(encodeDictionary.size()<dicMax) {
+                    encodeDictionary.put(wc, dictSize);
+              /*  if( encodeDictionary.get(wc)>51) {
                     lruCache.put(encodeDictionary.get(wc)  , wc);
                     //            Log.error("encodeDictionaryKey",String.valueOf(encodeDictionary.get(wc)));
                     //            Log.error("encodeDictionaryValue",wc);
-                }
+                }*/
 
-                dict=dict+"["+"Key:"+dictSize+" , "+"Code:"+wc+"]"+"\n";
-                dictSize++;
+                    dict = dict + "[" + "Key:" + dictSize + " , " + "Code:" + wc + "]" + "\n";
+                    dictSize++;
+                }
                 w = "" + c;
 
             }
         }
         //System.out.println("Dictionay Table:");
-
+/*
         for (Map.Entry<String,Integer>entry : encodeDictionary.entrySet()){
             String key =entry.getKey();
 
@@ -136,10 +139,10 @@ public class CompressModule implements Serializable{
             valueSize += String.valueOf(value).length();
             encodeDictionaryRe.put(value,key);
 
-          /*  if(value > 255)
-            System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");*/
+          *//*  if(value > 255)
+            System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");*//*
 
-        }
+        }*/
         //Log.error("Size",String.valueOf(valueSize+keySize));
         // Output the code for w.
         if (!w.equals(""))
@@ -151,11 +154,11 @@ public class CompressModule implements Serializable{
  */
 
 
-        for (Map.Entry<Integer, String> e : lruCache.getAll())
-            lruTable=lruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";
+/*        for (Map.Entry<Integer, String> e : lruCache.getAll())
+            lruTable=lruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";*/
         //    Log.error("r",String.valueOf(lruCache.getHead().getValue()));
-        exp.writeTo(lruTable,"cacheTable.txt");
-        exp.writeTo(dict,"Dictionary.txt");
+      /*  exp.writeTo(lruTable,"cacheTable.txt");
+        exp.writeTo(dict,"Dictionary.txt");*/
         /*try{
             FileOutputStream fos = new FileOutputStream("/home/steve02/StreamingCps/LRUcache");
             FileOutputStream fos1 = new FileOutputStream("/home/steve02/StreamingCps/Dict");
@@ -174,7 +177,7 @@ public class CompressModule implements Serializable{
             e.printStackTrace();
         }*/
         System.out.println("DicIndex:"+encodeDictionary.size());
-        System.out.println("DicIndex:"+(keySize+valueSize));
+        //System.out.println("DicIndex:"+(keySize+valueSize));
 
         return result;
     }
