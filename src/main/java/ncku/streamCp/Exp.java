@@ -143,7 +143,7 @@ public class Exp {
     }
 
     public static void main(String[] args) throws IOException,InterruptedException{
-        /*PNConfiguration pnConfiguration = new PNConfiguration();
+   /*     PNConfiguration pnConfiguration = new PNConfiguration();
         pnConfiguration.setSubscribeKey("sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe");
         pnConfiguration.setPublishKey("demo");
         pnConfiguration.setSecure(false);
@@ -156,7 +156,7 @@ public class Exp {
         double compressRatio ;
         double spaceSaving;
         //oldDataSave();
-    /*    pubnub.addListener(new SubscribeCallback() {
+      /*  pubnub.addListener(new SubscribeCallback() {
             @Override
             public void status(PubNub pubnub, PNStatus status) {
 
@@ -172,7 +172,7 @@ public class Exp {
                     // UI / internal notifications, etc
 
                     if (status.getCategory() == PNStatusCategory.PNConnectedCategory){
-                        pubnub.publish().channel("pubnub-sensor-network").message("radiation_level").async(new PNCallback<PNPublishResult>() {
+                        pubnub.publish().channel("pubnub-sensor-network").message("ambient_temperature").async(new PNCallback<PNPublishResult>() {
                             @Override
                             public void onResponse(PNPublishResult result, PNStatus status) {
                                 // Check whether request successfully completed or not.
@@ -216,11 +216,11 @@ public class Exp {
                     // message.getSubscription()
                 }
 
-                Log.error("pubnub", String.valueOf(message.getMessage().get("radiation_level")));
+                Log.error("pubnub", String.valueOf(message.getMessage().get("ambient_temperature")));
 
-                sensorData.append(String.valueOf(message.getMessage().get("radiation_level")).substring(1,4)+"\r\n");
-                writeTo(String.valueOf(sensorData),"256K.txt");
-                if(sensorData.length()>256000){
+                sensorData.append(String.valueOf(message.getMessage().get("ambient_temperature")).substring(1,3)+"\r\n");
+                writeTo(String.valueOf(sensorData),"5K.txt");
+                if(sensorData.length()>64000){
 
 
                     pubnub.destroy();
@@ -248,7 +248,7 @@ public class Exp {
 
         try {
           //  inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/100K.txt");
-            inputStream = new FileInputStream("/home/steve02/StreamingCps/radiation_level/128K.txt");
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/humidity/64K.txt");
             scanner = new Scanner(inputStream, "UTF-8");
 
             while (scanner.hasNextLine()) {
@@ -282,8 +282,8 @@ public class Exp {
         }
         DiffList = subValue(radiationList);
         List<Integer>compressList = new ArrayList<>();
-        compressList = MLZW_NoLRU.compress(conversionModule.conversionTable(DiffList));
-        double  encodingTextLength = getEncodeLength(compressList,13);
+        compressList = CompressModule.compress(conversionModule.conversionTable(DiffList));
+        double  encodingTextLength = getEncodeLength(compressList,12);
        // Log.error("num",intToString(2048,13));
         String  encodeBinary = toBinary12(compressList);
         //writeTo(encodeBinary,"Binary12");

@@ -49,7 +49,7 @@ public abstract class AbstractDriver implements Serializable{
                                 List<Integer> compressList = new ArrayList<>();
                                 while ((line = br.readLine()) != null ) {
                                     cur = Integer.valueOf(line);
-                                    diff = cur - pre ;
+                                    /*diff = cur - pre ;
                                     pre = cur ;
 
                                     unCompress += conversionModule.conversionT(diff);
@@ -63,12 +63,13 @@ public abstract class AbstractDriver implements Serializable{
                                             compress += (String.valueOf(intToString(compressList.get(i),10)))+" ";
 
                                         }
-                                        sendRecord(compress);
+                                        sendRecord(String.valueOf(cur));
                                         unCompress = "";
                                         compress = "";
-                                    }
-
-                                    Thread.sleep(100);
+                                    }*/
+                                    Log.error(String.valueOf(cur));
+                                    sendRecord(String.valueOf(cur));
+                                    Thread.sleep(1000);
 
                                 }
 

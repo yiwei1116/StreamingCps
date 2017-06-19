@@ -15,7 +15,7 @@ public class CompressModule implements Serializable{
     private static Map<String,Integer> encodeDictionary = new HashMap<String,Integer>();
     private static Map<Integer,String> encodeDictionaryRe = new HashMap<Integer,String  >();
     private static Map<Integer,String> decodeDictionary = new HashMap<Integer,String>();
-    private static int dictionaryMaxSize = 8192;
+    private static int dictionaryMaxSize = 2048;
     private static int keySize = 0  ;
     private static int valueSize = 0  ;
     private  static String lruTable="";
@@ -174,7 +174,7 @@ public class CompressModule implements Serializable{
             e.printStackTrace();
         }*/
         System.out.println("DicIndex:"+encodeDictionary.size());
-        System.out.println("DicIndex:"+(keySize+valueSize));
+       // System.out.println("DicIndex:"+(keySize+valueSize));
 
         return result;
     }
