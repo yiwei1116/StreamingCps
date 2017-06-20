@@ -7,18 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a26122c-9dd8-4fde-bf75-ba41a07cb79b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Equipment/HTTPSClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Module/AbstractDriver.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Module/AbstractDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Module/CompressModule.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Module/CompressModule.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/ncku/streamCp/Exp.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/ncku/streamCp/Exp.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/FPro_jar/FPro.jar" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dictionary.txt" afterPath="$PROJECT_DIR$/Dictionary.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Transfer.txt" afterPath="$PROJECT_DIR$/Transfer.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cacheTable.txt" afterPath="$PROJECT_DIR$/cacheTable.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Module/AbstractDriver.java" afterPath="$PROJECT_DIR$/src/main/java/Module/AbstractDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Module/CompressModule.java" afterPath="$PROJECT_DIR$/src/main/java/Module/CompressModule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ncku/streamCp/EventServer.java" afterPath="$PROJECT_DIR$/src/main/java/ncku/streamCp/EventServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ncku/streamCp/Exp.java" afterPath="$PROJECT_DIR$/src/main/java/ncku/streamCp/Exp.java" />
     </list>
     <ignored path="FPro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -144,10 +134,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HTTPSServer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HTTPSServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Equipment/HTTPSServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
+            <state relative-caret-position="-24">
               <caret line="105" column="36" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -160,7 +150,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MqttDriver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MqttDriver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Module/MqttDriver.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="426">
@@ -848,7 +838,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1215" height="804" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3264095" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3189911" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -857,8 +847,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3264095" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.043776825" sideWeight="0.56666666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3264095" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27744806" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19139466" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27744806" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5667656" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22145922" sideWeight="0.72848666" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3264095" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1186,20 +1176,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Equipment/HTTPSServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="105" column="36" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#717#718#0" expanded="true" />
-            <element signature="e#749#750#0" expanded="true" />
-            <element signature="e#2905#2906#0" expanded="true" />
-            <element signature="e#2955#2956#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ncku/streamCp/MyReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-216">
@@ -1232,6 +1208,20 @@
         <state relative-caret-position="426">
           <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Equipment/HTTPSServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-24">
+          <caret line="105" column="36" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#717#718#0" expanded="true" />
+            <element signature="e#749#750#0" expanded="true" />
+            <element signature="e#2905#2906#0" expanded="true" />
+            <element signature="e#2955#2956#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
