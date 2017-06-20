@@ -18,7 +18,7 @@ import  org.apache.log4j.Logger;
 import static Module.PreprocessModule.intToString;
 import static ncku.streamCp.Exp.conversionModule;
 
-public abstract class AbstractDriver implements Serializable{
+public abstract class  AbstractDriver implements Serializable{
             private static final Logger LOG = LogManager.getLogger(AbstractDriver. class );
             private String path;
     public AbstractDriver(String path) {
@@ -49,7 +49,7 @@ public abstract class AbstractDriver implements Serializable{
                                 List<Integer> compressList = new ArrayList<>();
                                 while ((line = br.readLine()) != null ) {
                                     cur = Integer.valueOf(line);
-                                    /*diff = cur - pre ;
+                                    diff = cur - pre ;
                                     pre = cur ;
 
                                     unCompress += conversionModule.conversionT(diff);
@@ -66,7 +66,7 @@ public abstract class AbstractDriver implements Serializable{
                                         sendRecord(String.valueOf(cur));
                                         unCompress = "";
                                         compress = "";
-                                    }*/
+                                    }
                                     Log.error(String.valueOf(cur));
                                     sendRecord(String.valueOf(cur));
                                     Thread.sleep(1000);
