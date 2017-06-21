@@ -10,17 +10,15 @@ import com.pubnub.api.models.consumer.PNPublishResult;
 import com.pubnub.api.models.consumer.PNStatus;
 import com.pubnub.api.models.consumer.pubsub.PNMessageResult;
 import com.pubnub.api.models.consumer.pubsub.PNPresenceEventResult;
-import Module.CompressModule;
+import Equipment.CompressModule;
 import Module.ConversionModule;
 import Module.PreprocessModule;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.ByteBuffer;
 import java.util.*;
 import java.util.concurrent.*;
-import java.util.stream.IntStream;
 
 import static Module.PreprocessModule.intToString;
 

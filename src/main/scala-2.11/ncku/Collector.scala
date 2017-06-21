@@ -70,9 +70,9 @@ object Collector extends Serializable{
     }
     // test
     val text = transferToChar.collect()
-    val compressed = Module.CompressModule.compress(text.toString)
+    val compressed = Equipment.CompressModule.compress(text.toString)
     println(compressed)
-    val result = Module.CompressModule.decompress(compressed)
+    val result = Equipment.CompressModule.decompress(compressed)
     println(result)
 
     }

@@ -1,19 +1,14 @@
-package Module;
-
-/**
+package Module; /**
  * Created by yiwei on 2017/5/31.
  */
 
+import com.esotericsoftware.minlog.Log;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.io.*;
 import java.util.ArrayList;
-import  java.util.Enumeration;
 import java.util.List;
-import  java.util.zip.ZipEntry;
-import  java.util.zip.ZipFile;
-
-import com.esotericsoftware.minlog.Log;
-import  org.apache.log4j.LogManager;
-import  org.apache.log4j.Logger;
 
 import static Module.PreprocessModule.intToString;
 import static ncku.streamCp.Exp.conversionModule;
@@ -44,38 +39,16 @@ public abstract class  AbstractDriver implements Serializable{
                                 int pre = 200;
                                 int cur;
                                 int diff;
-                                int dicIndex = 52;
                                 String unCompress="";
                                 String compress ="";
-                                List<String> compressList = new ArrayList<>();
-                                compressList.add(0,"");
-                                compressList.add(1,"");
-                                compressList.add(2,String.valueOf(51));
-                                compressList.add(3,"");
+                                List<Integer> compressList = new ArrayList<>();
                                 while ((line = br.readLine()) != null ) {
                                     cur = Integer.valueOf(line);
                                     diff = cur - pre ;
                                     pre = cur ;
 
-                                    unCompress = conversionModule.conversionT(diff);
-
-                                    compressList.set(0,unCompress);
-
-
-                                    compressList = CompressModule.compress(compressList);
-
-                                    if(!compressList.get(3).equals("")){
-
-                                        sendRecord(compressList.get(3));
-
-                                        compressList.set(3,"");
-                                    //    unCompress = "";
-                                   //     dicIndex++;
-
-
-                                    }
-
-                                /*    Log.error(String.valueOf(unCompress.length()));
+                                    unCompress += conversionModule.conversionT(diff);
+                                    Log.error(String.valueOf(unCompress.length()));
                                     if(unCompress.length()==100){
                                         compressList = CompressModule.compress(unCompress);
                                         System.out.println("compressList"+ compressList);
@@ -85,13 +58,13 @@ public abstract class  AbstractDriver implements Serializable{
                                             compress += (String.valueOf(intToString(compressList.get(i),10)))+" ";
 
                                         }
-                                        sendRecord(String.valueOf(cur));
+                                        sendRecord(compress);
                                         unCompress = "";
                                         compress = "";
-                                    }*/
-                                   /* Log.error(String.valueOf(cur));
+                                    }
+                               /*     Log.error(String.valueOf(cur));
                                     sendRecord(String.valueOf(cur));*/
-                                    Thread.sleep(1000);
+                                    Thread.sleep(50);
 
                                 }
 
