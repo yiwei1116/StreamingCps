@@ -53,7 +53,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
         }
             }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         BasicConfigurator.configure();
     if (args.length != 3) {
         System.err.println("Usage:MqttDriver <path_to_input_folder> <broker_url> <topic>");
@@ -65,8 +65,14 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
         MqttDriver driver = new MqttDriver(path, brokerUrl,topic);
         try {
         driver.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
-        driver.close();
+            try {
+                driver.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
             }
                  }

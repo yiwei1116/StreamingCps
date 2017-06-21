@@ -23,10 +23,10 @@ public class CompressModule implements Serializable{
     private static LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(dictionaryMaxSize);
 
     /**
-     *              index 0 -> compress : int
+     *              index 0 -> uncompress string
      *                    1 -> w
      *                    2 -> dicIndex
-     *                    3 -> uncompress string
+     *                    3 -> compress : int
      * @return
      */
     public  static List<String> compress(List<String> result) {
@@ -109,9 +109,9 @@ public class CompressModule implements Serializable{
         for(int s=65;s<=90;s++)
             dict=dict+"["+"Key:"+s+" , "+"Code:"+Character.toString((char)s)+"]"+"\n";*/
 
-        String w = "";
+        String w = result.get(1);
        // List<String> result = new ArrayList<String>();
-            String c = result.get(3);
+            String c = result.get(0);
             String wc = w + c;
             Log.error("s",wc);
             if (encodeDictionary.containsKey(wc)) {
@@ -126,7 +126,7 @@ public class CompressModule implements Serializable{
              *
              */
             else if (encodeDictionary.size() > dictionaryMaxSize ){
-                result.add(String.valueOf(encodeDictionary.get(w)));
+                result.set(3,String.valueOf(encodeDictionary.get(w)));
                 Integer leastFrequenceIndex = lruCache.getHead().getKey();
                 String leastFrequenceCode = lruCache.getHead().getValue();
                 //       Log.error("index",String.valueOf(leastFrequenceIndex));
@@ -141,10 +141,11 @@ public class CompressModule implements Serializable{
             }
             else {
 
-                result.add(String.valueOf(encodeDictionary.get(w)));
+                result.set(3,String.valueOf(encodeDictionary.get(w)));
                 // Add wc to the decodeDictionary.
                // encodeDictionary.put(wc, dictSize);
-                encodeDictionary.put(wc, Integer.valueOf(result.get(2)));
+                System.out.println((Integer.valueOf(result.get(2))));
+                encodeDictionary.put(wc, (Integer.valueOf(result.get(2))));
                 if( encodeDictionary.get(wc)>51) {
                     lruCache.put(encodeDictionary.get(wc)  , wc);
                     //            Log.error("encodeDictionaryKey",String.valueOf(encodeDictionary.get(wc)));
@@ -213,11 +214,20 @@ public class CompressModule implements Serializable{
         System.out.println("DicIndex:"+encodeDictionary.size());
        // System.out.println("DicIndex:"+(keySize+valueSize));
         storeHashMap(encodeDictionary);
-        result.add(w);
-        result.add(String.valueOf(encodeDictionary.size()));
+
+        result.set(1,w);
+        result.set(2,String.valueOf(encodeDictionary.size()));
 
         return result;
     }
+
+
+    /**
+     * -----------------------------------------------------------------------------------------
+     */
+
+
+
 
     /** Decompress a list of output ks to a string. */
     public  String decompress(List<Integer> compressed) {
