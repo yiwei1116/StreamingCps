@@ -44,23 +44,25 @@ public abstract class  AbstractDriver implements Serializable{
                                 int pre = 200;
                                 int cur;
                                 int diff;
+                                int dicIndex = 52;
                                 String unCompress="";
                                 String compress ="";
-                                List<Integer> compressList = new ArrayList<>();
+                                List<String> compressList = new ArrayList<>();
                                 while ((line = br.readLine()) != null ) {
                                     cur = Integer.valueOf(line);
                                     diff = cur - pre ;
                                     pre = cur ;
 
                                     unCompress += conversionModule.conversionT(diff);
-                                    compressList = CompressModule.compress(unCompress);
+                                    compressList.add(3,unCompress);
+                                    compressList = CompressModule.compress(compressList);
 
-                                    if(compressList.size()==1){
+                                    if(!compressList.get(0).equals(null)){
 
                                         sendRecord(String.valueOf(compressList.get(0)));
-                                        compressList.clear();
-                                        unCompress = "";
-
+                                        compressList.remove(0);
+                                    //    unCompress = "";
+                                   //     dicIndex++;
 
 
                                     }

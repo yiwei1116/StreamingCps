@@ -134,7 +134,7 @@ public class EventServer {
                             unCompress += conversionModule.conversionT(diff);
                             Log.error(String.valueOf(unCompress.length()));
                             if(unCompress.length()==100){
-                                compressList = CompressModule.compress(unCompress);
+                              //  compressList = CompressModule.compress(unCompress);
                                 System.out.println("compressList"+ compressList);
                                 for(int i =0 ; i < compressList.size();i++)
                                 {

@@ -282,7 +282,7 @@ public class Exp {
         }
         DiffList = subValue(radiationList);
         List<Integer>compressList = new ArrayList<>();
-        compressList = CompressModule.compress(conversionModule.conversionTable(DiffList));
+      //  compressList = CompressModule.compress(conversionModule.conversionTable(DiffList));
         double  encodingTextLength = getEncodeLength(compressList,12);
        // Log.error("num",intToString(2048,13));
         String  encodeBinary = toBinary12(compressList);
