@@ -12,9 +12,9 @@ import java.util.*;
  */
 
 public class CompressModule implements Serializable{
-    private static Map<String,Integer> encodeDictionary = new HashMap<String,Integer>();
-    private static Map<Integer,String> encodeDictionaryRe = new HashMap<Integer,String  >();
-    private static Map<Integer,String> decodeDictionary = new HashMap<Integer,String>();
+    private static HashMap<String,Integer> encodeDictionary = new HashMap<String,Integer>();
+    private static HashMap<Integer,String> encodeDictionaryRe = new HashMap<Integer,String  >();
+    private static HashMap<Integer,String> decodeDictionary = new HashMap<Integer,String>();
     private static int dictionaryMaxSize = 2048;
     private static int keySize = 0  ;
     private static int valueSize = 0  ;
@@ -46,12 +46,29 @@ public class CompressModule implements Serializable{
         Exp exp = new Exp();
         int dictSize = 52;
 
+        //read from file
+        try{
+            File toRead=new File("fileone");
+            FileInputStream fis=new FileInputStream(toRead);
+            ObjectInputStream ois=new ObjectInputStream(fis);
 
+            HashMap<String,Integer> mapInFile=(HashMap<String,Integer>)ois.readObject();
+
+            ois.close();
+            fis.close();
+            //print All data in MAP
+            for(Map.Entry<String,Integer> m :mapInFile.entrySet()){
+                System.out.println(m.getKey()+" : "+m.getValue());
+            }
+        }catch(Exception e){
+            Log.error(e.getMessage());
+        }
 
        /* for (int i = 0; i < 256; i++) {
             encodeDictionary.put("" + (char) i, i);
 
         }*/
+       if(encodeDictionary.size()==0){
         /**
          *  A~Z 0~25
          */
@@ -67,6 +84,7 @@ public class CompressModule implements Serializable{
             encodeDictionary.put( "" + (char) i,  (i-71));
 
         }
+       }
         String dict="";
 
 
@@ -142,8 +160,12 @@ public class CompressModule implements Serializable{
         }
         //Log.error("Size",String.valueOf(valueSize+keySize));
         // Output the code for w.
-        if (!w.equals(""))
-            result.add(encodeDictionary.get(w));
+        /***
+         *
+         *  no input get dictionary key
+         */
+      /*  if (!w.equals(""))
+            result.add(encodeDictionary.get(w));*/
 
 /**
  * LRU key 同 value 不同 取代value且移至尾
@@ -175,7 +197,7 @@ public class CompressModule implements Serializable{
         }*/
         System.out.println("DicIndex:"+encodeDictionary.size());
        // System.out.println("DicIndex:"+(keySize+valueSize));
-
+        storeHashMap(encodeDictionary);
         return result;
     }
 
@@ -433,5 +455,21 @@ public class CompressModule implements Serializable{
         return flag;
     }
   //  public  static   LRUCache<Integer, String>
+  public static void storeHashMap(HashMap<String,Integer> map){
+      //write to file : "fileone"
+      try{
+          File fileOne=new File("fileone");
+          FileOutputStream fos=new FileOutputStream(fileOne);
+          ObjectOutputStream oos=new ObjectOutputStream(fos);
 
+          oos.writeObject(map);
+          oos.flush();
+          oos.close();
+          fos.close();
+      }catch(Exception e){
+
+      }
+
+
+  }
 }

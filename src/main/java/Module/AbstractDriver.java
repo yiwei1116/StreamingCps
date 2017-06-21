@@ -53,7 +53,19 @@ public abstract class  AbstractDriver implements Serializable{
                                     pre = cur ;
 
                                     unCompress += conversionModule.conversionT(diff);
-                                    Log.error(String.valueOf(unCompress.length()));
+                                    compressList = CompressModule.compress(unCompress);
+
+                                    if(compressList.size()==1){
+
+                                        sendRecord(String.valueOf(compressList.get(0)));
+                                        compressList.clear();
+                                        unCompress = "";
+
+
+
+                                    }
+
+                                /*    Log.error(String.valueOf(unCompress.length()));
                                     if(unCompress.length()==100){
                                         compressList = CompressModule.compress(unCompress);
                                         System.out.println("compressList"+ compressList);
@@ -66,9 +78,9 @@ public abstract class  AbstractDriver implements Serializable{
                                         sendRecord(String.valueOf(cur));
                                         unCompress = "";
                                         compress = "";
-                                    }
-                                    Log.error(String.valueOf(cur));
-                                    sendRecord(String.valueOf(cur));
+                                    }*/
+                                   /* Log.error(String.valueOf(cur));
+                                    sendRecord(String.valueOf(cur));*/
                                     Thread.sleep(1000);
 
                                 }
