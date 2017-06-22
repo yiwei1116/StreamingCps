@@ -9,7 +9,9 @@ import java.io.*;
 import java.util.*;
 
 public class LZW {
-    private static int dicMax = 8192;
+    private static int dicMax = 1024;
+    private static int keySize = 0  ;
+    private static int valueSize = 0  ;
     public static String readTextFile(String filename)
     {String returnValue="";
         FileReader file=null;
@@ -76,10 +78,18 @@ public class LZW {
             }
 
         }
+        for (Map.Entry<String,Integer>entry : dictionary.entrySet()){
+            String key =entry.getKey();
+
+            keySize += key.length();
+
+            int value = entry.getValue();
+            valueSize += String.valueOf(value).length();}
         if (!w.equals(""))
             result.add(dictionary.get(w));
         //LZW.write(result.toString());
         LZW.writeto(dict);
+        System.out.println("DicIndex:"+(keySize+valueSize));
         Log.error("DicIndex",String.valueOf(dictionary.size()));
         return result;
     }

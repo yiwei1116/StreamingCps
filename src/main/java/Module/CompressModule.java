@@ -156,23 +156,7 @@ public class CompressModule implements Serializable{
         //    Log.error("r",String.valueOf(lruCache.getHead().getValue()));
         exp.writeTo(lruTable,"cacheTable.txt");
         exp.writeTo(dict,"Dictionary.txt");
-        /*try{
-            FileOutputStream fos = new FileOutputStream("/home/steve02/StreamingCps/LRUcache");
-            FileOutputStream fos1 = new FileOutputStream("/home/steve02/StreamingCps/Dict");
-            ObjectOutputStream oos =new ObjectOutputStream(fos);
-            ObjectOutputStream oos1 =new ObjectOutputStream(fos1);
-            oos.writeObject(lruCache);
-            oos1.writeObject(encodeDictionary);
-            oos.flush();
-            oos1.flush();
-            oos.close();
-            oos1.close();
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
         System.out.println("DicIndex:"+encodeDictionary.size());
        // System.out.println("DicIndex:"+(keySize+valueSize));
 
@@ -347,7 +331,7 @@ public class CompressModule implements Serializable{
         }
 
         Log.error("if encode cache equal to decode cache ?",String.valueOf(delruTable.equals(lruTable)));
-        Log.error("if encode dictionary equal to decode dictionary ?",String.valueOf(isDictionarySame(encodeDictionaryRe,decodeDictionary)));
+      //  Log.error("if encode dictionary equal to decode dictionary ?",String.valueOf(isDictionarySame(encodeDictionaryRe,decodeDictionary)));
         return result.toString();
     }
     /** reconstruct to origin. */

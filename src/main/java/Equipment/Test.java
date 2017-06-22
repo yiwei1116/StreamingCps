@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) throws IOException,InterruptedException{
-        int index = 13;
+        int index = 10;
         double compressRatio=0 , spaceSaving=0, readTextBit=0,compressBit=0;
         String readText = LZW.readTextFile("/home/steve02/StreamingCps/radiation_level/1K.txt");
         String testText = "12321";//BAbABbAbAbABacCZA

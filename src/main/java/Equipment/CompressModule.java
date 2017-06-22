@@ -15,7 +15,7 @@ public class CompressModule implements Serializable{
     private static HashMap<String,Integer> encodeDictionary = new HashMap<String,Integer>();
     private static HashMap<Integer,String> encodeDictionaryRe = new HashMap<Integer,String  >();
     private static HashMap<Integer,String> decodeDictionary = new HashMap<Integer,String>();
-    private static int dictionaryMaxSize = 1024;
+    private static int dictionaryMaxSize = 4096;
     private static int keySize = 0  ;
     private static int valueSize = 0  ;
     private  static String lruTable="";
@@ -33,25 +33,7 @@ public class CompressModule implements Serializable{
     public  static List<String> compress(List<String> result) {
         // Build the decodeDictionary.
 
-       /* try{
-            FileInputStream fis = new FileInputStream("/home/steve02/StreamingCps/LRUcache");
-            FileInputStream fis1 = new FileInputStream("/home/steve02/StreamingCps/Dict");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            ObjectInputStream ois1 = new ObjectInputStream(fis1);
-            lruCache = (LRUCache)ois.readObject();
-            encodeDictionary = (Map<String,Integer>)ois1.readObject();
-            ois.close();
-            ois1.close();
-            System.out.println("lrucache "+lruCache);
-            System.out.println("encodeDictionary "+encodeDictionary);
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }*/
 
         Exp exp = new Exp();
         int dictSize = 52;
@@ -79,7 +61,7 @@ public class CompressModule implements Serializable{
 
         }
        }
-        else{
+       /* else{
            //read from file
            try{
                File toRead=new File("fileone");
@@ -98,18 +80,9 @@ public class CompressModule implements Serializable{
            }catch(Exception e){
                Log.error(e.getMessage());
            }
-       }
+       }*/
         String dict="";
 
-
- /*      for(int u=32;u<=32;u++)
-            dict=dict+"["+"Key:"+Character.toString((char)u)+" , "+"Code:"+u+"]"+"\n";
-        for(int o=46;o<=46;o++)
-            dict=dict+"["+"Key:"+Character.toString((char)o)+" , "+"Code:"+o+"]"+"\n";
-        for(int h=97;h<=122;h++)
-            dict=dict+"["+"Key:"+h+" , "+"Code:"+Character.toString((char)h)+"]"+"\n";
-        for(int s=65;s<=90;s++)
-            dict=dict+"["+"Key:"+s+" , "+"Code:"+Character.toString((char)s)+"]"+"\n";*/
 
         String w = result.get(1);
        // List<String> result = new ArrayList<String>();
@@ -163,7 +136,7 @@ public class CompressModule implements Serializable{
 
         //System.out.println("Dictionay Table:");
 
-        for (Map.Entry<String,Integer>entry : encodeDictionary.entrySet()){
+       /* for (Map.Entry<String,Integer>entry : encodeDictionary.entrySet()){
             String key =entry.getKey();
 
             keySize += key.length();
@@ -172,10 +145,10 @@ public class CompressModule implements Serializable{
             valueSize += String.valueOf(value).length();
             encodeDictionaryRe.put(value,key);
 
-          /*  if(value > 255)
-            System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");*/
+          *//*  if(value > 255)
+            System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");*//*
 
-        }
+        }*/
         //Log.error("Size",String.valueOf(valueSize+keySize));
         // Output the code for w.
         /***
@@ -189,33 +162,16 @@ public class CompressModule implements Serializable{
  * LRU key 同 value 不同 取代value且移至尾
  *         同        同
  */
-
+/*
 
         for (Map.Entry<Integer, String> e : lruCache.getAll())
-            lruTable=lruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";
+            lruTable=lruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";*/
         //    Log.error("r",String.valueOf(lruCache.getHead().getValue()));
-        exp.writeTo(lruTable,"cacheTable.txt");
-        exp.writeTo(dict,"Dictionary.txt");
-        /*try{
-            FileOutputStream fos = new FileOutputStream("/home/steve02/StreamingCps/LRUcache");
-            FileOutputStream fos1 = new FileOutputStream("/home/steve02/StreamingCps/Dict");
-            ObjectOutputStream oos =new ObjectOutputStream(fos);
-            ObjectOutputStream oos1 =new ObjectOutputStream(fos1);
-            oos.writeObject(lruCache);
-            oos1.writeObject(encodeDictionary);
-            oos.flush();
-            oos1.flush();
-            oos.close();
-            oos1.close();
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+
         System.out.println("DicIndex:"+encodeDictionary.size());
        // System.out.println("DicIndex:"+(keySize+valueSize));
-        storeHashMap(encodeDictionary);
+        //storeHashMap(encodeDictionary);
 
         result.set(1,w);
         result.set(2,String.valueOf(encodeDictionary.size()));
