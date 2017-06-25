@@ -41,19 +41,24 @@ public abstract class  AbstractDriver implements Serializable{
                                 int cur;
                                 int diff;
                                 int dicIndex = 52;
-                                long StartTime;
-                                long EndTime;
-                                String unCompress="";
+                                long StartTime=0;
+                                long EndTime=0;
+                             long actualTime =0;
+                long durationTime =0;
+                              String unCompress="";
                                 String compress ="";
                                 double i =0 ;
                                 double j =0 ;
+                                int k = 1;
                                 List<String> compressList = new ArrayList<>();
                                 compressList.add(0,"");
                                 compressList.add(1,"");
                                 compressList.add(2,String.valueOf(51));
                                 compressList.add(3,"");
-                                StartTime = System.currentTimeMillis();
+
                                 while ((line = br.readLine()) != null ) {
+                                    StartTime = System.currentTimeMillis();
+
                                     i++;
                                     cur = Integer.valueOf(line);
                                     diff = cur - pre ;
@@ -66,8 +71,9 @@ public abstract class  AbstractDriver implements Serializable{
 
                                     compressList = CompressModule.compress(compressList);
 
-                                    if(!compressList.get(3).equals("")){
 
+                                    if(!compressList.get(3).equals("")){
+                                        k=1;
                                         sendRecord(compressList.get(3));
                                         Log.error("send",compressList.get(3));
                                         j++;//compress count
@@ -77,6 +83,7 @@ public abstract class  AbstractDriver implements Serializable{
 
 
                                     }
+                                    k++;
 
                                 /*    Log.error(String.valueOf(unCompress.length()));
                                     if(unCompress.length()==100){
@@ -95,15 +102,16 @@ public abstract class  AbstractDriver implements Serializable{
                                    /* Log.error(String.valueOf(cur));
                                     sendRecord(String.valueOf(cur));*/
                                     Thread.sleep(500);
-
+                                    EndTime = System.currentTimeMillis();
+                                    durationTime += ((EndTime-StartTime)*k);
                                 }
-                                EndTime = System.currentTimeMillis();
+
                                 System.out.println("EndTime  : " +(EndTime));
                                 System.out.println("StartTime  : " +(StartTime));
-                                long actualTime = ((EndTime-StartTime))/1000;
+                                 actualTime = durationTime/1000;
                                 System.out.println("During time : " +actualTime);
                                  System.out.println("avarge delay time : " +actualTime/i);
-                                double compressbit = j*12;
+                                double compressbit = j*10;
                                 double compressRatio = (3*i*8)/compressbit;
 
                                 System.out.println("compress ratio : " +Math.round(compressRatio*100.0)/100.0);

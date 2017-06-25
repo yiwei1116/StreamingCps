@@ -15,7 +15,7 @@ public class CompressModule implements Serializable{
     private static HashMap<String,Integer> encodeDictionary = new HashMap<String,Integer>();
     private static HashMap<Integer,String> encodeDictionaryRe = new HashMap<Integer,String  >();
     private static HashMap<Integer,String> decodeDictionary = new HashMap<Integer,String>();
-    private static int dictionaryMaxSize = 4096;
+    private static int dictionaryMaxSize = 1024;
     private static int keySize = 0  ;
     private static int valueSize = 0  ;
     private  static String lruTable="";
@@ -28,6 +28,7 @@ public class CompressModule implements Serializable{
      *                    1 -> w
      *                    2 -> dicIndex
      *                    3 -> compress : int
+     *                    4 ->
      * @return
      */
     public  static List<String> compress(List<String> result) {

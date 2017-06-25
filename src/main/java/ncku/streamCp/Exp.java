@@ -1,7 +1,7 @@
 package ncku.streamCp;
 
 
-import Equipment.CompressModule;
+import Module.CompressModule;
 
 
 import Module.ConversionModule;
@@ -231,7 +231,7 @@ public class Exp {
 
         try {
           //  inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/100K.txt");
-            inputStream = new FileInputStream("/home/steve02/StreamingCps/humidity/64K.txt");
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/EC.txt");
             scanner = new Scanner(inputStream, "UTF-8");
 
             while (scanner.hasNextLine()) {
@@ -265,14 +265,16 @@ public class Exp {
         }
         DiffList = subValue(radiationList);
         List<Integer>compressList = new ArrayList<>();
-      //  compressList = CompressModule.compress(conversionModule.conversionTable(DiffList));
+        compressList = CompressModule.compress(conversionModule.conversionTable(DiffList));
+        System.out.println(ConversionModule.overFlowList());
+        System.out.println(ConversionModule.getOVlength());
         double  encodingTextLength = getEncodeLength(compressList,12);
        // Log.error("num",intToString(2048,13));
         String  encodeBinary = toBinary12(compressList);
         //writeTo(encodeBinary,"Binary12");
         System.out.println("Origin bit: "+originSensorSize *8);// byte to bit
         System.out.println("Compress bit: "+encodingTextLength);
-        compressRatio = (originSensorSize *8 / encodingTextLength);
+        compressRatio = (originSensorSize *8 / (encodingTextLength+8*ConversionModule.getOVlength()));
         System.out.println("Compress Ratio: "+Math.round(compressRatio*100.0)/100.0);//只取小數點後兩位
         spaceSaving = (1 - (1/compressRatio));
         System.out.println("Space Saving: "+Math.round(spaceSaving*100.0)/100.0);

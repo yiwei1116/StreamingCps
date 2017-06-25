@@ -15,33 +15,16 @@ public class CompressModule implements Serializable{
     private static Map<String,Integer> encodeDictionary = new HashMap<String,Integer>();
     private static Map<Integer,String> encodeDictionaryRe = new HashMap<Integer,String  >();
     private static Map<Integer,String> decodeDictionary = new HashMap<Integer,String>();
-    private static int dictionaryMaxSize = 1024;
+    private static int dictionaryMaxSize = 4096;
     private static int keySize = 0  ;
     private static int valueSize = 0  ;
     private  static String lruTable="";
+
     private static LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(dictionaryMaxSize);
     public  static List<Integer> compress(String uncompressed) {
         // Build the decodeDictionary.
 
-       /* try{
-            FileInputStream fis = new FileInputStream("/home/steve02/StreamingCps/LRUcache");
-            FileInputStream fis1 = new FileInputStream("/home/steve02/StreamingCps/Dict");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            ObjectInputStream ois1 = new ObjectInputStream(fis1);
-            lruCache = (LRUCache)ois.readObject();
-            encodeDictionary = (Map<String,Integer>)ois1.readObject();
-            ois.close();
-            ois1.close();
-            System.out.println("lrucache "+lruCache);
-            System.out.println("encodeDictionary "+encodeDictionary);
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }*/
 
         Exp exp = new Exp();
         int dictSize = 52;
@@ -70,14 +53,6 @@ public class CompressModule implements Serializable{
         String dict="";
 
 
- /*      for(int u=32;u<=32;u++)
-            dict=dict+"["+"Key:"+Character.toString((char)u)+" , "+"Code:"+u+"]"+"\n";
-        for(int o=46;o<=46;o++)
-            dict=dict+"["+"Key:"+Character.toString((char)o)+" , "+"Code:"+o+"]"+"\n";
-        for(int h=97;h<=122;h++)
-            dict=dict+"["+"Key:"+h+" , "+"Code:"+Character.toString((char)h)+"]"+"\n";
-        for(int s=65;s<=90;s++)
-            dict=dict+"["+"Key:"+s+" , "+"Code:"+Character.toString((char)s)+"]"+"\n";*/
 
         String w = "";
         List<Integer> result = new ArrayList<Integer>();
@@ -153,8 +128,8 @@ public class CompressModule implements Serializable{
 
         for (Map.Entry<Integer, String> e : lruCache.getAll())
             lruTable=lruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";
-        //    Log.error("r",String.valueOf(lruCache.getHead().getValue()));
-        exp.writeTo(lruTable,"cacheTable.txt");
+        /*    Log.error("r",String.valueOf(lruCache.getHead().getValue()));
+        exp.writeTo(lruTable,"cacheTable.txt");*/
         exp.writeTo(dict,"Dictionary.txt");
 
         System.out.println("DicIndex:"+encodeDictionary.size());

@@ -1,17 +1,23 @@
 package Module;
 
+import com.esotericsoftware.minlog.Log;
 import ncku.streamCp.Exp;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by yiwei on 2017/3/13.
  */
 public class ConversionModule {
-
+    private static List<Integer> overFlowValue= new ArrayList<Integer>();
+    private static int OVlength = 0;
     public  String conversionTable(ArrayList<Integer> diffList){
         String tfNum="";
+        String OverFlow = "z";
+
+
         Exp exp =new Exp();
         HashMap converseT = new HashMap<Integer,String>();
         converseT.put(1,"A");
@@ -70,11 +76,21 @@ public class ConversionModule {
 
         for(int i = 0 ; i < diffList.size() ; i++){
 
-            tfNum += converseT.get( diffList.get(i));
 
 
+            if(converseT.get(diffList.get(i))==null){
+                overFlowValue.add(diffList.get(i));
+                tfNum += OverFlow;
+                OVlength += diffList.get(i).toString().length();
+
+
+            }
+            else {
+                tfNum += converseT.get(diffList.get(i));
+
+            }
         }
-        exp.writeTo(tfNum,"Transfer.txt");
+
 
 
 
@@ -148,6 +164,16 @@ public class ConversionModule {
 
         return (String) converseT.get(diff);
 
+    }
+    public  static List<Integer>  overFlowList(){
+
+
+        return overFlowValue;
+    }
+    public  static int getOVlength(){
+
+
+        return OVlength;
     }
 
 
