@@ -1,9 +1,8 @@
 package Equipment;
 
 import com.esotericsoftware.minlog.Log;
-import ncku.streamCp.Exp;
 import ncku.streamCp.LRUCache;
-
+import ncku.streamCp.Exp;
 import java.io.Serializable;
 import java.util.*;
 
@@ -11,7 +10,7 @@ import java.util.*;
  * Created by yiwei on 2017/3/14.
  */
 
-public class MLZW_NoLRU implements Serializable{
+public class MLZW_Fiush implements Serializable{
     private static Map<String,Integer> encodeDictionary = new HashMap<String,Integer>();
     private static Map<Integer,String> encodeDictionaryRe = new HashMap<Integer,String  >();
     private static Map<Integer,String> decodeDictionary = new HashMap<Integer,String>();
@@ -29,26 +28,12 @@ public class MLZW_NoLRU implements Serializable{
         int dictSize = 52;
 
 
-
+    buildDictionary(encodeDictionary);
        /* for (int i = 0; i < 256; i++) {
             encodeDictionary.put("" + (char) i, i);
 
         }*/
-        /**
-         *  A~Z 0~25
-         */
-        for (int i = 65; i < 91; i++) {
-            encodeDictionary.put("" + (char) i, (i-65));
 
-        }
-
-/**
- *  a~z 26~51
- */
-        for (int i = 97; i < 123; i++) {
-            encodeDictionary.put( "" + (char) i,  (i-71));
-
-        }
         String dict="";
 
 
@@ -81,7 +66,15 @@ public class MLZW_NoLRU implements Serializable{
                 w = "" + c;
 
             }*/
+            else if(encodeDictionary.size()>=dictionaryMaxSize){
 
+                encodeDictionary.clear();
+                dictSize = 52;
+                w="";
+
+                buildDictionary(encodeDictionary);
+
+             }
             else {
 
                 result.add(encodeDictionary.get(w));
@@ -125,10 +118,10 @@ public class MLZW_NoLRU implements Serializable{
  * LRU key 同 value 不同 取代value且移至尾
  *         同        同
  */
-        System.out.println("encodeDictionary : "+encodeDictionary);
-        System.out.println("DicIndex:"+encodeDictionary.size());
-        //System.out.println("DicIndex:"+(keySize+valueSize));
 
+        System.out.println("result:"+result);
+        //System.out.println("DicIndex:"+(keySize+valueSize));
+        System.out.println("encodeDictionary : "+encodeDictionary);
         return result;
     }
 
@@ -386,5 +379,28 @@ public class MLZW_NoLRU implements Serializable{
         return flag;
     }
   //  public  static   LRUCache<Integer, String>
+    public static void buildDictionary(Map<String,Integer> Dictionary){
+
+
+
+        /**
+         *  A~Z 0~25
+         */
+        for (int i = 65; i < 91; i++) {
+            Dictionary.put("" + (char) i, (i-65));
+
+        }
+
+/**
+ *  a~z 26~51
+ */
+        for (int i = 97; i < 123; i++) {
+            Dictionary.put( "" + (char) i,  (i-71));
+
+        }
+
+
+
+    }
 
 }

@@ -130,11 +130,11 @@ public class CompressModule implements Serializable{
             lruTable=lruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";
         /*    Log.error("r",String.valueOf(lruCache.getHead().getValue()));
         exp.writeTo(lruTable,"cacheTable.txt");*/
-        exp.writeTo(dict,"Dictionary.txt");
+        //exp.writeTo(dict,"Dictionary.txt");
 
         System.out.println("DicIndex:"+encodeDictionary.size());
        // System.out.println("DicIndex:"+(keySize+valueSize));
-
+        System.out.println("encodeDictionary :"+encodeDictionary);
         return result;
     }
 

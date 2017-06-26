@@ -1,8 +1,10 @@
 package ncku.streamCp;
 
 
+import Equipment.MLZW_Fiush;
 import Module.CompressModule;
 
+import Equipment.*;
 
 import Module.ConversionModule;
 
@@ -230,8 +232,8 @@ public class Exp {
 
 
         try {
-          //  inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/100K.txt");
-            inputStream = new FileInputStream("/home/steve02/StreamingCps/EC.txt");
+            inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/EC.txt");
+          //  inputStream = new FileInputStream("/home/steve02/StreamingCps/EC.txt");
             scanner = new Scanner(inputStream, "UTF-8");
 
             while (scanner.hasNextLine()) {
@@ -265,9 +267,9 @@ public class Exp {
         }
         DiffList = subValue(radiationList);
         List<Integer>compressList = new ArrayList<>();
-        compressList = CompressModule.compress(conversionModule.conversionTable(DiffList));
+        compressList =  MLZW_Fiush.compress(conversionModule.conversionTable(DiffList));
         System.out.println(ConversionModule.overFlowList());
-        System.out.println(ConversionModule.getOVlength());
+        System.out.println(compressList);
         double  encodingTextLength = getEncodeLength(compressList,12);
        // Log.error("num",intToString(2048,13));
         String  encodeBinary = toBinary12(compressList);

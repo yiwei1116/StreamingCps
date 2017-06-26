@@ -9,7 +9,7 @@ import java.io.*;
 import java.util.*;
 
 public class LZW {
-    private static int dicMax = 1024;
+    private static int dicMax = 4096;
     private static int keySize = 0  ;
     private static int valueSize = 0  ;
     public static String readTextFile(String filename)
@@ -88,7 +88,7 @@ public class LZW {
         if (!w.equals(""))
             result.add(dictionary.get(w));
         //LZW.write(result.toString());
-        LZW.writeto(dict);
+      //  LZW.writeto(dict);
         System.out.println("DicIndex:"+(keySize+valueSize));
         Log.error("DicIndex",String.valueOf(dictionary.size()));
         return result;
