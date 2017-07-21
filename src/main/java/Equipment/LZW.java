@@ -61,12 +61,14 @@ public class LZW {
 
         String w = "";
         List<Integer> result = new ArrayList<Integer>();
-
+        int count = 0;
 
         for (char c : uncompressed.toCharArray()) {
             String wc = w + c;
-            if (dictionary.containsKey(wc))
+            if (dictionary.containsKey(wc)){
                 w = wc;
+                count++;
+            }
             else {
 
                 result.add(dictionary.get(w));
@@ -87,10 +89,11 @@ public class LZW {
             valueSize += String.valueOf(value).length();}
         if (!w.equals(""))
             result.add(dictionary.get(w));
-        //LZW.write(result.toString());
+     //  LZW.write(result.toString());
       //  LZW.writeto(dict);
         System.out.println("DicIndex:"+(keySize+valueSize));
         Log.error("DicIndex",String.valueOf(dictionary.size()));
+        Log.error("count",String.valueOf(count));
         return result;
     }
 

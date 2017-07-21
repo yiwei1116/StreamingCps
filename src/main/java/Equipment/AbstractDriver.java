@@ -43,8 +43,8 @@ public abstract class  AbstractDriver implements Serializable{
                                 int dicIndex = 52;
                                 long StartTime=0;
                                 long EndTime=0;
-                             long actualTime =0;
-                long durationTime =0;
+                                long actualTime =0;
+                                long durationTime =0;
                               String unCompress="";
                                 String compress ="";
                                 double i =0 ;

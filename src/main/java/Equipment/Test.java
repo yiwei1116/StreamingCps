@@ -9,9 +9,9 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) throws IOException,InterruptedException{
-        int index = 10;
+        int index = 12;
         double compressRatio=0 , spaceSaving=0, readTextBit=0,compressBit=0;
-        String readText = LZW.readTextFile("/home/steve02/StreamingCps/radiation_level/1K.txt");
+        String readText = LZW.readTextFile("/home/steve02/StreamingCps/radiation_level/16K.txt");
         String testText = "12321";//BAbABbAbAbABacCZA
         List<Integer> compressed = LZW.compress(readText);
         System.out.println(readText.length()*8);

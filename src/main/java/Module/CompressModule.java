@@ -15,7 +15,7 @@ public class CompressModule implements Serializable{
     private static Map<String,Integer> encodeDictionary = new HashMap<String,Integer>();
     private static Map<Integer,String> encodeDictionaryRe = new HashMap<Integer,String  >();
     private static Map<Integer,String> decodeDictionary = new HashMap<Integer,String>();
-    private static int dictionaryMaxSize = 4096;
+    private static int dictionaryMaxSize = 8192;
     private static int keySize = 0  ;
     private static int valueSize = 0  ;
     private  static String lruTable="";
@@ -28,7 +28,7 @@ public class CompressModule implements Serializable{
 
         Exp exp = new Exp();
         int dictSize = 52;
-
+        int count = 0;
 
 
        /* for (int i = 0; i < 256; i++) {
@@ -60,6 +60,7 @@ public class CompressModule implements Serializable{
             String wc = w + c;
             if (encodeDictionary.containsKey(wc)) {
                 w = wc;
+                count++;
                 if(encodeDictionary.get(wc)>51)
                     lruCache.put(encodeDictionary.get(wc)  , wc);
 
@@ -132,8 +133,12 @@ public class CompressModule implements Serializable{
         exp.writeTo(lruTable,"cacheTable.txt");*/
         //exp.writeTo(dict,"Dictionary.txt");
 
-        System.out.println("DicIndex:"+encodeDictionary.size());
-       // System.out.println("DicIndex:"+(keySize+valueSize));
+   //     System.out.println("DicIndex:"+encodeDictionary.size());
+     //   System.out.println("DicSize:"+(keySize+valueSize));
+        Log.error("count",String.valueOf(count));
+
+        Log.error("valueSize",String.valueOf(valueSize));
+        System.out.println("Represent /Single code:"+(valueSize/encodeDictionary.size()));
         System.out.println("encodeDictionary :"+encodeDictionary);
         return result;
     }

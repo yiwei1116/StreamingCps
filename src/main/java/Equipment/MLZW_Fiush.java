@@ -14,7 +14,7 @@ public class MLZW_Fiush implements Serializable{
     private static Map<String,Integer> encodeDictionary = new HashMap<String,Integer>();
     private static Map<Integer,String> encodeDictionaryRe = new HashMap<Integer,String  >();
     private static Map<Integer,String> decodeDictionary = new HashMap<Integer,String>();
-    private static int dictionaryMaxSize = 4096;
+    private static int dictionaryMaxSize = 8192;
     private static int keySize = 0  ;
     private static int valueSize = 0  ;
     private  static String lruTable="";

@@ -7,6 +7,16 @@ import Module.CompressModule;
 import Equipment.*;
 
 import Module.ConversionModule;
+import com.esotericsoftware.minlog.Log;
+import com.pubnub.api.PNConfiguration;
+import com.pubnub.api.PubNub;
+import com.pubnub.api.callbacks.PNCallback;
+import com.pubnub.api.callbacks.SubscribeCallback;
+import com.pubnub.api.enums.PNStatusCategory;
+import com.pubnub.api.models.consumer.PNPublishResult;
+import com.pubnub.api.models.consumer.PNStatus;
+import com.pubnub.api.models.consumer.pubsub.PNMessageResult;
+import com.pubnub.api.models.consumer.pubsub.PNPresenceEventResult;
 
 import java.io.*;
 import java.util.*;
@@ -141,7 +151,7 @@ public class Exp {
         double compressRatio ;
         double spaceSaving;
         //oldDataSave();
-      /*  pubnub.addListener(new SubscribeCallback() {
+    /*    pubnub.addListener(new SubscribeCallback() {
             @Override
             public void status(PubNub pubnub, PNStatus status) {
 
@@ -201,12 +211,12 @@ public class Exp {
                     // message.getSubscription()
                 }
 
-                Log.error("pubnub", String.valueOf(message.getMessage().get("ambient_temperature")));
+                Log.error("pubnub", String.valueOf(message.getMessage().get("radiation_level")));
+                Log.error("pubnub", String.valueOf(sensorData.length()));
+                sensorData.append(String.valueOf(message.getMessage().get("radiation_level")).substring(1,4)+"\r\n");
+                if(sensorData.length()>1000){
 
-                sensorData.append(String.valueOf(message.getMessage().get("ambient_temperature")).substring(1,3)+"\r\n");
-                writeTo(String.valueOf(sensorData),"5K.txt");
-                if(sensorData.length()>64000){
-
+                    writeTo(String.valueOf(sensorData),"1M.txt");
 
                     pubnub.destroy();
                 }
@@ -232,8 +242,8 @@ public class Exp {
 
 
         try {
-            inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/EC.txt");
-          //  inputStream = new FileInputStream("/home/steve02/StreamingCps/EC.txt");
+           // inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/EC.txt");
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/radiation_level/1M.txt");
             scanner = new Scanner(inputStream, "UTF-8");
 
             while (scanner.hasNextLine()) {
@@ -267,10 +277,10 @@ public class Exp {
         }
         DiffList = subValue(radiationList);
         List<Integer>compressList = new ArrayList<>();
-        compressList =  MLZW_Fiush.compress(conversionModule.conversionTable(DiffList));
+        compressList =  compressModule.compress(conversionModule.conversionTable(DiffList));
         System.out.println(ConversionModule.overFlowList());
-        System.out.println(compressList);
-        double  encodingTextLength = getEncodeLength(compressList,12);
+        System.out.println(ConversionModule.getOVlength());
+        double  encodingTextLength = getEncodeLength(compressList,13);
        // Log.error("num",intToString(2048,13));
         String  encodeBinary = toBinary12(compressList);
         //writeTo(encodeBinary,"Binary12");
