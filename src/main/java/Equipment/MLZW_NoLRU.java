@@ -30,10 +30,7 @@ public class MLZW_NoLRU implements Serializable{
 
 
 
-       /* for (int i = 0; i < 256; i++) {
-            encodeDictionary.put("" + (char) i, i);
 
-        }*/
         /**
          *  A~Z 0~25
          */
@@ -64,24 +61,7 @@ public class MLZW_NoLRU implements Serializable{
                 match++;
 
             }
-            /**
-             * remove decodeDictionary least frequency used word from LRU
-             *
-             */
-          /*  else if (encodeDictionary.size() > dictionaryMaxSize ){
-                result.add(encodeDictionary.get(w));
-                Integer leastFrequenceIndex = lruCache.getHead().getKey();
-                String leastFrequenceCode = lruCache.getHead().getValue();
-                //       Log.error("index",String.valueOf(leastFrequenceIndex));
-                //       Log.error("code",leastFrequenceCode);
-                encodeDictionary.remove(leastFrequenceCode,leastFrequenceIndex);
-                //      Log.error("wc",wc);
-                encodeDictionary.put(wc,leastFrequenceIndex);
-                //lruCache.remove(leastFrequenceIndex,leastFrequenceCode);
-                lruCache.put(encodeDictionary.get(wc)  , wc);
-                w = "" + c;
 
-            }*/
 
             else {
 
@@ -89,11 +69,6 @@ public class MLZW_NoLRU implements Serializable{
                 // Add wc to the decodeDictionary.
                 if(encodeDictionary.size()<dictionaryMaxSize) {
                     encodeDictionary.put(wc, dictSize);
-              /*  if( encodeDictionary.get(wc)>51) {
-                    lruCache.put(encodeDictionary.get(wc)  , wc);
-                    //            Log.error("encodeDictionaryKey",String.valueOf(encodeDictionary.get(wc)));
-                    //            Log.error("encodeDictionaryValue",wc);
-                }*/
 
                     dict = dict + "[" + "Key:" + dictSize + " , " + "Code:" + wc + "]" + "\n";
                     dictSize++;

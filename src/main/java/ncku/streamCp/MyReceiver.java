@@ -9,6 +9,10 @@ import java.net.*;
 import java.net.ConnectException;
 import java.nio.charset.StandardCharsets;
 
+
+/***
+ * Spark provide Receiver API
+ */
 public class MyReceiver extends Receiver<String> {
 
     String host = null;

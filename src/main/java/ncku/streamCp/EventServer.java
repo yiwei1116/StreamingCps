@@ -30,10 +30,9 @@ public class EventServer {
     private static final Random random = new Random();
 
     public static void main(String[] args) throws IOException, InterruptedException,FileNotFoundException {
-        PreprocessModule preprocessModule = new PreprocessModule();
-        CompressModule compressModule = new CompressModule();
+
         ConversionModule conversionModule = new ConversionModule();
-        Exp exp = new Exp();
+
         ArrayList<String> radiationList = new ArrayList<String>();
 
         BlockingQueue<String> eventQueue = new ArrayBlockingQueue<>(100);
@@ -181,7 +180,6 @@ public class EventServer {
             eventQueue.put(generateEvent());
             Thread.sleep(TimeUnit.SECONDS.toMillis(EVENT_PERIOD_SECONDS));
         }*/
-        //eventQueue.put(readBinaryFile());
 
     }
 
@@ -208,67 +206,6 @@ public class EventServer {
                 throw new RuntimeException("Server error", e);
             }
         }
-    }
-    public static String readBinaryFile(){
-
-
-
-        StringBuffer sensorData = new StringBuffer();
-        Scanner scanner = null;
-        FileInputStream inputStream = null;
-        try{
-
-            //     inputStreamF = new FileInputStream("/home/steve02/StreamingCps/PubNub.txt");
-            try {
-                inputStream = new FileInputStream("/home/steve02/StreamingCps/Binary12");
-                //inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/Binary12");
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-
-            scanner = new Scanner(inputStream, "UTF-8");
-
-
-            while (scanner.hasNextLine()) {
-
-                String line = scanner.nextLine();
-                sensorData.append(line);
-
-
-            }
-
-        }
-        finally {
-            if (inputStream!=null){
-
-                try {
-                    inputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-            if (scanner!=null){
-
-                scanner.close();
-
-            }
-        }
-
-            return sensorData.toString();
-    }
-    private static ArrayList<Integer> getIntegerArray(ArrayList<String> stringArray) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
-        for(String stringValue : stringArray) {
-            try {
-                //Convert String to Integer, and store it into integer array list.
-                result.add(Integer.parseInt(stringValue));
-            } catch(NumberFormatException nfe) {
-                //System.out.println("Could not parse " + nfe);
-
-            }
-        }
-        return result;
     }
 
 

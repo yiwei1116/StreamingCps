@@ -77,7 +77,9 @@ public class ConversionModule {
         for(int i = 0 ; i < diffList.size() ; i++){
 
 
-
+            /*
+             *       Out of range
+             */
             if(converseT.get(diffList.get(i))==null){
                 overFlowValue.add(diffList.get(i));
                 tfNum += OverFlow;
@@ -86,14 +88,11 @@ public class ConversionModule {
 
             }
             else {
+                // transform
                 tfNum += converseT.get(diffList.get(i));
 
             }
         }
-
-
-
-
 
 
             return tfNum;
@@ -154,12 +153,6 @@ public class ConversionModule {
         converseT.put(-23,"w");
         converseT.put(-24,"x");
         converseT.put(-25,"y");
-
-
-
-
-
-
 
 
         return (String) converseT.get(diff);

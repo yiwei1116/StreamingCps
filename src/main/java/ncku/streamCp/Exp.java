@@ -77,6 +77,10 @@ public class Exp {
 
 
     public static void main(String[] args) throws IOException,InterruptedException{
+        /***
+         *  Connect to Pubnub
+         *  produce sensor data
+         */
    /*     PNConfiguration pnConfiguration = new PNConfiguration();
         pnConfiguration.setSubscribeKey("sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe");
         pnConfiguration.setPublishKey("demo");
@@ -210,6 +214,7 @@ public class Exp {
 
             }
         }
+
         DiffList = subValue(radiationList);
         List<Integer>compressList = new ArrayList<>();
         compressList =  CompressModule.compress(conversionModule.conversionTable(DiffList));

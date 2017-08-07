@@ -69,10 +69,6 @@ public abstract class  AbstractDriver implements Serializable{
                                 }
 
 
-
-
-
-
         } finally {
             close();
         }
@@ -80,6 +76,3 @@ public abstract class  AbstractDriver implements Serializable{
             e.printStackTrace();
         }
     }}
-/**
- * https://github.com/apache/bahir/blob/master/streaming-mqtt/examples/src/main/scala/org/apache/spark/examples/streaming/mqtt/MQTTWordCount.scala
- **/
