@@ -50,17 +50,18 @@ public class MLZW_NoLRU implements Serializable{
 
         }
         String dict="";
-
+        int count = 0;
+        int match = 0;
 
         String w = "";
         List<Integer> result = new ArrayList<Integer>();
         for (char c : uncompressed.toCharArray()) {
+            count++;
             String wc = w + c;
             if (encodeDictionary.containsKey(wc)) {
                 w = wc;
-              /*  if(encodeDictionary.get(wc)>51)
-                    lruCache.put(encodeDictionary.get(wc)  , wc);*/
-
+                if(encodeDictionary.get(wc)>51)
+                match++;
 
             }
             /**
@@ -125,6 +126,8 @@ public class MLZW_NoLRU implements Serializable{
  * LRU key 同 value 不同 取代value且移至尾
  *         同        同
  */
+        Log.error("count",String.valueOf(count));
+        Log.error("match",String.valueOf(match));
         System.out.println("encodeDictionary : "+encodeDictionary);
         System.out.println("DicIndex:"+encodeDictionary.size());
         //System.out.println("DicIndex:"+(keySize+valueSize));

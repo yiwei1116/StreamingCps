@@ -27,24 +27,10 @@ import static Module.PreprocessModule.subValue;
 
 public class Exp {
 
-    public static String K="";
     public static ConversionModule conversionModule = new ConversionModule();
-    public static CompressModule compressModule = new CompressModule();
-    private  static StringBuffer sensorData = new StringBuffer();
-
-    public  static  String getString(List<Integer>Compress){
 
 
-        for (int i = 0 ; i < Compress.size() ; i++){
 
-            K = K + Compress.get(i).toString();
-
-
-        }
-
-        return K ;
-
-    }
 
 
     public  static  String toBinary12(List<Integer>Compress){
@@ -88,54 +74,7 @@ public class Exp {
 
 
 
-    public static void oldDataSave(){
 
-
-
-
-        Scanner scannerF = null;
-        FileInputStream inputStreamF = null;
-        try{
-
-
-            try {
-                inputStreamF = new FileInputStream("/home/steve02/StreamingCps/10M.txt");
-              //  inputStreamF = new FileInputStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt");
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-
-            scannerF = new Scanner(inputStreamF, "UTF-8");
-
-
-            while (scannerF.hasNextLine()) {
-
-                String line = scannerF.nextLine();
-                sensorData.append(line+"\r\n");
-
-
-            }
-
-        }
-        finally {
-            if (inputStreamF!=null){
-
-                try {
-                    inputStreamF.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-            if (scannerF!=null){
-
-                scannerF.close();
-
-            }
-        }
-
-
-    }
 
     public static void main(String[] args) throws IOException,InterruptedException{
    /*     PNConfiguration pnConfiguration = new PNConfiguration();
@@ -144,13 +83,9 @@ public class Exp {
         pnConfiguration.setSecure(false);
 
         PubNub pubnub = new PubNub(pnConfiguration);*/
-        /*SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("StreamCompress");
-        JavaStreamingContext javaStreamingContext = new JavaStreamingContext(sparkConf, Durations.seconds(5));
-        //JavaDStream<String> stream = javaStreamingContext.textFileStream("/home/yiwei/IdeaProjects/FPro/PubNub.txt").cache();
-        JavaReceiverInputDStream<String> lines = javaStreamingContext.receiverStream(new MyReceiver("localhost", 9999));*/
+
         double compressRatio ;
         double spaceSaving;
-        //oldDataSave();
     /*    pubnub.addListener(new SubscribeCallback() {
             @Override
             public void status(PubNub pubnub, PNStatus status) {
@@ -243,7 +178,7 @@ public class Exp {
 
         try {
            // inputStream = new FileInputStream("/home/yiwei/IdeaProjects/FPro/EC.txt");
-            inputStream = new FileInputStream("/home/steve02/StreamingCps/radiation_level/1M.txt");
+            inputStream = new FileInputStream("/home/steve02/StreamingCps/radiation_level/M1");
             scanner = new Scanner(inputStream, "UTF-8");
 
             while (scanner.hasNextLine()) {
@@ -277,12 +212,12 @@ public class Exp {
         }
         DiffList = subValue(radiationList);
         List<Integer>compressList = new ArrayList<>();
-        compressList =  compressModule.compress(conversionModule.conversionTable(DiffList));
+        compressList =  CompressModule.compress(conversionModule.conversionTable(DiffList));
         System.out.println(ConversionModule.overFlowList());
         System.out.println(ConversionModule.getOVlength());
-        double  encodingTextLength = getEncodeLength(compressList,13);
+        double  encodingTextLength = getEncodeLength(compressList,12);
        // Log.error("num",intToString(2048,13));
-        String  encodeBinary = toBinary12(compressList);
+
         //writeTo(encodeBinary,"Binary12");
         System.out.println("Origin bit: "+originSensorSize *8);// byte to bit
         System.out.println("Compress bit: "+encodingTextLength);
@@ -290,7 +225,7 @@ public class Exp {
         System.out.println("Compress Ratio: "+Math.round(compressRatio*100.0)/100.0);//只取小數點後兩位
         spaceSaving = (1 - (1/compressRatio));
         System.out.println("Space Saving: "+Math.round(spaceSaving*100.0)/100.0);
-     /*   String decodingText = compressModule.decompress(compressList);
+     /* String decodingText = compressModule.decompress(compressList);
         compressModule.reConstruct(decodingText);
         System.out.println(conversionModule.conversionTable(DiffList));
         System.out.println(decodingText);*/

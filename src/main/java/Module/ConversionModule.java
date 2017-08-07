@@ -18,7 +18,7 @@ public class ConversionModule {
         String OverFlow = "z";
 
 
-        Exp exp =new Exp();
+
         HashMap converseT = new HashMap<Integer,String>();
         converseT.put(1,"A");
         converseT.put(2,"B");

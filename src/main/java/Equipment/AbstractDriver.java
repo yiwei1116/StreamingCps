@@ -30,7 +30,7 @@ public abstract class  AbstractDriver implements Serializable{
                 InputStream in = null;
                 try {
                     in = new FileInputStream(new File(path));
-                  //  in = new FileInputStream(new File("/home/yiwei/IdeaProjects/FPro/100K.txt"));
+
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -40,13 +40,13 @@ public abstract class  AbstractDriver implements Serializable{
                                 int pre = 200;
                                 int cur;
                                 int diff;
-                                int dicIndex = 52;
+
                                 long StartTime=0;
                                 long EndTime=0;
                                 long actualTime =0;
                                 long durationTime =0;
                               String unCompress="";
-                                String compress ="";
+
                                 double i =0 ;
                                 double j =0 ;
                                 int k = 1;
@@ -57,8 +57,8 @@ public abstract class  AbstractDriver implements Serializable{
                                 compressList.add(3,"");
 
                                 while ((line = br.readLine()) != null ) {
-                                    StartTime = System.currentTimeMillis();
 
+                                    StartTime = System.currentTimeMillis();
                                     i++;
                                     cur = Integer.valueOf(line);
                                     diff = cur - pre ;
@@ -78,37 +78,23 @@ public abstract class  AbstractDriver implements Serializable{
                                         Log.error("send",compressList.get(3));
                                         j++;//compress count
                                         compressList.set(3,"");
-                                    //    unCompress = "";
-                                   //     dicIndex++;
+
 
 
                                     }
-                                    k++;
 
-                                /*    Log.error(String.valueOf(unCompress.length()));
-                                    if(unCompress.length()==100){
-                                        compressList = CompressModule.compress(unCompress);
-                                        System.out.println("compressList"+ compressList);
-                                        for(int i =0 ; i < compressList.size();i++)
-                                        {
 
-                                            compress += (String.valueOf(intToString(compressList.get(i),10)))+" ";
 
-                                        }
-                                        sendRecord(String.valueOf(cur));
-                                        unCompress = "";
-                                        compress = "";
-                                    }*/
-                                   /* Log.error(String.valueOf(cur));
-                                    sendRecord(String.valueOf(cur));*/
                                     Thread.sleep(500);
                                     EndTime = System.currentTimeMillis();
                                     durationTime += ((EndTime-StartTime)*k);
+
+                                    k++;
                                 }
 
                                 System.out.println("EndTime  : " +(EndTime));
                                 System.out.println("StartTime  : " +(StartTime));
-                                 actualTime = durationTime/1000;
+                                 actualTime = (durationTime-500)/1000;
                                 System.out.println("During time : " +actualTime);
                                  System.out.println("avarge delay time : " +actualTime/i);
                                 double compressbit = j*10;
