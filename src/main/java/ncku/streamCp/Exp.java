@@ -221,7 +221,6 @@ public class Exp {
         System.out.println(ConversionModule.overFlowList());
         System.out.println(ConversionModule.getOVlength());
         double  encodingTextLength = getEncodeLength(compressList,12);
-       // Log.error("num",intToString(2048,13));
 
         //writeTo(encodeBinary,"Binary12");
         System.out.println("Origin bit: "+originSensorSize *8);// byte to bit

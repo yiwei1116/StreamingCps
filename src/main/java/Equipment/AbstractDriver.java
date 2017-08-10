@@ -37,6 +37,8 @@ public abstract class  AbstractDriver implements Serializable{
                 BufferedReader br = new BufferedReader(new InputStreamReader(in));
 
                                 String line;
+                                String unCompress="";
+
                                 int pre = 200;
                                 int cur;
                                 int diff;
@@ -45,11 +47,12 @@ public abstract class  AbstractDriver implements Serializable{
                                 long EndTime=0;
                                 long actualTime =0;
                                 long durationTime =0;
-                              String unCompress="";
+
 
                                 double i =0 ;
                                 double j =0 ;
                                 int k = 1;
+
                                 List<String> compressList = new ArrayList<>();
                                 compressList.add(0,"");
                                 compressList.add(1,"");

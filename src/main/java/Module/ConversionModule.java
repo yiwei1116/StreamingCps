@@ -13,6 +13,7 @@ import java.util.List;
 public class ConversionModule {
     private static List<Integer> overFlowValue= new ArrayList<Integer>();
     private static int OVlength = 0;
+    // For normal
     public  String conversionTable(ArrayList<Integer> diffList){
         String tfNum="";
         String OverFlow = "z";
@@ -98,6 +99,7 @@ public class ConversionModule {
             return tfNum;
 
     }
+    // For real-time streaming
     public  String conversionT(int diff){
 
         HashMap converseT = new HashMap<Integer,String>();
@@ -158,6 +160,7 @@ public class ConversionModule {
         return (String) converseT.get(diff);
 
     }
+
     public  static List<Integer>  overFlowList(){
 
 

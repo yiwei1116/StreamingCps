@@ -28,12 +28,13 @@ public class PreprocessModule {
 
     }
     /**
-     *
+     * Decimal => Binary
      * @param number
      * @param groupSize  number lengrh
-     * @return 12bit
+     * @return ?bit
      */
     public static String intToString(int number, int groupSize) {
+
         StringBuilder result = new StringBuilder();
 
         for(int i = groupSize-1; i >= 0 ; i--) {
@@ -50,6 +51,7 @@ public class PreprocessModule {
     /**
      *
      * @param Compress
+     * @param indexNum bits counts for single code
      * @return    encode number bits
      */
     public  static  int getEncodeLength(List<Integer> Compress, int indexNum){

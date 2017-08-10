@@ -21,18 +21,15 @@ public class MLZW_Fiush implements Serializable{
 
     private static LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(dictionaryMaxSize);
     public  static List<Integer> compress(String uncompressed) {
-        // Build the decodeDictionary.
+
 
 
 
         int dictSize = 52;
 
 
-    buildDictionary(encodeDictionary);
-       /* for (int i = 0; i < 256; i++) {
-            encodeDictionary.put("" + (char) i, i);
+     buildDictionary(encodeDictionary);
 
-        }*/
 
         String dict="";
 
@@ -48,30 +45,13 @@ public class MLZW_Fiush implements Serializable{
 
 
             }
-            /**
-             * remove decodeDictionary least frequency used word from LRU
-             *
-             */
-          /*  else if (encodeDictionary.size() > dictionaryMaxSize ){
-                result.add(encodeDictionary.get(w));
-                Integer leastFrequenceIndex = lruCache.getHead().getKey();
-                String leastFrequenceCode = lruCache.getHead().getValue();
-                //       Log.error("index",String.valueOf(leastFrequenceIndex));
-                //       Log.error("code",leastFrequenceCode);
-                encodeDictionary.remove(leastFrequenceCode,leastFrequenceIndex);
-                //      Log.error("wc",wc);
-                encodeDictionary.put(wc,leastFrequenceIndex);
-                //lruCache.remove(leastFrequenceIndex,leastFrequenceCode);
-                lruCache.put(encodeDictionary.get(wc)  , wc);
-                w = "" + c;
 
-            }*/
             else if(encodeDictionary.size()>=dictionaryMaxSize){
 
                 encodeDictionary.clear();
                 dictSize = 52;
                 w="";
-
+                // Full and Re-build
                 buildDictionary(encodeDictionary);
 
              }
@@ -94,23 +74,7 @@ public class MLZW_Fiush implements Serializable{
 
             }
         }
-        //System.out.println("Dictionay Table:");
-/*
-        for (Map.Entry<String,Integer>entry : encodeDictionary.entrySet()){
-            String key =entry.getKey();
 
-            keySize += key.length();
-
-            int value = entry.getValue();
-            valueSize += String.valueOf(value).length();
-            encodeDictionaryRe.put(value,key);
-
-          *//*  if(value > 255)
-            System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");*//*
-
-        }*/
-        //Log.error("Size",String.valueOf(valueSize+keySize));
-        // Output the code for w.
         if (!w.equals(""))
             result.add(encodeDictionary.get(w));
 
@@ -373,12 +337,7 @@ public class MLZW_Fiush implements Serializable{
 
 
     }
-    public static boolean getFlag(boolean flag){
 
-
-        return flag;
-    }
-  //  public  static   LRUCache<Integer, String>
     public static void buildDictionary(Map<String,Integer> Dictionary){
 
 

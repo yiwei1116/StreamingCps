@@ -45,7 +45,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
     @Override
     public void sendRecord(String record) throws Exception {
         try {
-        mqttTopic.publish( new MqttMessage(record.getBytes(StandardCharsets.UTF_8)));
+            mqttTopic.publish( new MqttMessage(record.getBytes(StandardCharsets.UTF_8)));
             Thread.sleep(100);
     } catch (MqttException e){
             if (e.getReasonCode()== MqttException.REASON_CODE_MAX_INFLIGHT){
@@ -65,7 +65,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
         String topic = args[2];
         MqttDriver driver = new MqttDriver(path, brokerUrl,topic);
         try {
-        driver.execute();
+            driver.execute();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

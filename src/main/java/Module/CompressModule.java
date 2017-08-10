@@ -22,7 +22,6 @@ public class CompressModule implements Serializable{
 
     private static LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(dictionaryMaxSize);
     public  static List<Integer> compress(String uncompressed) {
-        // Build the decodeDictionary.
 
 
 
@@ -35,6 +34,7 @@ public class CompressModule implements Serializable{
             encodeDictionary.put("" + (char) i, i);
 
         }*/
+
         /**
          *  A~Z 0~25
          */
@@ -42,17 +42,14 @@ public class CompressModule implements Serializable{
             encodeDictionary.put("" + (char) i, (i-65));
 
         }
-
-/**
- *  a~z 26~51
- */
+    /**
+     *  a~z 26~51
+     */
         for (int i = 97; i < 123; i++) {
             encodeDictionary.put( "" + (char) i,  (i-71));
 
         }
         String dict="";
-
-
 
         String w = "";
         List<Integer> result = new ArrayList<Integer>();
@@ -102,8 +99,8 @@ public class CompressModule implements Serializable{
 
             }
         }
-        //System.out.println("Dictionay Table:");
 
+        // Count Table Size
         for (Map.Entry<String,Integer>entry : encodeDictionary.entrySet()){
             String key =entry.getKey();
 
@@ -113,8 +110,6 @@ public class CompressModule implements Serializable{
             valueSize += String.valueOf(value).length();
             encodeDictionaryRe.put(value,key);
 
-          /*  if(value > 255)
-            System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");*/
 
         }
         //Log.error("Size",String.valueOf(valueSize+keySize));
@@ -130,12 +125,15 @@ public class CompressModule implements Serializable{
 
         for (Map.Entry<Integer, String> e : lruCache.getAll())
             lruTable=lruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";
-        /*    Log.error("r",String.valueOf(lruCache.getHead().getValue()));
-        exp.writeTo(lruTable,"cacheTable.txt");*/
-        //exp.writeTo(dict,"Dictionary.txt");
 
-   //     System.out.println("DicIndex:"+encodeDictionary.size());
-     //   System.out.println("DicSize:"+(keySize+valueSize));
+        /*Log.error("r",String.valueOf(lruCache.getHead().getValue()));
+        exp.writeTo(lruTable,"cacheTable.txt");
+        exp.writeTo(dict,"Dictionary.txt");
+
+        System.out.println("DicIndex:"+encodeDictionary.size());
+        System.out.println("DicSize:"+(keySize+valueSize));*/
+
+        // Dictionary Pattern Repetition
         Log.error("count",String.valueOf(count));
         Log.error("match",String.valueOf(match));
 
@@ -147,7 +145,7 @@ public class CompressModule implements Serializable{
 
     /** Decompress a list of output ks to a string. */
     public  String decompress(List<Integer> compressed) {
-        // Build the decodeDictionary.
+
 
         LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(dictionaryMaxSize);
         String delruTable="";
@@ -195,26 +193,13 @@ public class CompressModule implements Serializable{
             if(decodeDictionary.size()>dictionaryMaxSize){
                 Integer leastFrequenceIndex = lruCache.getHead().getKey();
                 String leastFrequenceCode = lruCache.getHead().getValue();
-                //       Log.error("leastFrequenceIndex",String.valueOf(leastFrequenceIndex));
-                //      Log.error("leastFrequenceCode",leastFrequenceCode);
-                // Log.error("w",w);
+
 
                 if(k==leastFrequenceIndex){
-                    //  Log.error("replace",w+w.charAt(0));
                     lruCache.put(leastFrequenceIndex,w+w.charAt(0));
                     decodeDictionary.remove(leastFrequenceIndex,leastFrequenceCode);
                     decodeDictionary.put(leastFrequenceIndex,w+w.charAt(0));
-                   /* for (Map.Entry<Integer, String> e : lruCache.getAll()){
-                        if(decodeDictionary.get(k).contains(e.getValue()))
-                            lruCache.put(e.getKey(),e.getValue());
 
-
-                    }*/
-                  /*  if( k > 255 )
-                        lruCache.put(k, decodeDictionary.get(k));
-*/
-
-                    //     Log.error("w+w.charAt",w+w.charAt(0));
                     entry = decodeDictionary.get(k);
                 }
                 else {
@@ -223,7 +208,7 @@ public class CompressModule implements Serializable{
                     decodeDictionary.remove(leastFrequenceIndex, leastFrequenceCode);
                     decodeDictionary.put(leastFrequenceIndex, w + entry.charAt(0));
                     /**
-                     * hashmap 長度調整短字串先
+                     * hashmap 字典調整短sub-string優先
                      */
                     Map<Integer,String> hashMap = new HashMap<>();
 
@@ -231,10 +216,6 @@ public class CompressModule implements Serializable{
                         if(decodeDictionary.get(k).startsWith(e.getValue())) {
                             hashMap.put(e.getKey(),e.getValue());
 
-                        /*    Log.error("kk", String.valueOf(e.getKey()));
-                            Log.error("dd", String.valueOf(decodeDictionary.get(k)));
-                            Log.error("ee", String.valueOf(e.getValue()));*/
-                            //            Log.error("value",String.valueOf(e.getValue()));
                         }
                     }
                     List<Map.Entry> entryList = new ArrayList<>(hashMap.entrySet());
@@ -249,10 +230,7 @@ public class CompressModule implements Serializable{
 
                     }
 
-                    /*if( k > 255 )
-                        lruCache.put(k, decodeDictionary.get(k));*/
 
-                    //        Log.error("w+entry.charAt",w+entry.charAt(0));
                     entry = decodeDictionary.get(k);
                 }
 
@@ -261,16 +239,13 @@ public class CompressModule implements Serializable{
             else{
 
                 lruCache.put(dictSize,w +entry.charAt(0));
-                //       Log.error("dictSize",String.valueOf(dictSize));
-                //       Log.error("w +entry.charAt(0)",String.valueOf(w +entry.charAt(0)));
+
                 decodeDictionary.put(dictSize, w + entry.charAt(0));
                 Map<Integer,String> hashMap = new HashMap<>();
                 for (Map.Entry<Integer, String> e : lruCache.getAll()){
                     if(decodeDictionary.get(k).startsWith(e.getValue())) {
                         hashMap.put(e.getKey(),e.getValue());
 
-                 /*   Log.error("key",String.valueOf(e.getKey()));
-                    Log.error("value",String.valueOf(e.getValue()));*/
                     }
                 }
                 List<Map.Entry> entryList = new ArrayList<>(hashMap.entrySet());
@@ -284,8 +259,7 @@ public class CompressModule implements Serializable{
 
 
                 }
-         /* if( k > 255 )
-                lruCache.put(k, decodeDictionary.get(k));*/
+
 
             }
             result.append(entry);
@@ -303,17 +277,10 @@ public class CompressModule implements Serializable{
 
         System.out.println("********************************************************");
         System.out.println("Decode decodeDictionary Table:");
-        for (Map.Entry<Integer,String>dic : decodeDictionary.entrySet()){
-            Integer key =dic.getKey();
-            String value = dic.getValue();
 
-           /* if(key > 255)
-                System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");*/
-
-        }
 
         Log.error("if encode cache equal to decode cache ?",String.valueOf(delruTable.equals(lruTable)));
-      //  Log.error("if encode dictionary equal to decode dictionary ?",String.valueOf(isDictionarySame(encodeDictionaryRe,decodeDictionary)));
+        Log.error("if encode dictionary equal to decode dictionary ?",String.valueOf(isDictionarySame(encodeDictionaryRe,decodeDictionary)));
         return result.toString();
     }
     /** reconstruct to origin. */
@@ -381,7 +348,6 @@ public class CompressModule implements Serializable{
             diff =  (Integer)(reConverse.get(String.valueOf(decode.charAt(i))));
             base += diff;
             reNum.add(base);
-            //  Log.error("renum",String.valueOf(reNum.get(i)));
         }
 
         return reNum;
@@ -393,11 +359,5 @@ public class CompressModule implements Serializable{
 
 
     }
-    public static boolean getFlag(boolean flag){
-
-
-        return flag;
-    }
-  //  public  static   LRUCache<Integer, String>
 
 }

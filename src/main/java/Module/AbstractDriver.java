@@ -22,6 +22,8 @@ public abstract class  AbstractDriver implements Serializable{
     public abstract void init() throws Exception;
     public abstract void close() throws Exception;
     public abstract void sendRecord(String record) throws Exception;
+
+
     public void execute() throws Exception {
         try {
             init();
@@ -49,6 +51,7 @@ public abstract class  AbstractDriver implements Serializable{
 
                                     unCompress += conversionModule.conversionT(diff);
                                     Log.error(String.valueOf(unCompress.length()));
+                                    // Fix size
                                     if(unCompress.length()==100){
                                         compressList = CompressModule.compress(unCompress);
                                         System.out.println("compressList"+ compressList);
@@ -69,10 +72,10 @@ public abstract class  AbstractDriver implements Serializable{
                                 }
 
 
-        } finally {
-            close();
-        }
-    }catch (IOException e) {
-            e.printStackTrace();
-        }
-    }}
+                                        } finally {
+                                            close();
+                                        }
+                                    }catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }}

@@ -8,6 +8,11 @@ import com.esotericsoftware.minlog.Log;
 import java.io.*;
 import java.util.*;
 
+/***
+ *  Origin for Dictionary
+ */
+
+
 public class LZW {
     private static int dicMax = 4096;
     private static int keySize = 0  ;

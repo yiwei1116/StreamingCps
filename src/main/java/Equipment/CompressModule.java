@@ -16,10 +16,7 @@ public class CompressModule implements Serializable{
     private static HashMap<Integer,String> encodeDictionaryRe = new HashMap<Integer,String  >();
     private static HashMap<Integer,String> decodeDictionary = new HashMap<Integer,String>();
     private static int dictionaryMaxSize = 1024;
-    private static int keySize = 0  ;
-    private static int valueSize = 0  ;
     private  static String lruTable="";
-    private  static List<Integer> storeList = new ArrayList<>();
     private static LRUCache<Integer, String> lruCache = new LRUCache<Integer, String>(dictionaryMaxSize);
 
 
@@ -28,23 +25,17 @@ public class CompressModule implements Serializable{
      *                    1 -> w
      *                    2 -> dicIndex
      *                    3 -> compress : int
-     *                    4 ->
+
      * @return
      */
     public  static List<String> compress(List<String> result) {
-        // Build the decodeDictionary.
 
 
 
-        Exp exp = new Exp();
+
         int dictSize = 52;
 
 
-
-       /* for (int i = 0; i < 256; i++) {
-            encodeDictionary.put("" + (char) i, i);
-
-        }*/
        if(encodeDictionary.size()==0){
         /**
          *  A~Z 0~25
@@ -53,7 +44,6 @@ public class CompressModule implements Serializable{
             encodeDictionary.put("" + (char) i, (i-65));
 
         }
-
 /**
  *  a~z 26~51
  */
@@ -62,31 +52,11 @@ public class CompressModule implements Serializable{
 
         }
        }
-       /* else{
-           //read from file
-           try{
-               File toRead=new File("fileone");
-               FileInputStream fis=new FileInputStream(toRead);
-               ObjectInputStream ois=new ObjectInputStream(fis);
 
-               HashMap<String,Integer> mapInFile=(HashMap<String,Integer>)ois.readObject();
-
-               ois.close();
-               fis.close();
-               //print All data in MAP
-               for(Map.Entry<String,Integer> m :mapInFile.entrySet()){
-                   if(m.getValue()>51)
-                   System.out.println(m.getKey()+" : "+m.getValue());
-               }
-           }catch(Exception e){
-               Log.error(e.getMessage());
-           }
-       }*/
         String dict="";
 
 
-        String w = result.get(1);
-       // List<String> result = new ArrayList<String>();
+            String w = result.get(1);
             String c = result.get(0);
             String wc = w + c;
             Log.error("s",wc);
@@ -118,14 +88,11 @@ public class CompressModule implements Serializable{
             else {
 
                 result.set(3,String.valueOf(encodeDictionary.get(w)));
-                // Add wc to the decodeDictionary.
-               // encodeDictionary.put(wc, dictSize);
+
                 System.out.println((Integer.valueOf(result.get(2))));
                 encodeDictionary.put(wc, (Integer.valueOf(result.get(2))));
                 if( encodeDictionary.get(wc)>51) {
                     lruCache.put(encodeDictionary.get(wc)  , wc);
-                    //            Log.error("encodeDictionaryKey",String.valueOf(encodeDictionary.get(wc)));
-                    //            Log.error("encodeDictionaryValue",wc);
                 }
 
                 dict=dict+"["+"Key:"+dictSize+" , "+"Code:"+wc+"]"+"\n";
@@ -135,23 +102,7 @@ public class CompressModule implements Serializable{
 
             }
 
-        //System.out.println("Dictionay Table:");
 
-       /* for (Map.Entry<String,Integer>entry : encodeDictionary.entrySet()){
-            String key =entry.getKey();
-
-            keySize += key.length();
-
-            int value = entry.getValue();
-            valueSize += String.valueOf(value).length();
-            encodeDictionaryRe.put(value,key);
-
-          *//*  if(value > 255)
-            System.out.print("["+"Key:"+key+" , "+"Code:"+value+"]"+"\n");*//*
-
-        }*/
-        //Log.error("Size",String.valueOf(valueSize+keySize));
-        // Output the code for w.
         /***
          *
          *  no input get dictionary key
@@ -163,11 +114,7 @@ public class CompressModule implements Serializable{
  * LRU key 同 value 不同 取代value且移至尾
  *         同        同
  */
-/*
 
-        for (Map.Entry<Integer, String> e : lruCache.getAll())
-            lruTable=lruTable+"["+"Key:"+e.getKey()+" , "+"Code:"+e.getValue()+"]"+"\n";*/
-        //    Log.error("r",String.valueOf(lruCache.getHead().getValue()));
 
 
         System.out.println("DicIndex:"+encodeDictionary.size());
@@ -238,46 +185,27 @@ public class CompressModule implements Serializable{
             if(decodeDictionary.size()>dictionaryMaxSize){
                 Integer leastFrequenceIndex = lruCache.getHead().getKey();
                 String leastFrequenceCode = lruCache.getHead().getValue();
-                //       Log.error("leastFrequenceIndex",String.valueOf(leastFrequenceIndex));
-                //      Log.error("leastFrequenceCode",leastFrequenceCode);
-                // Log.error("w",w);
+
 
                 if(k==leastFrequenceIndex){
-                    //  Log.error("replace",w+w.charAt(0));
                     lruCache.put(leastFrequenceIndex,w+w.charAt(0));
                     decodeDictionary.remove(leastFrequenceIndex,leastFrequenceCode);
                     decodeDictionary.put(leastFrequenceIndex,w+w.charAt(0));
-                   /* for (Map.Entry<Integer, String> e : lruCache.getAll()){
-                        if(decodeDictionary.get(k).contains(e.getValue()))
-                            lruCache.put(e.getKey(),e.getValue());
 
-
-                    }*/
-                  /*  if( k > 255 )
-                        lruCache.put(k, decodeDictionary.get(k));
-*/
-
-                    //     Log.error("w+w.charAt",w+w.charAt(0));
                     entry = decodeDictionary.get(k);
                 }
                 else {
-                    //   Log.error("replace",w+entry.charAt(0));
                     lruCache.put(leastFrequenceIndex, w + entry.charAt(0));
                     decodeDictionary.remove(leastFrequenceIndex, leastFrequenceCode);
                     decodeDictionary.put(leastFrequenceIndex, w + entry.charAt(0));
-                    /**
-                     * hashmap 長度調整短字串先
-                     */
+
                     Map<Integer,String> hashMap = new HashMap<>();
 
                     for (Map.Entry<Integer, String> e : lruCache.getAll()){
                         if(decodeDictionary.get(k).startsWith(e.getValue())) {
                             hashMap.put(e.getKey(),e.getValue());
 
-                        /*    Log.error("kk", String.valueOf(e.getKey()));
-                            Log.error("dd", String.valueOf(decodeDictionary.get(k)));
-                            Log.error("ee", String.valueOf(e.getValue()));*/
-                            //            Log.error("value",String.valueOf(e.getValue()));
+
                         }
                     }
                     List<Map.Entry> entryList = new ArrayList<>(hashMap.entrySet());
@@ -292,10 +220,7 @@ public class CompressModule implements Serializable{
 
                     }
 
-                    /*if( k > 255 )
-                        lruCache.put(k, decodeDictionary.get(k));*/
 
-                    //        Log.error("w+entry.charAt",w+entry.charAt(0));
                     entry = decodeDictionary.get(k);
                 }
 
@@ -304,16 +229,14 @@ public class CompressModule implements Serializable{
             else{
 
                 lruCache.put(dictSize,w +entry.charAt(0));
-                //       Log.error("dictSize",String.valueOf(dictSize));
-                //       Log.error("w +entry.charAt(0)",String.valueOf(w +entry.charAt(0)));
+
                 decodeDictionary.put(dictSize, w + entry.charAt(0));
                 Map<Integer,String> hashMap = new HashMap<>();
                 for (Map.Entry<Integer, String> e : lruCache.getAll()){
                     if(decodeDictionary.get(k).startsWith(e.getValue())) {
                         hashMap.put(e.getKey(),e.getValue());
 
-                 /*   Log.error("key",String.valueOf(e.getKey()));
-                    Log.error("value",String.valueOf(e.getValue()));*/
+
                     }
                 }
                 List<Map.Entry> entryList = new ArrayList<>(hashMap.entrySet());
@@ -327,8 +250,7 @@ public class CompressModule implements Serializable{
 
 
                 }
-         /* if( k > 255 )
-                lruCache.put(k, decodeDictionary.get(k));*/
+
 
             }
             result.append(entry);
@@ -436,30 +358,5 @@ public class CompressModule implements Serializable{
 
 
     }
-    public static boolean getFlag(boolean flag){
-
-
-        return flag;
-    }
-  //  public  static   LRUCache<Integer, String>
-  public static void storeHashMap(HashMap<String,Integer> map){
-      //write to file : "fileone"
-      try{
-          File fileOne=new File("fileone");
-          FileOutputStream fos=new FileOutputStream(fileOne);
-          ObjectOutputStream oos=new ObjectOutputStream(fos);
-
-          oos.writeObject(map);
-          oos.flush();
-          oos.close();
-          fos.close();
-      }catch(Exception e){
-
-      }
-
-
-  }
-    public static int getDicIndex(int key){
-        return key;
-    }
 }
+
